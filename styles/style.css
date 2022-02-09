@@ -583,8 +583,8 @@ nav ul.slide {
 }
 
 .about-parallax-sky {
-	display: block;
 	position: absolute;
+	display: block;
 	top: -100px;
 	left: 0;
 	width: 100%;
@@ -595,8 +595,8 @@ nav ul.slide {
 }
 
 .about-parallax-mountains {
-	display: block;
 	position: absolute;
+	display: block;
 	top: 352px;
 	left: 0;
 	width: 100%;
@@ -607,8 +607,8 @@ nav ul.slide {
 }
 
 .about-parallax-bottom {
-	display: block;
 	position: absolute;
+	display: block;
 	top: 400px;
 	left: 0;
 	width: 100%;

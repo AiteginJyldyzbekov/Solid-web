@@ -1,5 +1,18 @@
+import { useEffect, useState } from "react"
+
+
 
 export default function HomePage() {
+
+  const [ offset, setOffset ] = useState()
+
+  const handleScroll = () => setOffset(window.pageYOffset)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  })
+  
   return <div>
     <div className="theme">
       <main className="header">
@@ -15,15 +28,15 @@ export default function HomePage() {
         <div className="about-parallax-container">
           <div className="about-parallax">
             <div className="parallax__layer">
-              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style={{top: "-100px"}} />
+              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style = {{top:` ${-100 + (offset/2)}px`}} />
             </div>
             <div className="parallax__layer">
               <img className="about-parallax-mountains" src="./images/Mountains.svg" alt="" id="parallaxMountains"
-                style={{ top: "352px" }} />
+                style = {{top:` ${350 + (offset/2)}px`}} />
             </div>
             <div className="parallax__layer">
               <img className="about-parallax-bottom" src="./images/Bottom-part-of-BG.svg" alt="" id="parallaxBottom"
-                style={{ bottom: "-400px" }} />
+                style = {{bottom:` ${-400 + (offset/1)}px`}} />
             </div>
             <div className="about-parallax-bg"></div>
           </div>
