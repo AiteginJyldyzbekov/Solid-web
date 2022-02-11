@@ -1,5 +1,3 @@
-
-
 export default function Teachers(){
     return <div>
         <div className="row mt-5">
@@ -36,10 +34,5 @@ export default function Teachers(){
           </div>
           {/* <!-- MAP --> */}
         </div>
-
-
-
-
-
-    </div>
+    </div>;
 }

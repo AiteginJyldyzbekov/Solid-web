@@ -1,9 +1,7 @@
 import Courses from "./aboutCourses/aboutCourses";
 import Teachers from "./Teachers/teachers";
 
-
-export default function HomePage(props) {
-
+export default function HomePage() {
 
   return <div>
     <div className="theme">
@@ -34,9 +32,6 @@ export default function HomePage(props) {
           </div>
         </div>
       </main>
-
-
-      
       <section className="courses container">
         <h2 className="courses-title">Ближайшие курсы</h2>
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
