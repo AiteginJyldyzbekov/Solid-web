@@ -1,4 +1,5 @@
 import Courses from "./aboutCourses/aboutCourses";
+import Teachers from "./Teachers/teachers";
 
 
 export default function HomePage(props) {
@@ -141,6 +142,7 @@ export default function HomePage(props) {
       <section id="app" className="app container">
         <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
         <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
+
         <div className="timeline-page mt-5">
           <div className="timeline-item">
             <div className="row">
@@ -225,40 +227,8 @@ export default function HomePage(props) {
           <span style={{ color: "#0accda", lineHeight: "40px" }}>стать фабрикой <br /> крутых программистов!</span>
         </h2>
 
-        <div className="row mt-5">
-          {/* <!-- MAP --> */}
-          <div className="col-md-4">
-            <div className="mt-3">
-              <img data-src="images/team/Ilyas.png" alt="Ilyas"
-                className="lazy img-fluid mx-auto d-block rounded img-thumbnail loaded" src="images/me2.jpg" />
-              <div className="text-center mt-3">
-                <p className="font-weight-bold mb-0">Асылбеков Аманбек</p>
-                <p className="text-muted mb-0">CEO/Основатель</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="mt-3">
-              <img data-src="images/team/Ilyas.png" alt="Ilyas"
-                className="lazy img-fluid mx-auto d-block rounded img-thumbnail loaded" src="images/me2.jpg" />
-              <div className="text-center mt-3">
-                <p className="font-weight-bold mb-0">Асылбеков Аманбек</p>
-                <p className="text-muted mb-0">CEO/Основатель</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="mt-3">
-              <img data-src="images/team/Ilyas.png" alt="Ilyas"
-                className="lazy img-fluid mx-auto d-block rounded img-thumbnail loaded" src="images/me2.jpg" />
-              <div className="text-center mt-3">
-                <p className="font-weight-bold mb-0">Асылбеков Аманбек</p>
-                <p className="text-muted mb-0">CEO/Основатель</p>
-              </div>
-            </div>
-          </div>
-          {/* <!-- MAP --> */}
-        </div>
+  <Teachers />
+
       </section>
       <section className="section bg-image__section jarallax" data-jarallax="{&quot;speed&quot;: 0.2}"
         style={{ backgroundImage: "url(https://bitlab.kz/images/75.jpg)", filter: "none" }}>
