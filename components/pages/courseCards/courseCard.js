@@ -1,9 +1,11 @@
 
-export const Coursecard = () => {
+export const Coursecard = ({ linearStart, linearEnd }) => {
   return (
     <div>
-     <div className="cousers--card">
-        <div style={{ background: "linear-gradient(153.43deg,#ffe814,#e51686 83.33%)" }} className="card--preview">
+      <div className="cousers--card">
+        <div style={{
+          background: `linear-gradient(153.43deg, ${linearStart || "#ffe814"}, ${linearEnd || "#e51686"} 83.33%)`
+        }} className="card--preview">
           <i className="fab fa-python"></i>
           <div className="card--title">Frontend разработка <br /> JavaScript/React.js</div>
           <div className="card--title card-sub-title">7000 сом/мес.</div>

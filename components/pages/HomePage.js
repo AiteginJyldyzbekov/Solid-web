@@ -6,10 +6,10 @@ import { Mentorscard } from "./mentors/mentorsCard.jsx"
 
 export default function HomePage() {
 
-  const images = [  ]
+  const images = []
 
-  const [ modalActive, setModalActive ] = useState(false)
-  const [ offset, setOffset ] = useState()
+  const [modalActive, setModalActive] = useState(false)
+  const [offset, setOffset] = useState()
 
   const handleScroll = () => setOffset(window.pageYOffset)
 
@@ -17,7 +17,7 @@ export default function HomePage() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   })
-  
+
   return <div>
     <div className="theme">
       <main className="header">
@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className="header-subtitle">
             <p>В кратчайшие сроки от экспертов в IT образовании</p>
           </div>
-          <div className={css.headerbtn + " " + ( modalActive ? css.modalActive : "")} onClick={() => setModalActive(false)}>
+          <div className={css.headerbtn + " " + (modalActive ? css.modalActive : "")} onClick={() => setModalActive(false)}>
             <div className={css.modal__content} onClick={(e) => e.stopPropagation()}>
               <a id="write_us" href="#" className="btn btn-blue animate-y write_us" onClick={() => setModalActive(true)}>Бесплатная консультация</a>
             </div>
@@ -35,15 +35,15 @@ export default function HomePage() {
         <div className="about-parallax-container">
           <div className="about-parallax">
             <div className="parallax__layer">
-              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style = {{top:` ${-100 + (offset/2)}px`}} />
+              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style={{ top: ` ${-100 + (offset / 2)}px` }} />
             </div>
             <div className="parallax__layer">
               <img className="about-parallax-mountains" src="./images/Mountains.svg" alt="" id="parallaxMountains"
-                style = {{top:` ${350 + (offset/2)}px`}} />
+                style={{ top: ` ${350 + (offset / 2)}px` }} />
             </div>
             <div className="parallax__layer">
               <img className="about-parallax-bottom" src="./images/Bottom-part-of-BG.svg" alt="" id="parallaxBottom"
-                style = {{bottom:` ${-400 + (offset/1)}px`}} />
+                style={{ bottom: ` ${-400 + (offset / 1)}px` }} />
             </div>
             <div className="about-parallax-bg"></div>
           </div>
@@ -54,9 +54,10 @@ export default function HomePage() {
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
         <div className="cousers__cards--container">
           {
-          
-            [1,2,3].map(() => <Coursecard/>) 
-  
+            [
+              { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
+              { linearStart: "#11c829", linearEnd: "#ffac10" }
+            ].map((item) => <Coursecard {...item} />)
           }
         </div>
       </section>
@@ -183,7 +184,7 @@ export default function HomePage() {
         </h2>
         <div className="row mt-5">
           {
-            [1, 2, 3].map(() => <Mentorscard/> )
+            [1, 2, 3].map(() => <Mentorscard />)
           }
         </div>
       </section>
