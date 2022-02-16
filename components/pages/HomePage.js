@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react"
-import { Coursecard } from "./courseCard"
+import { Coursecard } from "./courseCards/courseCard.js"
+import css from "../../styles/headerBtn.module.css"
+import { Mentorscard } from "./mentors/mentorsCard.jsx"
 
 
 export default function HomePage() {
 
+  const images = [  ]
+
+  const [ modalActive, setModalActive ] = useState(false)
   const [ offset, setOffset ] = useState()
 
   const handleScroll = () => setOffset(window.pageYOffset)
@@ -21,8 +26,10 @@ export default function HomePage() {
           <div className="header-subtitle">
             <p>В кратчайшие сроки от экспертов в IT образовании</p>
           </div>
-          <div className="header-btn">
-            <a id="write_us" href="#" className="btn btn-blue animate-y write_us">Бесплатная консультация</a>
+          <div className={css.headerbtn + " " + ( modalActive ? css.modalActive : "")} onClick={() => setModalActive(false)}>
+            <div className={css.modal__content} onClick={(e) => e.stopPropagation()}>
+              <a id="write_us" href="#" className="btn btn-blue animate-y write_us" onClick={() => setModalActive(true)}>Бесплатная консультация</a>
+            </div>
           </div>
         </div>
         <div className="about-parallax-container">
@@ -45,7 +52,13 @@ export default function HomePage() {
       <section className="courses container">
         <h2 className="courses-title">Ближайшие курсы</h2>
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
-        <Coursecard/>
+        <div className="cousers__cards--container">
+          {
+          
+            [1,2,3].map(() => <Coursecard/>) 
+  
+          }
+        </div>
       </section>
       <section id="app" className="app container">
         <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
@@ -168,40 +181,10 @@ export default function HomePage() {
         <h2 className="courses-title">Мы не просто школа программирования, мы <br /> академия с глобальной целью
           <span style={{ color: "#0accda", lineHeight: "40px" }}>стать фабрикой <br /> крутых программистов!</span>
         </h2>
-
         <div className="row mt-5">
-          {/* <!-- MAP --> */}
-          <div className="col-md-4">
-            <div className="mt-3">
-              <img data-src="images/team/Ilyas.png" alt="Ilyas"
-                className="lazy img-fluid mx-auto d-block rounded img-thumbnail loaded" src="images/me2.jpg" />
-              <div className="text-center mt-3">
-                <p className="font-weight-bold mb-0">Асылбеков Аманбек</p>
-                <p className="text-muted mb-0">CEO/Основатель</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="mt-3">
-              <img data-src="images/team/Ilyas.png" alt="Ilyas"
-                className="lazy img-fluid mx-auto d-block rounded img-thumbnail loaded" src="images/me2.jpg" />
-              <div className="text-center mt-3">
-                <p className="font-weight-bold mb-0">Асылбеков Аманбек</p>
-                <p className="text-muted mb-0">CEO/Основатель</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="mt-3">
-              <img data-src="images/team/Ilyas.png" alt="Ilyas"
-                className="lazy img-fluid mx-auto d-block rounded img-thumbnail loaded" src="images/me2.jpg" />
-              <div className="text-center mt-3">
-                <p className="font-weight-bold mb-0">Асылбеков Аманбек</p>
-                <p className="text-muted mb-0">CEO/Основатель</p>
-              </div>
-            </div>
-          </div>
-          {/* <!-- MAP --> */}
+          {
+            [1, 2, 3].map(() => <Mentorscard/> )
+          }
         </div>
       </section>
       <section className="section bg-image__section jarallax" data-jarallax="{&quot;speed&quot;: 0.2}"
