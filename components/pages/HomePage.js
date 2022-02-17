@@ -1,15 +1,5 @@
 import {Courses} from "./aboutCourses/aboutCourses";
 
- const img = [
-
-   {imageOne : <i className="fad fa-chart-pie"></i>},
-   {imageTwo : <i className="fas fa-dollar-sign"></i>},
-   {imageTwo : <i className="fad fa-chart-bar"></i>}
-
-  ]
-
-// const img = [ ]
-
 export default function HomePage() {
 
   return <div>
@@ -219,7 +209,6 @@ export default function HomePage() {
         [1,2,3].map(() =><Courses  />)
         } 
         </div>
-        
 
         <br /><br />
         <div className="header-btn">
@@ -256,7 +245,6 @@ export default function HomePage() {
         {/* <!-- <div className="bg-overlay"></div> --> */}
 
       </section>
-
     </div>
   </div>;
 }
