@@ -1,0 +1,36 @@
+.btn {
+	display: inline-block;
+	padding: 7px 13px;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+.btn-brighred {
+	background: #ff346d;
+	color: #ffffff !important;
+}
+.btn-red-transparent {
+	padding: 10px 50px;
+	border: 3px solid #42BDEB;
+	transition: all 0.3s;
+	font-size: 17px;
+}
+.btn-blue {
+	background: #42bdeb;
+	border: 2px solid rgba(66, 189, 235, 0.4);
+	box-shadow: 0px 0px 30px #42bdeb;
+}
+.btn-red-transparent:hover {
+	background-color: #42BDEB;
+}
+.headerbtn {
+	text-align: center;
+}
+
+.headerbtn .btn {
+	display: inline-block;
+	padding: 18px 50px;
+	font-size: 17px;
+	border-radius: 10px;
+	margin: 20px;
+	z-index: 3;
+}
