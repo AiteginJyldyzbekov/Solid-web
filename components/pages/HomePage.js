@@ -2,11 +2,10 @@ import { useEffect, useState } from "react"
 import { Coursecard } from "./courseCards/courseCard.js"
 import css from "../../styles/headerBtn.module.css"
 import { Mentorscard } from "./mentors/mentorsCard.jsx"
+import {Timeline} from "./timeLine/timeLine.jsx"
 
 
 export default function HomePage() {
-
-  const images = [  ]
 
   const [ modalActive, setModalActive ] = useState(false)
   const [ offset, setOffset ] = useState()
@@ -17,6 +16,25 @@ export default function HomePage() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   })
+
+  const timeline = [
+    {
+      title: "Онлайн платформа для каждого студента", 
+      des: "Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.",
+    },
+    {
+    title: "Тщательно проработанные курсы",
+    des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
+    },
+    {
+      title: "Гарантия качества",
+      des: "Мы гарантируем качественное обучение! Вернем деньги в течениепервых 3-х занятий, если курс вам не подходит!",
+    },
+    {
+      title: "Мы те, кто умеет обучать и мотивировать",
+      des: "Мы действующие программисты и профессора, которые умеют преподавать, давать мотивацию и подносить информацию!"
+    }
+  ]
   
   return <div>
     <div className="theme">
@@ -54,9 +72,7 @@ export default function HomePage() {
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
         <div className="cousers__cards--container">
           {
-          
-            [1,2,3].map(() => <Coursecard/>) 
-  
+            [1, 2, 3].map(() => <Coursecard/>) 
           }
         </div>
       </section>
@@ -64,66 +80,13 @@ export default function HomePage() {
         <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
         <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
         <div className="timeline-page mt-5">
-          <div className="timeline-item">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="duration date-label-left"><img src="images/intranet.png" alt="Intranet" className="img-fluid" />
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="works works-description-right">
-                  <h3>Онлайн платформа для каждого студента</h3>
-                  <p className="web-cta-desc mx-auto text-muted">Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у
-                    вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="works works-description-left">
-                  <h3>Тщательно проработанные курсы </h3>
-                  <p className="web-cta-desc mx-auto text-muted">Наша команда постоянно совершенствует контент курсов по
-                    программированию, их задачи и сам подход к обучению.</p>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="duration duration-right "><img data-src="images/intranet.png" alt="Courses"
-                  className="img-fluid ls-is-cached lazyloaded" src="images/intranet.png" /></div>
-              </div>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="duration date-label-left"><img data-src="images/intranet.png" alt="Support"
-                  className="img-fluid lazyloaded" src="images/intranet.png" /></div>
-              </div>
-              <div className="col-md-6">
-                <div className="works works-description-right">
-                  <h3>Гарантия качества</h3>
-                  <p className="web-cta-desc mx-auto text-muted">Мы гарантируем качественное обучение! Вернем деньги в течение
-                    первых 3-х занятий, если курс вам не подходит!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="timeline-item">
-            <div className="row">
-              <div className="col-md-6">
-                <div className="works works-description-left">
-                  <h3>Мы те, кто умеет обучать и мотивировать</h3>
-                  <p className="web-cta-desc mx-auto text-muted">Мы действующие программисты и профессора, которые умеют
-                    преподавать, давать мотивацию и подносить информацию!</p>
-                </div>
-              </div>
-              <div className="col-md-6">
-                <div className="duration duration-right"><img data-src="images/intranet.png" alt="Community"
-                  className="img-fluid ls-is-cached lazyloaded" src="images/intranet.png" /></div>
-              </div>
-            </div>
-          </div>
+          {
+            timeline.map((item, index) => <Timeline
+              isOdd={(index + 1) % 2 === 0}
+              des={item.des} 
+              title={item.title}
+            />)
+          }
         </div>
       </section>
       <section className="features container">
