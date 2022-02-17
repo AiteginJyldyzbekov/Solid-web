@@ -1,5 +1,5 @@
+
 export const Courses = ()=>{
-  console.log('is work ?')
   return (
     <div className="col-md-4">
             <div className="service-box">

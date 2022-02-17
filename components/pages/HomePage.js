@@ -1,6 +1,21 @@
-import {Courses} from "./aboutCourses/aboutCourses";
+import { useEffect, useState } from "react"
+import { Coursecard } from "./courseCards/courseCard.js"
+import css from "../../styles/headerBtn.module.css"
+import { Mentorscard } from "./mentors/mentorsCard.jsx"
+import {Courses} from "./aboutCourses/aboutCourses"
+
 
 export default function HomePage() {
+
+  const [modalActive, setModalActive] = useState(false)
+  const [offset, setOffset] = useState()
+
+  const handleScroll = () => setOffset(window.pageYOffset)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  })
 
   return <div>
     <div className="theme">
@@ -10,22 +25,24 @@ export default function HomePage() {
           <div className="header-subtitle">
             <p>В кратчайшие сроки от экспертов в IT образовании</p>
           </div>
-          <div className="header-btn">
-            <a id="write_us" href="#" className="btn btn-blue animate-y write_us">Бесплатная консультация</a>
+          <div className={css.headerbtn + " " + (modalActive ? css.modalActive : "")} onClick={() => setModalActive(false)}>
+            <div className={css.modal__content} onClick={(e) => e.stopPropagation()}>
+              <a id="write_us" href="#" className="btn btn-blue animate-y write_us" onClick={() => setModalActive(true)}>Бесплатная консультация</a>
+            </div>
           </div>
         </div>
         <div className="about-parallax-container">
           <div className="about-parallax">
             <div className="parallax__layer">
-              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style={{top: "-100px"}} />
+              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style={{ top: ` ${-100 + (offset / 2)}px` }} />
             </div>
             <div className="parallax__layer">
               <img className="about-parallax-mountains" src="./images/Mountains.svg" alt="" id="parallaxMountains"
-                style={{ top: "352px" }} />
+                style={{ top: ` ${350 + (offset / 2)}px` }} />
             </div>
             <div className="parallax__layer">
               <img className="about-parallax-bottom" src="./images/Bottom-part-of-BG.svg" alt="" id="parallaxBottom"
-                style={{ bottom: "-400px" }} />
+                style={{ bottom: ` ${-400 + (offset / 1)}px` }} />
             </div>
             <div className="about-parallax-bg"></div>
           </div>
@@ -35,102 +52,12 @@ export default function HomePage() {
         <h2 className="courses-title">Ближайшие курсы</h2>
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
         <div className="cousers__cards--container">
-          <div className="cousers--card">
-            <div style={{ background: "linear-gradient(333.43deg,#00ecb3 16.67%,#9349f0)" }} className="card--preview">
-              <i className="fab fa-react"></i>
-              <div className="card--title">Frontend разработка <br /> JavaScript/React.js</div>
-              <div className="card--title card-sub-title">7000 сом/мес.</div>
-            </div>
-            <div className="card--description">
-              <div className="description">
-                <strong>Длительность: </strong>
-                <p>6 месяцев</p>
-              </div>
-              <div className="description">
-                <strong>Дата запуска: </strong>
-                <p>20 октября</p>
-              </div>
-              <div className="description">
-                <strong>Дни уроков: </strong>
-                <p>Вт-Чт-Сб</p>
-              </div>
-              <div className="description">
-                <strong>Время уроков: </strong>
-                <p>18:00 - 20:00</p>
-              </div>
-              <div className="description">
-                <strong>Осталось: </strong>
-                <p>5 мест</p>
-              </div>
-            </div>
-            <div className="card--more">
-              <a href="/react.html" className="btn btn-blue animate-y">Подробнее</a>
-            </div>
-          </div>
-          <div className="cousers--card">
-            <div style={{ background: "linear-gradient(153.43deg,#ffe814,#e51686 83.33%)" }} className="card--preview">
-              <i className="fab fa-python"></i>
-              <div className="card--title">Frontend разработка <br /> JavaScript/React.js</div>
-              <div className="card--title card-sub-title">7000 сом/мес.</div>
-            </div>
-            <div className="card--description">
-              <div className="description">
-                <strong>Длительность: </strong>
-                <p>6 месяцев</p>
-              </div>
-              <div className="description">
-                <strong>Дата запуска: </strong>
-                <p>20 октября</p>
-              </div>
-              <div className="description">
-                <strong>Дни уроков: </strong>
-                <p>Вт-Чт-Сб</p>
-              </div>
-              <div className="description">
-                <strong>Время уроков: </strong>
-                <p>18:00 - 20:00</p>
-              </div>
-              <div className="description">
-                <strong>Осталось: </strong>
-                <p>5 мест</p>
-              </div>
-            </div>
-            <div className="card--more">
-              <a href="/react.html" className="btn btn-blue animate-y">Подробнее</a>
-            </div>
-          </div>
-          <div className="cousers--card">
-            <div className="card--preview">
-              <i className="fab fa-node-js"></i>
-              <div className="card--title">Frontend разработка <br /> JavaScript/React.js</div>
-              <div className="card--title card-sub-title">7000 сом/мес.</div>
-            </div>
-            <div className="card--description">
-              <div className="description">
-                <strong>Длительность: </strong>
-                <p>6 месяцев</p>
-              </div>
-              <div className="description">
-                <strong>Дата запуска: </strong>
-                <p>20 октября</p>
-              </div>
-              <div className="description">
-                <strong>Дни уроков: </strong>
-                <p>Вт-Чт-Сб</p>
-              </div>
-              <div className="description">
-                <strong>Время уроков: </strong>
-                <p>18:00 - 20:00</p>
-              </div>
-              <div className="description">
-                <strong>Осталось: </strong>
-                <p>5 мест</p>
-              </div>
-            </div>
-            <div className="card--more">
-              <a href="/react.html" className="btn btn-blue animate-y">Подробнее</a>
-            </div>
-          </div>
+          {
+            [
+              { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
+              { linearStart: "#11c829", linearEnd: "#ffac10" }
+            ].map((item) => <Coursecard {...item} />)
+          }
         </div>
       </section>
       <section id="app" className="app container">
@@ -206,7 +133,7 @@ export default function HomePage() {
         
         <div className="row mt-5" >
         {
-        [1,2,3].map(() =><Courses  />)
+        [1,2,3].map(() =><Courses />)
         } 
         </div>
 
@@ -224,8 +151,11 @@ export default function HomePage() {
         <h2 className="courses-title">Мы не просто школа программирования, мы <br /> академия с глобальной целью
           <span style={{ color: "#0accda", lineHeight: "40px" }}>стать фабрикой <br /> крутых программистов!</span>
         </h2>
-
-
+        <div className="row mt-5">
+          {
+            [1, 2, 3].map(() => <Mentorscard />)
+          }
+        </div>
       </section>
       <section className="section bg-image__section jarallax" data-jarallax="{&quot;speed&quot;: 0.2}"
         style={{ backgroundImage: "url(https://bitlab.kz/images/75.jpg)", filter: "none" }}>
