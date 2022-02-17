@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Header() {
-
+  
   return <nav className="nav">
     <div className="container">
       <a href="index.html" className="nav-logo">Solid Academy</a>
