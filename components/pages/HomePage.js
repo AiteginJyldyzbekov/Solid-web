@@ -1,5 +1,14 @@
-import Courses from "./aboutCourses/aboutCourses";
-import Teachers from "./Teachers/teachers";
+import {Courses} from "./aboutCourses/aboutCourses";
+
+ const img = [
+
+   {imageOne : <i className="fad fa-chart-pie"></i>},
+   {imageTwo : <i className="fas fa-dollar-sign"></i>},
+   {imageTwo : <i className="fad fa-chart-bar"></i>}
+
+  ]
+
+// const img = [ ]
 
 export default function HomePage() {
 
@@ -205,7 +214,12 @@ export default function HomePage() {
         <h2 className="courses-title">Для кого наши курсы</h2>
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
         
-        <Courses />
+        <div className="row mt-5" >
+        {
+        [1,2,3].map(() =><Courses  />)
+        } 
+        </div>
+        
 
         <br /><br />
         <div className="header-btn">
@@ -222,7 +236,6 @@ export default function HomePage() {
           <span style={{ color: "#0accda", lineHeight: "40px" }}>стать фабрикой <br /> крутых программистов!</span>
         </h2>
 
-  <Teachers />
 
       </section>
       <section className="section bg-image__section jarallax" data-jarallax="{&quot;speed&quot;: 0.2}"
