@@ -1,5 +1,7 @@
 
+
 export const Coursecard = ({ linearStart, linearEnd }) => {
+
   return (
     <div>
       <div className="cousers--card">
