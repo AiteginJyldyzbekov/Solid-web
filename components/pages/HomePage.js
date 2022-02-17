@@ -4,7 +4,6 @@ import css from "../../styles/headerBtn.module.css"
 import { Mentorscard } from "./mentors/mentorsCard.jsx"
 import {Timeline} from "./timeLine/timeLine.jsx"
 
-
 export default function HomePage() {
 
   const [ modalActive, setModalActive ] = useState(false)

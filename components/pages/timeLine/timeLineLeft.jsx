@@ -3,7 +3,8 @@ export const Timelineleft = ({ des, title }) => {
   return (
     <>
       <div className="col-md-6">
-        <div className="duration date-label-left"><img src="images/intranet.png" alt="Intranet" className="img-fluid" />
+        <div className="duration date-label-left">
+          <img src="images/intranet.png" alt="Intranet" className="img-fluid" />
         </div>
       </div>  
       <div className="col-md-6">
