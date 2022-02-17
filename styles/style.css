@@ -791,7 +791,7 @@ nav ul.slide {
 }
 .timeline-item {
     margin-bottom: 80px;
-}
+} 
 .timeline-page .timeline-item .date-label-left {
     text-align: center;
     margin-right: 20px;
@@ -816,7 +816,7 @@ nav ul.slide {
 }
 .timeline-page .timeline-item .duration-right {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 74px;
     position: relative;
 }
 .timeline-page .timeline-item .date-label-left::after, .timeline-page .timeline-item .duration-right::after {
@@ -833,7 +833,7 @@ nav ul.slide {
     right: -45px;
 }
 .timeline-page .timeline-item .duration-right::after {
-    left: -45px;
+    left: -99px;
 }
 .row {
     display: -ms-flexbox;
