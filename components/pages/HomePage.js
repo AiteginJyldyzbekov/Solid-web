@@ -69,7 +69,7 @@ export default function HomePage() {
             [
               { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
               { linearStart: "#11c829", linearEnd: "#ffac10" }
-            ].map((item) => <Coursecard {...item} />)
+            ].map((item) => <Coursecard {...item}/>)
           }
         </div>
       </section>
