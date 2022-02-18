@@ -1,10 +1,12 @@
-import React from 'react';
+import Link  from "next/link"
 
 export default function Header() {
 
   return <nav className="nav">
     <div className="container">
-      <a href="index.html" className="nav-logo">Solid Academy</a>
+      <Link href="/">
+        <a className="nav-logo">Solid Academy</a>
+      </Link>
       <div className="nav-bar">
         <ul className="nav-list">
           <li className="nav-item btn--call">

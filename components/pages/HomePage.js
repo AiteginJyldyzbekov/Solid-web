@@ -6,12 +6,8 @@ import {Timeline} from "./timeLine/timeLine.jsx"
 
 export default function HomePage() {
 
-  const [ modalActive, setModalActive ] = useState(false)
   const [ offset, setOffset ] = useState()
-
-
   const handleScroll = () => setOffset(window.pageYOffset)
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -23,8 +19,8 @@ export default function HomePage() {
       des: "Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.",
     },
     {
-    title: "Тщательно проработанные курсы",
-    des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
+      title: "Тщательно проработанные курсы",
+      des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
     },
     {
       title: "Гарантия качества",
@@ -44,10 +40,8 @@ export default function HomePage() {
           <div className="header-subtitle">
             <p>В кратчайшие сроки от экспертов в IT образовании</p>
           </div>
-          <div className={css.headerbtn + " " + (modalActive ? css.modalActive : "")} onClick={() => setModalActive(false)}>
-            <div className={css.modal__content} onClick={(e) => e.stopPropagation()}>
-              <a id="write_us" href="#" className="btn btn-blue animate-y write_us" onClick={() => setModalActive(true)}>Бесплатная консультация</a>
-            </div>
+          <div class="header-btn">
+            <a id="write_us" href="#" class="btn btn-blue animate-y write_us">Бесплатная консультация</a>
           </div>
         </div>
         <div className="about-parallax-container">
