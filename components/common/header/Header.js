@@ -1,7 +1,7 @@
 import Link  from "next/link"
 
 export default function Header() {
-
+  
   return <nav className="nav">
     <div className="container">
       <Link href="/">
