@@ -1,4 +1,3 @@
-
 export const Timelineright = ({des, title}) => {
   return (
     <>

@@ -2,16 +2,13 @@ import { useEffect, useState } from "react"
 import { Coursecard } from "./courseCards/courseCard.js"
 import css from "../../styles/headerBtn.module.css"
 import { Mentorscard } from "./mentors/mentorsCard.jsx"
+import {Courses} from "./aboutCourses/aboutCourses"
 import {Timeline} from "./timeLine/timeLine.jsx"
 
 export default function HomePage() {
 
-  const [ modalActive, setModalActive ] = useState(false)
   const [ offset, setOffset ] = useState()
-
-
   const handleScroll = () => setOffset(window.pageYOffset)
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -23,8 +20,8 @@ export default function HomePage() {
       des: "Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.",
     },
     {
-    title: "Тщательно проработанные курсы",
-    des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
+      title: "Тщательно проработанные курсы",
+      des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
     },
     {
       title: "Гарантия качества",
@@ -44,10 +41,8 @@ export default function HomePage() {
           <div className="header-subtitle">
             <p>В кратчайшие сроки от экспертов в IT образовании</p>
           </div>
-          <div className={css.headerbtn + " " + (modalActive ? css.modalActive : "")} onClick={() => setModalActive(false)}>
-            <div className={css.modal__content} onClick={(e) => e.stopPropagation()}>
-              <a id="write_us" href="#" className="btn btn-blue animate-y write_us" onClick={() => setModalActive(true)}>Бесплатная консультация</a>
-            </div>
+          <div class="header-btn">
+            <a id="write_us" href="#" class="btn btn-blue animate-y write_us">Бесплатная консультация</a>
           </div>
         </div>
         <div className="about-parallax-container">
@@ -75,13 +70,14 @@ export default function HomePage() {
             [
               { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
               { linearStart: "#11c829", linearEnd: "#ffac10" }
-            ].map((item) => <Coursecard {...item} />)
+            ].map((item) => <Coursecard {...item}/>)
           }
         </div>
       </section>
       <section id="app" className="app container">
         <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
         <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
+
         <div className="timeline-page mt-5">
           {
             timeline.map((item, index) => <Timeline
@@ -95,44 +91,13 @@ export default function HomePage() {
       <section className="features container">
         <h2 className="courses-title">Для кого наши курсы</h2>
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
-        <div className="row mt-5">
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="services-icon">
-                <i className="fad fa-chart-bar"></i>
-              </div>
-              <div className="mt-3">
-                <p className="services-title mb-3">Быть в тренде</p>
-                <p className="services-subtitle text-muted">Программисты всегда в тренде! Любой программист может себя
-                  обеспечить работой, ведь они всегда востребованы!</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="services-icon">
-                <i className="fad fa-chart-pie"></i>
-              </div>
-              <div className="mt-3">
-                <p className="services-title mb-3">Получить реальные знания</p>
-                <p className="services-subtitle text-muted">В наших курсах вы не найдете ни капли воды! Только реальная
-                  практика и жесткий кодинг!</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="service-box">
-              <div className="services-icon">
-                <i className="fas fa-dollar-sign"></i>
-              </div>
-              <div className="mt-3">
-                <p className="services-title mb-3">Много зарабатывать</p>
-                <p className="services-subtitle text-muted">Профессионалы своего дела зарабатывают свыше 100 000 сом/месяц. И
-                  ты не исключение!</p>
-              </div>
-            </div>
-          </div>
+        
+        <div className="row mt-5" >
+        {
+        [1,2,3].map(() =><Courses />)
+        } 
         </div>
+
         <br /><br />
         <div className="header-btn">
           <a id="write_us" className="btn btn-blue animate-y write_us">Запишите меня на ваши курсы!</a>
@@ -171,7 +136,6 @@ export default function HomePage() {
         {/* <!-- <div className="bg-overlay"></div> --> */}
 
       </section>
-
     </div>
   </div>;
 }
