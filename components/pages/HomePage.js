@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Coursecard } from "./courseCards/courseCard.js"
-import css from "../../styles/headerBtn.module.css"
 import { Mentorscard } from "./mentors/mentorsCard.jsx"
 import {Courses} from "./aboutCourses/aboutCourses"
 import {Timeline} from "./timeLine/timeLine.jsx"
