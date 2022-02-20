@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from '../components/common/header/Header.js'
 import '../styles/globals.css'
 import "../styles/style.css";
+import "../styles/courses.css";
 
 function MyApp({ Component, pageProps }) {
   return <>

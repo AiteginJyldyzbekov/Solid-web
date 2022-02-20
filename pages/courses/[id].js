@@ -1,7 +1,12 @@
-import React from 'react'
+import Footer from '../../components/common/footer/Footer.js'
+import CoursePage from '../../components/pages/CoursePage.js'
 
 export default function() {
   return (
-    <div>ID</div>
+    <div>
+      <CoursePage />
+      
+      <Footer />
+    </div>
   )
 }

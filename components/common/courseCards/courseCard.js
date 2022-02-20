@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 export const Coursecard = ({ linearStart, linearEnd }) => {
@@ -35,7 +36,10 @@ export const Coursecard = ({ linearStart, linearEnd }) => {
           </div>
         </div>
         <div className="card--more">
-          <a href="/react.html" className="btn btn-blue animate-y">Подробнее</a>
+          {/* TODO: add to href id of course */}
+          <Link href="/courses/1">
+            <a className="btn btn-blue animate-y">Подробнее</a>
+          </Link>
         </div>
       </div>
     </div>

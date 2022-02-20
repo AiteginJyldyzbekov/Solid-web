@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { Coursecard } from "./courseCards/courseCard.js"
-import { Mentorscard } from "./mentors/mentorsCard.jsx"
-import {Courses} from "./aboutCourses/aboutCourses"
-import {Timeline} from "./timeLine/timeLine.jsx"
+import { Coursecard } from "../common/courseCards/courseCard.js"
+import { Mentorscard } from "../common/mentors/mentorsCard.jsx"
+import { Courses } from "../common/aboutCourses/aboutCourses"
+import { Timeline } from "../common/timeLine/timeLine.jsx"
 
 export default function HomePage() {
 
-  const [ offset, setOffset ] = useState()
+  const [offset, setOffset] = useState()
   const handleScroll = () => setOffset(window.pageYOffset)
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -15,7 +15,7 @@ export default function HomePage() {
 
   const timeline = [
     {
-      title: "Онлайн платформа для каждого студента", 
+      title: "Онлайн платформа для каждого студента",
       des: "Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.",
     },
     {
@@ -31,7 +31,7 @@ export default function HomePage() {
       des: "Мы действующие программисты и профессора, которые умеют преподавать, давать мотивацию и подносить информацию!"
     }
   ]
-  
+
   return <div>
     <div className="theme">
       <main className="header">
@@ -40,8 +40,8 @@ export default function HomePage() {
           <div className="header-subtitle">
             <p>В кратчайшие сроки от экспертов в IT образовании</p>
           </div>
-          <div class="header-btn">
-            <a id="write_us" href="#" class="btn btn-blue animate-y write_us">Бесплатная консультация</a>
+          <div className="header-btn">
+            <a id="write_us" href="#" className="btn btn-blue animate-y write_us">Бесплатная консультация</a>
           </div>
         </div>
         <div className="about-parallax-container">
@@ -69,7 +69,7 @@ export default function HomePage() {
             [
               { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
               { linearStart: "#11c829", linearEnd: "#ffac10" }
-            ].map((item) => <Coursecard {...item}/>)
+            ].map((item) => <Coursecard {...item} />)
           }
         </div>
       </section>
@@ -81,7 +81,7 @@ export default function HomePage() {
           {
             timeline.map((item, index) => <Timeline
               isOdd={(index + 1) % 2 === 0}
-              des={item.des} 
+              des={item.des}
               title={item.title}
             />)
           }
@@ -90,11 +90,11 @@ export default function HomePage() {
       <section className="features container">
         <h2 className="courses-title">Для кого наши курсы</h2>
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
-        
+
         <div className="row mt-5" >
-        {
-        [1,2,3].map(() =><Courses />)
-        } 
+          {
+            [1, 2, 3].map(() => <Courses />)
+          }
         </div>
 
         <br /><br />
