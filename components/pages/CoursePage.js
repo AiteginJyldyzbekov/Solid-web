@@ -2,6 +2,8 @@
 import { Reason } from '../common/reasons/reason';
 import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
 import { CourseStart } from "../common/CourseStart/CourseStart";
+import {CoursePrice} from '../common/aboutCoursePrice/CoursePrice';
+
 
 export default function CoursePage() {
 
@@ -22,7 +24,6 @@ export default function CoursePage() {
       desc: "Ваш учебный будет содержать все необходимые темы, уроки и сотни интересных заданий, необходимые для достижения вашей цели. Созданный с учетом ваших навыков и знаний.",
     },
   ]
-
   const reasonsList = [
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
@@ -41,7 +42,7 @@ export default function CoursePage() {
       text: "Возможность пойти и во FrontEnd, и в BackEnd разработку"
     },
   ]
-    const coursesStart = [ 
+  const coursesStart = [ 
     {
       h4: "Старт курса : ",
       div: "7 июня",
@@ -54,7 +55,6 @@ export default function CoursePage() {
       div: "офлайн-обучение с преподавателем на реальных проектах + онлайн разбор задачек с проверкой и обратной связью"
     }
   ]
-    
   return (
     <div>
       <main className="d__main container">
@@ -122,19 +122,7 @@ export default function CoursePage() {
         </div>
       </section>
       <section id="contact-us" className="contact-us">
-        <h1 className="all--title">Стоимость курса</h1>
-        <h1 className="all--title">28 000 сом</h1>
-        <form className="contact__form">
-          <h1 className="all--title">Записаться на курс</h1>
-          <input type="text" id="sender-name" placeholder="Имя" />
-          <input type="text" id="sender-number" placeholder="Номер" />
-          <br />
-          <li className="nav-item submit-btn" id="send-message">
-            <a href="#" className="p20 nav-link btn btn-brighred animate-y"
-            >Записаться </a
-            >
-          </li>
-        </form>
+           <CoursePrice />
       </section>
     </div>
   )
