@@ -1,7 +1,47 @@
+
+import { Reason } from '../common/reasons/reason';
+import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
 import { CourseStart } from "../common/CourseStart/CourseStart";
 
 export default function CoursePage() {
-  const coursesStart = [ 
+
+  const cource = [
+    {
+      img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
+      title: "Учим актуальным технологиям",
+      desc: "Сможешь пойти и во Frontend, и в Backend, React, Redux, Node.js, Expres.js, SPA: с навыками использования таких технологий тебе подойдет 90% вакансий JavaScript-разработчиков на рынке",
+    },
+    {
+      img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
+      title: "Проектный подход к обучению.",
+      desc: "Solid Academy не учеба в привычном понимании.  Весь процесс обучения построен на проектном подходе к обучению. Каждый урок будет сопровождаться практикой над реальными проектами.",
+    },
+    {
+      img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
+      title: "Индивидуальный учебный план",
+      desc: "Ваш учебный будет содержать все необходимые темы, уроки и сотни интересных заданий, необходимые для достижения вашей цели. Созданный с учетом ваших навыков и знаний.",
+    },
+  ]
+
+  const reasonsList = [
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "Хороший заработок. По данным Headz Analytics, средняя зарплата у JS разработчика 172 т. руб."
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "Огромное количество вакансий, так как около трети вакансий в IT, требуют знания JavaScript"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "JavaScript прост для освоения даже для новичков в программировании"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "Возможность пойти и во FrontEnd, и в BackEnd разработку"
+    },
+  ]
+    const coursesStart = [ 
     {
       h4: "Старт курса : ",
       div: "7 июня",
@@ -14,6 +54,7 @@ export default function CoursePage() {
       div: "офлайн-обучение с преподавателем на реальных проектах + онлайн разбор задачек с проверкой и обратной связью"
     }
   ]
+    
   return (
     <div>
       <main className="d__main container">
@@ -42,49 +83,17 @@ export default function CoursePage() {
             На курсе ты прокачаешь навыки программирование и получишь знания по самым сложным концепциям и принципам JavaScript</p>
         </div>
         <div className="a__courses container">
-          <div className="a__courses__card">
-            <img src="https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg" alt="#" />
-            <div className="title">Учим актуальным технологиям</div>
-            <p>Сможешь пойти и во frontend, и в backend.
-
-              React, Redux, Node.js, Expres.js, SPA, : с навыками использования таких технологий тебе подойдет 90% вакансий
-              JavaScript-разработчиков на рынке</p>
-          </div>
-          <div className="a__courses__card">
-            <img src="https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg" alt="#" />
-            <div className="title">Проектный подход к обучению.</div>
-            <p>Solid Academy не учеба в привычном понимании. <br /> Весь процесс обучения построен на проектном подходе к обучению.
-              Каждый урок будет сопровождаться практикой над реальными проектами.</p>
-          </div>
-          <div className="a__courses__card">
-            <img src="https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg" alt="#" />
-            <div className="title">Индивидуальный учебный план</div>
-            <p>Ваш учебный будет содержать все необходимые темы, уроки и сотни интересных заданий, необходимые для достижения
-              вашей цели. Созданный с учетом ваших навыков и знаний. </p>
-          </div>
+          {
+            cource.map((item) => <Courcescontainer {...item} />)
+          }
         </div>
       </section>
       <section className="why__block">
         <h6 className="all--title">Зачем изучать JavaScript</h6>
         <div className="why__reason">
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>
-              Хороший заработок. По данным Headz Analytics, средняя зарплата у JS разработчика 172 т. руб.
-            </p>
-          </div>
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>Огромное количество вакансий, так как около трети вакансий в IT, требуют знания JavaScript</p>
-          </div>
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>JavaScript прост для освоения даже для новичков в программировании</p>
-          </div>
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>Возможность пойти и во FrontEnd, и в BackEnd разработку</p>
-          </div>
+          {
+            reasonsList.map((reason) => <Reason {...reason}/>)
+          }
         </div>
       </section>
       <section className="study__course container">
