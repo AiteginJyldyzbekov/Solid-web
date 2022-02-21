@@ -1,5 +1,25 @@
+import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
 
 export default function CoursePage() {
+
+  const cource = [
+    {
+      img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
+      title: "Учим актуальным технологиям",
+      desc: "Сможешь пойти и во Frontend, и в Backend, React, Redux, Node.js, Expres.js, SPA: с навыками использования таких технологий тебе подойдет 90% вакансий JavaScript-разработчиков на рынке",
+    },
+    {
+      img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
+      title: "Проектный подход к обучению.",
+      desc: "Solid Academy не учеба в привычном понимании.  Весь процесс обучения построен на проектном подходе к обучению. Каждый урок будет сопровождаться практикой над реальными проектами.",
+    },
+    {
+      img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
+      title: "Индивидуальный учебный план",
+      desc: "Ваш учебный будет содержать все необходимые темы, уроки и сотни интересных заданий, необходимые для достижения вашей цели. Созданный с учетом ваших навыков и знаний.",
+    },
+  ]
+
   return (
     <div>
       <main className="d__main container">
@@ -37,26 +57,9 @@ export default function CoursePage() {
             На курсе ты прокачаешь навыки программирование и получишь знания по самым сложным концепциям и принципам JavaScript</p>
         </div>
         <div className="a__courses container">
-          <div className="a__courses__card">
-            <img src="https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg" alt="#" />
-            <div className="title">Учим актуальным технологиям</div>
-            <p>Сможешь пойти и во frontend, и в backend.
-
-              React, Redux, Node.js, Expres.js, SPA, : с навыками использования таких технологий тебе подойдет 90% вакансий
-              JavaScript-разработчиков на рынке</p>
-          </div>
-          <div className="a__courses__card">
-            <img src="https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg" alt="#" />
-            <div className="title">Проектный подход к обучению.</div>
-            <p>Solid Academy не учеба в привычном понимании. <br /> Весь процесс обучения построен на проектном подходе к обучению.
-              Каждый урок будет сопровождаться практикой над реальными проектами.</p>
-          </div>
-          <div className="a__courses__card">
-            <img src="https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg" alt="#" />
-            <div className="title">Индивидуальный учебный план</div>
-            <p>Ваш учебный будет содержать все необходимые темы, уроки и сотни интересных заданий, необходимые для достижения
-              вашей цели. Созданный с учетом ваших навыков и знаний. </p>
-          </div>
+          {
+            cource.map((item) => <Courcescontainer {...item} />)
+          }
         </div>
       </section>
       <section className="why__block">
