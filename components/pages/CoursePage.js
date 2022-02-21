@@ -21,7 +21,7 @@ export default function CoursePage() {
     },
   ]
 
-  const reasons = [
+  const reasonsList = [
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
       text: "Хороший заработок. По данным Headz Analytics, средняя зарплата у JS разработчика 172 т. руб."
@@ -86,7 +86,7 @@ export default function CoursePage() {
         <h6 className="all--title">Зачем изучать JavaScript</h6>
         <div className="why__reason">
           {
-            reasons.map((reas) => <Reason {...reas}/>)
+            reasonsList.map((reason) => <Reason {...reason}/>)
           }
         </div>
       </section>
