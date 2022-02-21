@@ -1,6 +1,8 @@
+
 import { Reason } from '../common/reasons/reason';
 import { Studystep } from '../common/studySteps/studyStep';
 import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
+import { CourseStart } from "../common/CourseStart/CourseStart";
 
 export default function CoursePage() {
 
@@ -60,6 +62,21 @@ export default function CoursePage() {
     },
   ]
 
+
+    const coursesStart = [ 
+    {
+      h4: "Старт курса : ",
+      div: "7 июня",
+    },{
+      h4: "Длительность : ",
+      div: "4 месяца",
+    },
+    {
+      h4:"Формат обучения : ",
+      div: "офлайн-обучение с преподавателем на реальных проектах + онлайн разбор задачек с проверкой и обратной связью"
+    }
+  ]
+    
   return (
     <div>
       <main className="d__main container">
@@ -73,20 +90,11 @@ export default function CoursePage() {
         <div className="d__main__icon">
           <img src="/images/Business-meeting.svg" alt="#" />
         </div>
-        <div className="d__main__info">
-          <div className="d__main__course">
-            <h4 className="d__main__course--title">Старт курса:</h4>
-            <div className="d__main__course--des">7 июня</div>
-          </div>
-          <div className="d__main__course">
-            <h4 className="d__main__course--title">Длительность:</h4>
-            <div className="d__main__course--des">4 месяцев</div>
-          </div>
-          <div className="d__main__course">
-            <h4 className="d__main__course--title">Формат обучения:</h4>
-            <div className="d__main__course--des">офлайн-обучение с преподавателем на реальных проектах + онлайн разбор задачек с проверкой и обратной связью</div>
-          </div>
-        </div>
+        <div className="d__main__info"> 
+        {
+          coursesStart.map((item) => <CourseStart {...item} />)
+          }
+      </div>
       </main>
       <section className="about__course">
         <div>
