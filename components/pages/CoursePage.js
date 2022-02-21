@@ -1,4 +1,4 @@
-import { Courcescontainer } from "../common/courcesContainer/courcesContainer";
+import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
 
 export default function CoursePage() {
 
@@ -58,10 +58,10 @@ export default function CoursePage() {
         </div>
         <div className="a__courses container">
           {
-            cource.map((card) => <Courcescontainer
-              img={card.img}
-              title={card.title}
-              desc={card.desc}
+            cource.map((item) => <Courcescontainer
+              img={item.img}
+              title={item.title}
+              desc={item.desc}
             />)
           }
         </div>
