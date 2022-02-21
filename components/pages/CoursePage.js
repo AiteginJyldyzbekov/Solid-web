@@ -58,10 +58,10 @@ export default function CoursePage() {
         </div>
         <div className="a__courses container">
           {
-            cource.map((e) => <Courcescontainer
-              img={e.img}
-              title={e.title}
-              desc={e.desc}
+            cource.map((card) => <Courcescontainer
+              img={card.img}
+              title={card.title}
+              desc={card.desc}
             />)
           }
         </div>
