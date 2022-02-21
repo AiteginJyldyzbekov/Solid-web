@@ -58,11 +58,7 @@ export default function CoursePage() {
         </div>
         <div className="a__courses container">
           {
-            cource.map((item) => <Courcescontainer
-              img={item.img}
-              title={item.title}
-              desc={item.desc}
-            />)
+            cource.map((item) => <Courcescontainer {...item} />)
           }
         </div>
       </section>
