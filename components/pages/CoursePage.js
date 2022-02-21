@@ -1,4 +1,5 @@
 import { Reason } from '../common/reasons/reason';
+import { Studystep } from '../common/studySteps/studyStep';
 import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
 
 export default function CoursePage() {
@@ -37,6 +38,25 @@ export default function CoursePage() {
     {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
       text: "Возможность пойти и во FrontEnd, и в BackEnd разработку"
+    },
+  ]
+
+  const studyList = [
+    {
+      name: "Введение в JavaScript и настройка инструментов для разработки",
+      description: "Инструментарий и настройка проекта; NodeJs, Git, WebPack, Npm",
+    },
+    {
+      name: "Библиотека ReactJS",
+      description: "Компоненты ReactJS, свойства, состояния, хуки, контекстный API, формы, безопасность JWT и.т.д.",
+    },
+    {
+      name: "Среда тестирования Jest",
+      description: "Повышение качества JS приложения; введение в Jest; настройка тестового окружения; Unit test; Ui test",
+    },
+    {
+      name: "Программная платформа Node.js",
+      description: "Экосистема Node.js; Back-End фреймворк Express.js; Базы данныхMongoDB",
     },
   ]
 
@@ -95,23 +115,9 @@ export default function CoursePage() {
         <div className="study__steps__container">
           <div className="svg"></div>
           <div className="study__steps">
-            <div className="study__steps--step">
-              <h3>Введение в JavaScript и настройка инструментов для разработки</h3>
-              <p>Инструментарий и настройка проекта; NodeJs, Git, WebPack, Npm</p>
-            </div>
-            <div className="study__steps--step">
-              <h3>Библиотека ReactJS</h3>
-              <p>Компоненты ReactJS, свойства, состояния, хуки, контекстный API, формы, безопасность JWT и.т.д.</p>
-            </div>
-            <div className="study__steps--step">
-              <h3>Среда тестирования Jest</h3>
-              <p>Повышение качества JS приложения; введение в Jest; настройка тестового окружения; Unit test; Ui test</p>
-            </div>
-            <div className="study__steps--step">
-              <h3>Программная платформа Node.js</h3>
-              <p>Экосистема Node.js; Back-End фреймворк Express.js; Базы данных
-                MongoDB</p>
-            </div>
+            {
+              studyList.map((step) => <Studystep {...step}/>)
+            }
           </div>
         </div>
       </section>
