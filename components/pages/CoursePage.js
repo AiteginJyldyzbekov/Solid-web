@@ -1,3 +1,4 @@
+import { Reason } from '../common/reasons/reason';
 import { Courcescontainer } from './../common/courcesContainer/courcesContainer';
 
 export default function CoursePage() {
@@ -17,6 +18,25 @@ export default function CoursePage() {
       img: "https://t3.ftcdn.net/jpg/00/79/08/58/360_F_79085813_SqXUh2uofBgenkzzzuHXMnp2fBx1UNhm.jpg",
       title: "Индивидуальный учебный план",
       desc: "Ваш учебный будет содержать все необходимые темы, уроки и сотни интересных заданий, необходимые для достижения вашей цели. Созданный с учетом ваших навыков и знаний.",
+    },
+  ]
+
+  const reasons = [
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "Хороший заработок. По данным Headz Analytics, средняя зарплата у JS разработчика 172 т. руб."
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "Огромное количество вакансий, так как около трети вакансий в IT, требуют знания JavaScript"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "JavaScript прост для освоения даже для новичков в программировании"
+    },
+    {
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
+      text: "Возможность пойти и во FrontEnd, и в BackEnd разработку"
     },
   ]
 
@@ -65,24 +85,9 @@ export default function CoursePage() {
       <section className="why__block">
         <h6 className="all--title">Зачем изучать JavaScript</h6>
         <div className="why__reason">
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>
-              Хороший заработок. По данным Headz Analytics, средняя зарплата у JS разработчика 172 т. руб.
-            </p>
-          </div>
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>Огромное количество вакансий, так как около трети вакансий в IT, требуют знания JavaScript</p>
-          </div>
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>JavaScript прост для освоения даже для новичков в программировании</p>
-          </div>
-          <div className="reason">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU" alt="#" />
-            <p>Возможность пойти и во FrontEnd, и в BackEnd разработку</p>
-          </div>
+          {
+            reasons.map((reas) => <Reason {...reas}/>)
+          }
         </div>
       </section>
       <section className="study__course container">
