@@ -4,7 +4,7 @@ import { Mentorscard } from "../common/mentors/mentorsCard.jsx"
 import { Courses } from "../common/aboutCourses/aboutCourses"
 import { Timeline } from "../common/timeLine/timeLine.jsx"
 
-export default function HomePage({course}) {
+export default function HomePage({course, timeLine}) {
 
   const [offset, setOffset] = useState()
   const handleScroll = () => setOffset(window.pageYOffset)
@@ -12,25 +12,6 @@ export default function HomePage({course}) {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const timeline = [
-    {
-      title: "Онлайн платформа для каждого студента",
-      des: "Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.",
-    },
-    {
-      title: "Тщательно проработанные курсы",
-      des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
-    },
-    {
-      title: "Гарантия качества",
-      des: "Мы гарантируем качественное обучение! Вернем деньги в течениепервых 3-х занятий, если курс вам не подходит!",
-    },
-    {
-      title: "Мы те, кто умеет обучать и мотивировать",
-      des: "Мы действующие программисты и профессора, которые умеют преподавать, давать мотивацию и подносить информацию!"
-    }
-  ]
 
   return <div>
     <div className="theme">
@@ -75,8 +56,8 @@ export default function HomePage({course}) {
         <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
         <div className="timeline-page mt-5">
           {
-            timeline.map((item, index) => <Timeline
-              key={index}
+            timeLine.map((item, index) => <Timeline
+              key={item.id}
               isOdd={(index + 1) % 2 === 0}
               {...item}
             />)

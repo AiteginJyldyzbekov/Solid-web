@@ -15,6 +15,17 @@ export default function Home() {
     })
   }, [])
 
+  let timeLine = []
+  useEffect(() => {
+    db.collection("reason").get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        timeLine.push(doc.data())
+      })
+    })
+    console.log(timeLine)
+  })
+  
+
   return (
     <div>
       <Head>
@@ -26,7 +37,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage course={course}/>
+      <HomePage course={course} timeLine={timeLine}/>
       <Footer />
     </div>
   )
