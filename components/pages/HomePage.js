@@ -6,6 +6,7 @@ import { Timeline } from "../common/timeLine/timeLine.jsx";
 import { db } from "../../config/firebase.js";
 import { getDocs } from "firebase/firestore";
 
+ feat/mentors-integretion
 export default function HomePage() {
   const [offset, setOffset] = useState();
   const handleScroll = () => setOffset(window.pageYOffset);
@@ -104,6 +105,7 @@ export default function HomePage() {
               <div className="about-parallax-bg"></div>
             </div>
           </div>
+ feat/mentors-integretion
         </main>
         <section className="courses container">
           <h2 className="courses-title">Ближайшие курсы</h2>

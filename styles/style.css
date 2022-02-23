@@ -694,6 +694,7 @@ nav ul.slide {
 } 
 
 .cousers--card {
+	width: 100px;
 	min-width: 350px;
   max-width: 500px;
   min-height: 480px;

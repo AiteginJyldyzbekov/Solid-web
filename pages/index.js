@@ -1,8 +1,20 @@
 import Head from 'next/head';
 import Footer from '../components/common/footer/Footer.js';
 import HomePage from '../components/pages/HomePage.js';
+import { useEffect } from 'react';
+import { db } from "../config/firebase.js"
 
 export default function Home() {
+
+  let course = []
+  useEffect(() => {
+    db.collection("courses").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        course.push(doc.data())
+      });
+    })
+  }, [])
+
   return (
     <div>
       <Head>
@@ -14,7 +26,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage />
+      <HomePage course={course}/>
       <Footer />
     </div>
   )

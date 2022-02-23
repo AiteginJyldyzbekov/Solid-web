@@ -65,6 +65,7 @@ export default function CoursePage() {
 
   return (
     <div>
+
       <CoursesMain />
       <section className="about__course">
         <div>
@@ -78,17 +79,19 @@ export default function CoursePage() {
           </p>
         </div>
         <div className="a__courses container">
-          {cource.map((item) => (
-            <Courcescontainer {...item} />
-          ))}
+          {
+            cource.map((item) => <Courcescontainer {...item} key={item.id} />)
+          }
+
         </div>
       </section>
       <section className="why__block">
         <h6 className="all--title">Зачем изучать JavaScript</h6>
         <div className="why__reason">
-          {reasonsList.map((reason) => (
-            <Reason {...reason} />
-          ))}
+          {
+            reasonsList.map((reason) => <Reason {...reason} key={reason.id}/>)
+          }
+
         </div>
       </section>
       <section className="study__course container">
@@ -96,9 +99,10 @@ export default function CoursePage() {
         <div className="study__steps__container">
           <div className="svg"></div>
           <div className="study__steps">
-            {studyList.map((step) => (
-              <Studystep {...step} />
-            ))}
+            {
+              studyList.map((step) => <Studystep {...step} key={step.id}/>)
+            }
+
           </div>
         </div>
       </section>
