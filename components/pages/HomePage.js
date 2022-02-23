@@ -14,17 +14,21 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const [timeLine] = useState([])
-  const [course] = useState([])
+  let courses = []
+  let timeLineItem = []
+  const [timeLine, setTimeLine] = useState(timeLineItem)
+  const [course, setCourses] = useState(courses)
   useEffect(() => {
     db.collection("reason").get().then((snapshot) => {
       snapshot.forEach((doc) => {
-        timeLine.push((doc.data()))
+        timeLineItem.push(doc.data())
+        setTimeLine(timeLineItem)
       })
     })
     db.collection("courses").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        course.push(doc.data())
+        courses.push(doc.data())
+        setCourses(courses)
       });
     })
   }, [])
