@@ -1,5 +1,5 @@
 ## Issue
-[Trello]: link
+Trello: link
 
 ## Screenshots
 
