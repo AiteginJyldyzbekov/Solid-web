@@ -3,14 +3,30 @@ import { Coursecard } from "../common/courseCards/courseCard.js"
 import { Mentorscard } from "../common/mentors/mentorsCard.jsx"
 import { Courses } from "../common/aboutCourses/aboutCourses"
 import { Timeline } from "../common/timeLine/timeLine.jsx"
+import { db } from "../../config/firebase.js"
 
-export default function HomePage({course, timeLine}) {
+export default function HomePage() {
 
   const [offset, setOffset] = useState()
   const handleScroll = () => setOffset(window.pageYOffset)
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const [timeLine] = useState([])
+  const [course] = useState([])
+  useEffect(() => {
+    db.collection("reason").get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        timeLine.push((doc.data()))
+      })
+    })
+    db.collection("courses").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        course.push(doc.data())
+      });
+    })
   }, [])
 
   return <div>

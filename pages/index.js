@@ -6,26 +6,6 @@ import { db } from "../config/firebase.js"
 
 export default function Home() {
 
-  let course = []
-  useEffect(() => {
-    db.collection("courses").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        course.push(doc.data())
-      });
-    })
-  }, [])
-
-  let timeLine = []
-  useEffect(() => {
-    db.collection("reason").get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        timeLine.push(doc.data())
-      })
-    })
-    console.log(timeLine)
-  })
-  
-
   return (
     <div>
       <Head>
@@ -37,7 +17,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage course={course} timeLine={timeLine}/>
+      <HomePage/>
       <Footer />
     </div>
   )
