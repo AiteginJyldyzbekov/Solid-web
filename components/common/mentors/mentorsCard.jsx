@@ -1,4 +1,3 @@
-
 export const Mentorscard = ({ img, name, info}) => {
   return (
     <>
