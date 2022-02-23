@@ -91,8 +91,8 @@ export default function CoursePage() {
           <img src="/images/Business-meeting.svg" alt="#" />
         </div>
         <div className="d__main__info"> 
-        {
-          coursesStart.map((item) => <CourseStart {...item} />)
+          {
+          coursesStart.map((item) => <CourseStart {...item} key={item.id} />)
           }
       </div>
       </main>
@@ -106,7 +106,7 @@ export default function CoursePage() {
         </div>
         <div className="a__courses container">
           {
-            cource.map((item) => <Courcescontainer {...item} />)
+            cource.map((item) => <Courcescontainer {...item} key={item.id} />)
           }
         </div>
       </section>
@@ -114,7 +114,7 @@ export default function CoursePage() {
         <h6 className="all--title">Зачем изучать JavaScript</h6>
         <div className="why__reason">
           {
-            reasonsList.map((reason) => <Reason {...reason}/>)
+            reasonsList.map((reason) => <Reason {...reason} key={reason.id}/>)
           }
         </div>
       </section>
@@ -124,7 +124,7 @@ export default function CoursePage() {
           <div className="svg"></div>
           <div className="study__steps">
             {
-              studyList.map((step) => <Studystep {...step}/>)
+              studyList.map((step) => <Studystep {...step} key={step.id}/>)
             }
           </div>
         </div>

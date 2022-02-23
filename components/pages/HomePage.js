@@ -4,14 +4,14 @@ import { Mentorscard } from "../common/mentors/mentorsCard.jsx"
 import { Courses } from "../common/aboutCourses/aboutCourses"
 import { Timeline } from "../common/timeLine/timeLine.jsx"
 
-export default function HomePage() {
+export default function HomePage({course}) {
 
   const [offset, setOffset] = useState()
   const handleScroll = () => setOffset(window.pageYOffset)
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  })
+  }, [])
 
   const timeline = [
     {
@@ -66,23 +66,19 @@ export default function HomePage() {
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
         <div className="cousers__cards--container">
           {
-            [
-              { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
-              { linearStart: "#11c829", linearEnd: "#ffac10" }
-            ].map((item) => <Coursecard {...item} />)
+            course.map((item) => <Coursecard {...item} key={item.id} leftColor={item.leftColor} rightColor={item.rightColor}/>)
           }
         </div>
       </section>
       <section id="app" className="app container">
         <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
         <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
-
         <div className="timeline-page mt-5">
           {
             timeline.map((item, index) => <Timeline
+              key={index}
               isOdd={(index + 1) % 2 === 0}
-              des={item.des}
-              title={item.title}
+              {...item}
             />)
           }
         </div>
@@ -90,13 +86,11 @@ export default function HomePage() {
       <section className="features container">
         <h2 className="courses-title">Для кого наши курсы</h2>
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
-
         <div className="row mt-5" >
           {
-            [1, 2, 3].map(() => <Courses />)
+            [1, 2, 3].map((index) => <Courses key={index} />)
           }
         </div>
-
         <br /><br />
         <div className="header-btn">
           <a id="write_us" className="btn btn-blue animate-y write_us">Запишите меня на ваши курсы!</a>
@@ -113,7 +107,7 @@ export default function HomePage() {
         </h2>
         <div className="row mt-5">
           {
-            [1, 2, 3].map(() => <Mentorscard />)
+            [1, 2, 3].map((index) => <Mentorscard key={index} />)
           }
         </div>
       </section>
