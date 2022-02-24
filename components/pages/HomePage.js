@@ -41,7 +41,9 @@ export default function HomePage() {
           setMentor(mentors);
         });
       });
-      db.collection("WhoCanStudy").get().then((snapshot) =>{
+      db.collection("WhoCanStudy")
+      .get()
+      .then((snapshot) =>{
         snapshot.forEach((doc)=>{
         whocanstudy.push({...doc.data(), id: doc.id});
         setwhocanstudy(whocanstudy)
