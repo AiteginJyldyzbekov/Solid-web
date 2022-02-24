@@ -1,8 +1,11 @@
 import Head from 'next/head';
 import Footer from '../components/common/footer/Footer.js';
 import HomePage from '../components/pages/HomePage.js';
+import { useEffect } from 'react';
+import { db } from "../config/firebase.js"
 
 export default function Home() {
+
   return (
     <div>
       <Head>
@@ -14,7 +17,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage />
+      <HomePage/>
       <Footer />
     </div>
   )

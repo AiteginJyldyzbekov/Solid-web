@@ -1,63 +1,163 @@
-import { useEffect, useState } from "react"
-import { Coursecard } from "../common/courseCards/courseCard.js"
-import { Mentorscard } from "../common/mentors/mentorsCard.jsx"
-import { Courses } from "../common/aboutCourses/aboutCourses"
-import { Timeline } from "../common/timeLine/timeLine.jsx"
+import { useEffect, useState } from "react";
+import { Coursecard } from "../common/courseCards/courseCard.js";
+import { Mentorscard } from "../common/mentors/mentorsCard.jsx";
+import { Courses } from "../common/aboutCourses/aboutCourses";
+import { Timeline } from "../common/timeLine/timeLine.jsx";
+import { db } from "../../config/firebase.js";
 
 export default function HomePage() {
-
-  const [offset, setOffset] = useState()
-  const handleScroll = () => setOffset(window.pageYOffset)
+  const [offset, setOffset] = useState();
+  const handleScroll = () => setOffset(window.pageYOffset);
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  })
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+  let courses = [];
+  let timeLineItem = [];
+  let mentors = [];
+  const [timeLine, setTimeLine] = useState(timeLineItem);
+  const [course, setCourses] = useState(courses);
+  const [mentor, setMentor] = useState([]);
+  useEffect(() => {
+    db.collection("reason").get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        timeLineItem.push(doc.data())
+        setTimeLine(timeLineItem)
+      })
+    })
+    db.collection("courses").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        courses.push({...doc.data(), id: doc.id})
+        setCourses(courses)
 
-  const timeline = [
-    {
-      title: "Онлайн платформа для каждого студента",
-      des: "Вы не пропустите НИЧЕГО! Весь материал и видеоуроки будут у вас в доступе! Даже после окончания курсов, доступ у вас остается навсегда.",
-    },
-    {
-      title: "Тщательно проработанные курсы",
-      des: "Наша команда постоянно совершенствует контент курсов по программированию, их задачи и сам подход к обучению.",
-    },
-    {
-      title: "Гарантия качества",
-      des: "Мы гарантируем качественное обучение! Вернем деньги в течениепервых 3-х занятий, если курс вам не подходит!",
-    },
-    {
-      title: "Мы те, кто умеет обучать и мотивировать",
-      des: "Мы действующие программисты и профессора, которые умеют преподавать, давать мотивацию и подносить информацию!"
-    }
-  ]
+      });
+    db.collection("mentors")
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          mentors.push({ ...doc.data(), id: doc.id });
+          setMentor(mentors);
+        });
+      });
+  }, []);
 
-  return <div>
-    <div className="theme">
-      <main className="header">
-        <div className="container u-relative">
-          <h2 className="header-title">Научись программировать с нуля до уровня профи</h2>
+  return (
+    <div>
+      <div className="theme">
+        <main className="header">
+          <div className="container u-relative">
+            <h2 className="header-title">
+              Научись программировать с нуля до уровня профи
+            </h2>
+            <div className="header-subtitle">
+              <p>В кратчайшие сроки от экспертов в IT образовании</p>
+            </div>
+            <div className="header-btn">
+              <a
+                id="write_us"
+                href="#"
+                className="btn btn-blue animate-y write_us"
+              >
+                Бесплатная консультация
+              </a>
+            </div>
+          </div>
+          <div className="about-parallax-container">
+            <div className="about-parallax">
+              <div className="parallax__layer">
+                <img
+                  className="about-parallax-sky"
+                  src="./images/Sky.svg"
+                  alt=""
+                  id="parallaxSky"
+                  style={{ top: ` ${-100 + offset / 2}px` }}
+                />
+              </div>
+              <div className="parallax__layer">
+                <img
+                  className="about-parallax-mountains"
+                  src="./images/Mountains.svg"
+                  alt=""
+                  id="parallaxMountains"
+                  style={{ top: ` ${350 + offset / 2}px` }}
+                />
+              </div>
+              <div className="parallax__layer">
+                <img
+                  className="about-parallax-bottom"
+                  src="./images/Bottom-part-of-BG.svg"
+                  alt=""
+                  id="parallaxBottom"
+                  style={{ bottom: ` ${-400 + offset / 1}px` }}
+                />
+              </div>
+              <div className="about-parallax-bg"></div>
+            </div>
+          </div>
+        </main>
+        <section className="courses container">
+          <h2 className="courses-title">Ближайшие курсы</h2>
           <div className="header-subtitle">
-            <p>В кратчайшие сроки от экспертов в IT образовании</p>
+            Выбери себе подходящий курс и стань программистом в следующих <br />
+            направлениях
           </div>
+          <div className="cousers__cards--container">
+            {course.map((item) => (
+              <Coursecard
+                {...item}
+                key={item.id}
+                leftColor={item.leftColor}
+                rightColor={item.rightColor}
+              />
+            ))}
+          </div>
+        </section>
+        <section id="app" className="app container">
+          <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
+          <div className="header-subtitle">
+            Причины, по которым люди обучаются в нашей школе программирования
+          </div>
+          <div className="timeline-page mt-5">
+            {timeLine.map((item, index) => (
+              <Timeline key={item.id} isOdd={(index + 1) % 2 === 0} {...item} />
+            ))}
+          </div>
+        </section>
+        <section className="features container">
+          <h2 className="courses-title">Для кого наши курсы</h2>
+          <div className="header-subtitle">
+            Наши курсы для тебя, если ты хочешь:
+          </div>
+          <div className="row mt-5">
+            {[1, 2, 3].map((index) => (
+              <Courses key={index} />
+            ))}
+          </div>
+          <br />
+          <br />
           <div className="header-btn">
-            <a id="write_us" href="#" className="btn btn-blue animate-y write_us">Бесплатная консультация</a>
+            <a id="write_us" className="btn btn-blue animate-y write_us">
+              Запишите меня на ваши курсы!
+            </a>
           </div>
-        </div>
-        <div className="about-parallax-container">
-          <div className="about-parallax">
-            <div className="parallax__layer">
-              <img className="about-parallax-sky" src="./images/Sky.svg" alt="" id="parallaxSky" style={{ top: ` ${-100 + (offset / 2)}px` }} />
-            </div>
-            <div className="parallax__layer">
-              <img className="about-parallax-mountains" src="./images/Mountains.svg" alt="" id="parallaxMountains"
-                style={{ top: ` ${350 + (offset / 2)}px` }} />
-            </div>
-            <div className="parallax__layer">
-              <img className="about-parallax-bottom" src="./images/Bottom-part-of-BG.svg" alt="" id="parallaxBottom"
-                style={{ bottom: ` ${-400 + (offset / 1)}px` }} />
-            </div>
-            <div className="about-parallax-bg"></div>
+        </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <section className="container about">
+          <h2 className="courses-title">
+            Мы не просто школа программирования, мы <br /> академия с глобальной
+            целью
+            <span style={{ color: "#0accda", lineHeight: "40px" }}>
+              стать фабрикой <br /> крутых программистов!
+            </span>
+          </h2>
+          <div className="row mt-5">
+            {mentor.map((item) => (
+              <Mentorscard {...item} key={item.id} />
+            ))}
           </div>
         </div>
       </main>
@@ -66,23 +166,19 @@ export default function HomePage() {
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
         <div className="cousers__cards--container">
           {
-            [
-              { linearStart: "#13d524", linearEnd: "#ffdc18" }, 2,
-              { linearStart: "#11c829", linearEnd: "#ffac10" }
-            ].map((item) => <Coursecard {...item} />)
+            course.map((item) => <Coursecard {...item} key={item.id} leftColor={item.leftColor} rightColor={item.rightColor}  />)
           }
         </div>
       </section>
       <section id="app" className="app container">
         <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
         <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
-
         <div className="timeline-page mt-5">
           {
-            timeline.map((item, index) => <Timeline
+            timeLine.map((item, index) => <Timeline
+              key={item.id}
               isOdd={(index + 1) % 2 === 0}
-              des={item.des}
-              title={item.title}
+              {...item}
             />)
           }
         </div>
@@ -90,13 +186,11 @@ export default function HomePage() {
       <section className="features container">
         <h2 className="courses-title">Для кого наши курсы</h2>
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
-
         <div className="row mt-5" >
           {
-            [1, 2, 3].map(() => <Courses />)
+            [1, 2, 3].map((index) => <Courses key={index} />)
           }
         </div>
-
         <br /><br />
         <div className="header-btn">
           <a id="write_us" className="btn btn-blue animate-y write_us">Запишите меня на ваши курсы!</a>
@@ -113,7 +207,7 @@ export default function HomePage() {
         </h2>
         <div className="row mt-5">
           {
-            [1, 2, 3].map(() => <Mentorscard />)
+            [1, 2, 3].map((index) => <Mentorscard key={index} />)
           }
         </div>
       </section>
@@ -127,16 +221,16 @@ export default function HomePage() {
                 <div className="mt-4">
                   <a className="btn btn-outline-custom btn-round font-weight-bold write_us" data-toggle="modal"
                     data-target="#exampleModalLong">Получить знания</a>
+
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        {/* <!-- <div className="bg-overlay"></div> --> */}
-
-      </section>
+          {/* <!-- <div className="bg-overlay"></div> --> */}
+        </section>
+      </div>
     </div>
-  </div>;
+  );
 }
 
 // delete after

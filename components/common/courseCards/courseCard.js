@@ -1,43 +1,45 @@
 import Link from "next/link";
 
 
-export const Coursecard = ({ linearStart, linearEnd }) => {
+export const Coursecard = ({ 
+  leftColor, rightColor, duration, name, placesLeft, 
+  timeStart, timeEnd, price, lessonsDay, start, id}) => {
 
+  const idcourse = `courses/${id}`
   return (
     <div>
       <div className="cousers--card">
         <div style={{
-          background: `linear-gradient(153.43deg, ${linearStart || "#ffe814"}, ${linearEnd || "#e51686"} 83.33%)`
-        }} className="card--preview">
+          background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"}, ${rightColor || "#e51686"} 83.33%)`}} className="card--preview">
           <i className="fab fa-python"></i>
-          <div className="card--title">Frontend разработка <br /> JavaScript/React.js</div>
-          <div className="card--title card-sub-title">7000 сом/мес.</div>
+          <div className="card--title">{name}<br /> </div>
+          <div className="card--title card-sub-title">{price} сом/мес.</div>
         </div>
         <div className="card--description">
           <div className="description">
             <strong>Длительность: </strong>
-            <p>6 месяцев</p>
+            <p>{duration} месяцев</p>
           </div>
           <div className="description">
             <strong>Дата запуска: </strong>
-            <p>20 октября</p>
+            <p>{start} октября</p>
           </div>
           <div className="description">
             <strong>Дни уроков: </strong>
-            <p>Вт-Чт-Сб</p>
+            <p>{lessonsDay}</p>
           </div>
           <div className="description">
             <strong>Время уроков: </strong>
-            <p>18:00 - 20:00</p>
+            <p>{timeStart} - {timeEnd}</p>
           </div>
           <div className="description">
             <strong>Осталось: </strong>
-            <p>5 мест</p>
+            <p>{placesLeft} мест</p>
           </div>
         </div>
         <div className="card--more">
           {/* TODO: add to href id of course */}
-          <Link href="/courses/1">
+          <Link href={idcourse}>
             <a className="btn btn-blue animate-y">Подробнее</a>
           </Link>
         </div>
