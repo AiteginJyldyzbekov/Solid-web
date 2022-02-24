@@ -5,15 +5,6 @@ import { useEffect } from 'react';
 import { db } from "../config/firebase.js"
 
 export default function Home() {
-  useEffect(() => { 
-    let course = [] 
-    db.collection("WhoCanStudy").get().then((querySnapshot) => { 
-      querySnapshot.forEach((doc) => { 
-        course.push(doc.data()) 
-      }); 
-    }) 
-    console.log(course) 
-  }, [])
   return (
     <div>
       <Head>
