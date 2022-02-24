@@ -1,5 +1,5 @@
 
-export const Courses = ()=>{
+export const Courses = ({ title, desc})=>{
   return (
     <div className="col-md-4">
             <div className="service-box">
@@ -7,9 +7,8 @@ export const Courses = ()=>{
                 <i className="fad fa-chart-pie"></i>
               </div>
               <div className="mt-3">
-                <p className="services-title mb-3">Получить реальные знания</p>
-                <p className="services-subtitle text-muted">В наших курсах вы не найдете ни капли воды! Только реальная
-                  практика и жесткий кодинг!</p>
+                <p className="services-title mb-3">{title}</p>
+                <p className="services-subtitle text-muted">{desc}</p>
               </div>
             </div>
           </div>
