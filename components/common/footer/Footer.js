@@ -1,30 +1,44 @@
+import { useEffect, useState } from "react";
+import { db } from "../../../config/firebase";
 
 export default function Footer() {
+
+  const [footer, setFooter] = useState([]);
+  useEffect(()=>{
+    db.collection("footer")
+    .get()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        setFooter({ ...doc.data(), id: doc.id });
+      });
+    });
+  },[])
+
   return <footer className="footer container">
     <div>
       <ul className="contact">
         <li>
           <i className="fas fa-envelope"></i>
-          : solid.academy.kg@gmail.com
+          : {footer.mail}
         </li>
         <li>
           <i className="fas fa-mobile"></i>
-          : <a href="tel:+996 501 55 79 03">+996 501 55 79 03</a>
+          : <a href={"tel:" + footer.phone1}>{footer.phone1}</a>
         </li>
         <li>
           <i className="fas fa-mobile"></i>
-          : <a href="tel:+996 501 55 79 03">+996 707 62 96 17</a>
+          : <a href={"tel:" + footer.phone2}>{footer.phone2}</a>
         </li>
         <li>
           <i className="fas fa-map-pin"></i>
-          : г. Бишкек, ул. Ахунбаева 119а, 0-этаж, 3 каб.
+          : {footer.adress}
         </li>
       </ul>
       <div className="social-medias">
-        <a href="https://www.instagram.com/solid.kg/" target="_blank">
+        <a href={footer.instagram} target="_blank" rel='noopener noreferrer'>
           <i className="fab fa-instagram"></i>
         </a>
-        <a href="#">
+        <a href={footer.telegram}>
           <i className="fab fa-telegram"></i>
         </a>
       </div>
