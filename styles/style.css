@@ -507,6 +507,7 @@ nav ul.slide {
 	border-radius: 10px;
 	margin: 20px;
 	z-index: 3;
+	cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -1138,33 +1139,69 @@ nav ul.slide {
 /* End of courses */
 
 .modal__wrapper {
-	transition: all 0.25s ease-in;
+	transition: opacity 0.25s ease-in;
 	position: fixed;
 	top: 0;
-	left: 0;
-	right: 0;
+	left: -120%;
 	background: #00000060;
 	width: 100vw;
 	overflow: hidden;
-	z-index: 99999;
-	height: 0;
+	z-index: 999;
+	height: 100vh;
 	opacity: 0;
-	visibility: hidden;
 }
-
+.modal-overlay{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
 .modal {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 600px;
-	height: 450px;
+	width: 400px;
+	height: 360px;
 	background: #fff;
 	color: #000;
 	padding: 20px 40px;
 	border-radius: 15px;
 	text-align: center;
 	overflow: hidden;
+	z-index: 1001;
+	
+}
+.modal-active{
+    left: 0;
+	opacity: 1;
+}
+.modal-header{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+.modal-header h1{
+	background: #191FCF;
+background: -webkit-linear-gradient(to right, #191FCF 50%, #CF7004 62%);
+background: -moz-linear-gradient(to right, #191FCF 50%, #CF7004 62%);
+background: linear-gradient(to right, #191FCF 50%, #CF7004 62%);
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.modal-header::after{
+	content: '';
+	border-bottom: solid 1px gray;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 80px;
+}
+.modal-closeBtn{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
 }
 .modal > img {
 	position: absolute;
@@ -1173,8 +1210,8 @@ nav ul.slide {
 	height: 100%;
 }
 .modal--btn {
-	background: none;
-	width: 100%;
+	width: 70%;
+	height: 50px;
 }
 .modal__contact__form label {
 	text-align: left;
@@ -1195,7 +1232,7 @@ nav ul.slide {
     color: #000;
     border: 1px solid rgb(60, 60, 83);
 	width: 100%;
-	border-radius: 5px;
+	border-radius: 6px;
 
 }
 
@@ -1204,11 +1241,20 @@ nav ul.slide {
     border-color: #3474ff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 512px) {
 	.modal {
 		width: 90vw;
 	}
-	.modal > h1 {
+	.modal-header{
+		margin-bottom: 40px;
+	}
+	.modal-header::after{
+		top: 65px;
+	}
+	.modal-header h1{
 		font-size: 22px;
+	}
+	.modal-closeBtn{
+		width: 15px;
 	}
 }
