@@ -45,7 +45,6 @@ export default function HomePage() {
         snapshot.forEach((doc)=>{
         whocanstudy.push({...doc.data(), id: doc.id});
         setwhocanstudy(whocanstudy)
-        console.log(doc)
       })
       })
   }, []);
@@ -132,7 +131,7 @@ export default function HomePage() {
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
         <div className="row mt-5" >
           {
-            whocanstudy.map((index) => <Courses title={index.title} desc={index.desc} />)
+            whocanstudy.map((item) => <Courses title={item.title} desc={item.desc} />)
           }
         </div>
         <br /><br />
