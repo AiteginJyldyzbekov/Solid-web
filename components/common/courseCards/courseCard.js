@@ -3,8 +3,9 @@ import Link from "next/link";
 
 export const Coursecard = ({ 
   leftColor, rightColor, duration, name, placesLeft, 
-  timeStart, timeEnd, price, lessonsDay, start }) => {
+  timeStart, timeEnd, price, lessonsDay, start, id}) => {
 
+  const idcourse = `courses/${id}`
   return (
     <div>
       <div className="cousers--card">
@@ -38,7 +39,7 @@ export const Coursecard = ({
         </div>
         <div className="card--more">
           {/* TODO: add to href id of course */}
-          <Link href="/courses/1">
+          <Link href={idcourse}>
             <a className="btn btn-blue animate-y">Подробнее</a>
           </Link>
         </div>

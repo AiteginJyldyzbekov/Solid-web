@@ -27,7 +27,7 @@ export default function HomePage() {
     })
     db.collection("courses").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        courses.push(doc.data())
+        courses.push({...doc.data(), id: doc.id})
         setCourses(courses)
       });
     })
@@ -67,7 +67,7 @@ export default function HomePage() {
         <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
         <div className="cousers__cards--container">
           {
-            course.map((item) => <Coursecard {...item} key={item.id} leftColor={item.leftColor} rightColor={item.rightColor}/>)
+            course.map((item) => <Coursecard {...item} key={item.id} leftColor={item.leftColor} rightColor={item.rightColor}  />)
           }
         </div>
       </section>
