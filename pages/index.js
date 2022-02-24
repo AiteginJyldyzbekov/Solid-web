@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { db } from "../config/firebase.js"
 
 export default function Home() {
-
   return (
     <div>
       <Head>

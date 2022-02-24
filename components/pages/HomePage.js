@@ -12,12 +12,14 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+  let whostudy = [];
   let courses = [];
   let timeLineItem = [];
   let mentors = [];
   const [timeLine, setTimeLine] = useState(timeLineItem);
   const [course, setCourses] = useState(courses);
   const [mentor, setMentor] = useState([]);
+  const [whocanstudy , setwhocanstudy] = useState(whostudy)
   useEffect(() => {
     db.collection("reason").get().then((snapshot) => {
       snapshot.forEach((doc) => {
@@ -39,6 +41,14 @@ export default function HomePage() {
           setMentor(mentors);
         });
       });
+      db.collection("WhoCanStudy")
+      .get()
+      .then((snapshot) =>{
+        snapshot.forEach((doc)=>{
+        whocanstudy.push({...doc.data(), id: doc.id});
+        setwhocanstudy(whocanstudy)
+      })
+      })
   }, []);
 
   return (
@@ -123,7 +133,7 @@ export default function HomePage() {
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
         <div className="row mt-5" >
           {
-            [1, 2, 3].map((index) => <Courses key={index} />)
+            whocanstudy.map((item) => <Courses title={item.title} desc={item.desc} />)
           }
         </div>
         <br /><br />
