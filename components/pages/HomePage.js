@@ -47,7 +47,7 @@ export default function HomePage() {
     setOpen(!open)
   }
   const submit = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     setOpen(false)
   }
   return (
