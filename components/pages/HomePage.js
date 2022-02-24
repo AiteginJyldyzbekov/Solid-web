@@ -45,7 +45,6 @@ export default function HomePage() {
         snapshot.forEach((doc)=>{
         whocanstudy.push({...doc.data(), id: doc.id});
         setwhocanstudy(whocanstudy)
-        console.log(doc)
       })
       })
   }, []);
