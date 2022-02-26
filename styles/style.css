@@ -507,6 +507,7 @@ nav ul.slide {
 	border-radius: 10px;
 	margin: 20px;
 	z-index: 3;
+	cursor: pointer;
 }
 
 @media (max-width: 1200px) {
@@ -1138,33 +1139,66 @@ nav ul.slide {
 /* End of courses */
 
 .modal__wrapper {
-	transition: all 0.25s ease-in;
+	transition: all 0.8s ease-in-out;
 	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+	top: 50%;
+	left: 50%;
 	background: #00000060;
-	width: 100vw;
 	overflow: hidden;
-	z-index: 99999;
-	height: 0;
+	z-index: 999;
 	opacity: 0;
-	visibility: hidden;
+	width: 0;
+	height: 0;
+	border-radius: 70px;
 }
-
+.modal-overlay{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
 .modal {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 600px;
-	height: 450px;
+	width: 515px;
+	height: 435px;
 	background: #fff;
 	color: #000;
 	padding: 20px 40px;
 	border-radius: 15px;
-	text-align: center;
 	overflow: hidden;
+	z-index: 1001;
+	
+}
+.modal-active{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	opacity: 1;
+	border-radius: 0px;
+}
+.modal-header{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 60px;
+}
+
+.modal-header::after{
+	content: '';
+	border-bottom: solid 1px gray;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 80px;
+}
+.modal-closeBtn{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
 }
 .modal > img {
 	position: absolute;
@@ -1172,14 +1206,34 @@ nav ul.slide {
 	top: 0;
 	height: 100%;
 }
+.modal-btn-wrapper{
+    display: flex;
+	justify-content: center;	
+}
 .modal--btn {
-	background: none;
-	width: 100%;
+	width: 50%;
+	height: 50px;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 10px;
+	border-radius: 50px !important;
+	background: #6ac4ff;
+	color: white;
+	transition: all 0.5s ease-in-out;
+	border: 1px solid #6ac4ff;
+}
+.modal--btn:hover{
+	color: #6ac4ff;
+	background: white;
 }
 .modal__contact__form label {
 	text-align: left;
 	font-size: 18px;
 	font-weight: 600;
+	margin-top: 10px;
+}
+.modal__contact__form input:focus::-webkit-input-placeholder {
+	opacity: 0; transition: opacity 0.3s ease;
 }
 .modal__contact__form label div {
 	transform: translate(15px, 16px);
@@ -1188,27 +1242,34 @@ nav ul.slide {
 	padding: 3px 8px;
 }
 .modal__contact__form input{
-    margin: 5px 0 25px 0;
+    margin: 5px 0 30px 0;
     background: none;
     padding: 15px;
     font-size: 18px;
     color: #000;
     border: 1px solid rgb(60, 60, 83);
 	width: 100%;
-	border-radius: 5px;
-
-}
-
-.modal__contact__form > input:focus {
+	border-radius: 10px;
     outline: none;
-    border-color: #3474ff;
+	transition: all 0.5s ease-in-out;
 }
-
-@media (max-width: 768px) {
+.modal__contact__form input:focus{
+    border-color:#6ac4ff !important;	
+}
+@media (max-width: 512px) {
 	.modal {
 		width: 90vw;
 	}
-	.modal > h1 {
+	.modal-header{
+		margin-bottom: 40px;
+	}
+	.modal-header::after{
+		top: 65px;
+	}
+	.modal-header h1{
 		font-size: 22px;
+	}
+	.modal-closeBtn{
+		width: 15px;
 	}
 }
