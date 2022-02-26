@@ -1162,8 +1162,8 @@ nav ul.slide {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 500px;
-	height: 430px;
+	width: 515px;
+	height: 435px;
 	background: #fff;
 	color: #000;
 	padding: 20px 40px;
@@ -1184,7 +1184,7 @@ nav ul.slide {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 }
 
 .modal-header::after{
@@ -1215,7 +1215,7 @@ nav ul.slide {
 	height: 50px;
 	font-size: 18px;
 	font-weight: 600;
-	margin-top: 25px;
+	margin-top: 10px;
 	border-radius: 50px !important;
 	background: #6ac4ff;
 	color: white;
@@ -1242,7 +1242,7 @@ nav ul.slide {
 	padding: 3px 8px;
 }
 .modal__contact__form input{
-    margin: 15px 0 20px 0;
+    margin: 5px 0 30px 0;
     background: none;
     padding: 15px;
     font-size: 18px;
