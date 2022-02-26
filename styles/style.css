@@ -1139,16 +1139,17 @@ nav ul.slide {
 /* End of courses */
 
 .modal__wrapper {
-	transition: opacity 0.25s ease-in;
+	transition: all 0.8s ease-in-out;
 	position: fixed;
-	top: 0;
-	left: -120%;
+	top: 50%;
+	left: 50%;
 	background: #00000060;
-	width: 100vw;
 	overflow: hidden;
 	z-index: 999;
-	height: 100vh;
 	opacity: 0;
+	width: 0;
+	height: 0;
+	border-radius: 70px;
 }
 .modal-overlay{
 	position: absolute;
@@ -1161,35 +1162,31 @@ nav ul.slide {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 400px;
-	height: 360px;
+	width: 500px;
+	height: 430px;
 	background: #fff;
 	color: #000;
 	padding: 20px 40px;
 	border-radius: 15px;
-	text-align: center;
 	overflow: hidden;
 	z-index: 1001;
 	
 }
 .modal-active{
-    left: 0;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
 	opacity: 1;
+	border-radius: 0px;
 }
 .modal-header{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
-.modal-header h1{
-	background: #191FCF;
-background: -webkit-linear-gradient(to right, #191FCF 50%, #CF7004 62%);
-background: -moz-linear-gradient(to right, #191FCF 50%, #CF7004 62%);
-background: linear-gradient(to right, #191FCF 50%, #CF7004 62%);
-background-clip: text;
--webkit-text-fill-color: transparent;
-}
+
 .modal-header::after{
 	content: '';
 	border-bottom: solid 1px gray;
@@ -1209,14 +1206,34 @@ background-clip: text;
 	top: 0;
 	height: 100%;
 }
+.modal-btn-wrapper{
+    display: flex;
+	justify-content: center;	
+}
 .modal--btn {
-	width: 70%;
+	width: 50%;
 	height: 50px;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 25px;
+	border-radius: 50px !important;
+	background: #6ac4ff;
+	color: white;
+	transition: all 0.5s ease-in-out;
+	border: 1px solid #6ac4ff;
+}
+.modal--btn:hover{
+	color: #6ac4ff;
+	background: white;
 }
 .modal__contact__form label {
 	text-align: left;
 	font-size: 18px;
 	font-weight: 600;
+	margin-top: 10px;
+}
+.modal__contact__form input:focus::-webkit-input-placeholder {
+	opacity: 0; transition: opacity 0.3s ease;
 }
 .modal__contact__form label div {
 	transform: translate(15px, 16px);
@@ -1225,22 +1242,20 @@ background-clip: text;
 	padding: 3px 8px;
 }
 .modal__contact__form input{
-    margin: 5px 0 25px 0;
+    margin: 15px 0 20px 0;
     background: none;
     padding: 15px;
     font-size: 18px;
     color: #000;
     border: 1px solid rgb(60, 60, 83);
 	width: 100%;
-	border-radius: 6px;
-
-}
-
-.modal__contact__form > input:focus {
+	border-radius: 10px;
     outline: none;
-    border-color: #3474ff;
+	transition: all 0.5s ease-in-out;
 }
-
+.modal__contact__form input:focus{
+    border-color:#6ac4ff !important;	
+}
 @media (max-width: 512px) {
 	.modal {
 		width: 90vw;
