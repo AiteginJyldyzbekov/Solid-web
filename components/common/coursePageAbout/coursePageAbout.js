@@ -1,27 +1,33 @@
 import { Courcescontainer } from "../courcesContainer/courcesContainer";
 import { useState, useEffect } from 'react';
 import { db } from "../../../config/firebase.js"
+import { useRouter } from 'next/router'
+
 
 const Coursepageabout = () => {
 
+  const router = useRouter()
+  const id = router.query.id
+  console.log(id)
   const [course, setCourse] = useState([])
   const [about, setAbout] = useState([])
   useEffect(() => {
     const cource = [];
-    db.collection("courses/DxZD1SQskccJswOkGIYE/aboutCourseCard/")
+    db.collection(`courses/${id}/aboutCourseCard`)
     .get().then((snapshot) => {
       snapshot.forEach((doc) => {
         cource.push(doc.data())
       })
       setCourse(cource)
     });
-    db.collection("courses/DxZD1SQskccJswOkGIYE/about/")
+    db.collection(`courses/${id}/about`)
     .get().then((snapshot) => {
       snapshot.forEach((doc) => {
         setAbout(doc.data())
       })
     })
   }, [])
+  console.log(course)
 
   return (
     <>
