@@ -12,11 +12,12 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
-  let courses = [];
-  let timeLineItem = [];
-  let mentors = [];
-  const [timeLine, setTimeLine] = useState(timeLineItem);
-  const [course, setCourses] = useState(courses);
+
+  const courses = [];
+  const timeLineItem = [];
+  const mentors = [];
+  const [timeLine, setTimeLine] = useState([]);
+  const [course, setCourses] = useState([]);
   const [mentor, setMentor] = useState([]);
   useEffect(() => {
     db.collection("reason").get().then((snapshot) => {
@@ -24,13 +25,13 @@ export default function HomePage() {
         timeLineItem.push(doc.data())
         setTimeLine(timeLineItem)
       })
-    })
+    });
     db.collection("courses").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         courses.push({...doc.data(), id: doc.id})
         setCourses(courses)
       })
-      });
+    });
     db.collection("mentors")
       .get()
       .then((snapshot) => {
