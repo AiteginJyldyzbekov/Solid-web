@@ -8,7 +8,6 @@ const Coursepageabout = () => {
 
   const router = useRouter()
   const id = router.query.id
-  console.log(id)
   const [course, setCourse] = useState([])
   const [about, setAbout] = useState([])
   useEffect(() => {
@@ -27,7 +26,6 @@ const Coursepageabout = () => {
       })
     })
   }, [])
-  console.log(course)
 
   return (
     <>

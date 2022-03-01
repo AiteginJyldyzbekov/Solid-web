@@ -3,50 +3,33 @@ import { Studystep } from "../common/studySteps/studyStep";
 import { CoursePrice } from "../common/aboutCoursePrice/CoursePrice";
 import CoursesMain from "../common/courses/coursesMain";
 import Coursepageabout from './../common/coursePageAbout/coursePageAbout';
-
+import { useState, useEffect } from 'react';
+import { db } from "../../config/firebase.js"
+import { useRouter } from "next/router";
 
 export default function CoursePage() {
 
-  const reasonsList = [
-    {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
-      text: "Хороший заработок. По данным Headz Analytics, средняя зарплата у JS разработчика 172 т. руб.",
-    },
-    {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
-      text: "Огромное количество вакансий, так как около трети вакансий в IT, требуют знания JavaScript",
-    },
-    {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
-      text: "JavaScript прост для освоения даже для новичков в программировании",
-    },
-    {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPovSNKvrai1_gZuVAQ6S3aEdf-dX6eXoN26wtQEpZGAAk6YS6_PLCOl5ji1k3nw5O40&usqp=CAU",
-      text: "Возможность пойти и во FrontEnd, и в BackEnd разработку",
-    },
-  ];
-  const studyList = [
-    {
-      name: "Введение в JavaScript и настройка инструментов для разработки",
-      description: "Инструментарий и настройка проекта; NodeJs, Git, WebPack, Npm",
-    },
-    {
-      name: "Библиотека ReactJS",
-      description:
-      "Компоненты ReactJS, свойства, состояния, хуки, контекстный API, формы, безопасность JWT и.т.д.",
-    },
-    {
-      name: "Среда тестирования Jest",
-      description:
-      "Повышение качества JS приложения; введение в Jest; настройка тестового окружения; Unit test; Ui test",
-    },
-    {
-      name: "Программная платформа Node.js",
-      description:
-      "Экосистема Node.js; Back-End фреймворк Express.js; Базы данныхMongoDB",
-    },
-  ];
-  
+  const [reason, setReason] = useState([]);
+  const [program, setProgram] = useState([]);
+  const router = useRouter()
+  const id = router.query.id
+  useEffect(() => {
+    const reasonsList = [];
+    db.collection(`courses/${id}/reasonList`).get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        reasonsList.push(doc.data())
+      })
+      setReason(reasonsList)
+    });
+    const studyList = [];
+    db.collection(`courses/${id}/program`).get().then((snaphot) => {
+      snaphot.forEach((doc) => {
+        studyList.push(doc.data())
+      })
+      setProgram(studyList)
+    });
+  }, [])
+
   return (
     <div>
       <CoursesMain/>
@@ -57,7 +40,7 @@ export default function CoursePage() {
         <h6 className="all--title">Зачем изучать JavaScript</h6>
         <div className="why__reason">
           {
-            reasonsList.map((reason) => <Reason {...reason} key={reason.id}/>)
+            reason.map((reason) => <Reason {...reason} key={reason.id}/>)
           }
         </div>
       </section>
@@ -67,7 +50,7 @@ export default function CoursePage() {
           <div className="svg"></div>
           <div className="study__steps">
             {
-              studyList.map((step) => <Studystep {...step} key={step.id}/>)
+              program.map((step) => <Studystep {...step} key={step.id}/>)
             }
           </div>
         </div>
