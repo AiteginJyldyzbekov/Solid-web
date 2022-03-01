@@ -16,6 +16,7 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
+
   let whostudy = [];
   let courses = [];
   let timeLineItem = [];
