@@ -15,21 +15,13 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
-<<<<<<< HEAD
 
-  const courses = [];
-  const timeLineItem = [];
-  const mentors = [];
-  const [timeLine, setTimeLine] = useState([]);
-  const [course, setCourses] = useState([]);
-=======
   let whostudy = [];
   let courses = [];
   let timeLineItem = [];
   let mentors = [];
   const [timeLine, setTimeLine] = useState(timeLineItem);
   const [course, setCourses] = useState(courses);
->>>>>>> f9c830c83d3dcb7aef0c90d460528b10b24880b2
   const [mentor, setMentor] = useState([]);
   const [whocanstudy , setwhocanstudy] = useState(whostudy)
   useEffect(() => {
