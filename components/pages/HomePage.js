@@ -16,43 +16,42 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-
-  let whostudy = [];
-  let courses = [];
-  let timeLineItem = [];
-  let mentors = [];
-  const [timeLine, setTimeLine] = useState(timeLineItem);
-  const [course, setCourses] = useState(courses);
+  const [timeLine, setTimeLine] = useState([]);
+  const [course, setCourses] = useState([]);
   const [mentor, setMentor] = useState([]);
-  const [whocanstudy , setwhocanstudy] = useState(whostudy)
+  const [whocanstudy , setwhocanstudy] = useState([])
   useEffect(() => {
     db.collection("reason").get().then((snapshot) => {
+      const timeLineItem = [];
       snapshot.forEach((doc) => {
         timeLineItem.push(doc.data())
-        setTimeLine(timeLineItem)
       })
+      setTimeLine(timeLineItem)
     });
     db.collection("courses").get().then((querySnapshot) => {
+      const courses = [];
       querySnapshot.forEach((doc) => {
         courses.push({...doc.data(), id: doc.id})
-        setCourses(courses)
       })
+      setCourses(courses)
     });
     db.collection("mentors")
-      .get()
-      .then((snapshot) => {
+    .get()
+    .then((snapshot) => {
+        const mentors = [];
         snapshot.forEach((doc) => {
           mentors.push({ ...doc.data(), id: doc.id });
-          setMentor(mentors);
         });
+        setMentor(mentors);
       });
       db.collection("WhoCanStudy")
       .get()
       .then((snapshot) =>{
+        const whostudy = []
         snapshot.forEach((doc)=>{
-        whocanstudy.push({...doc.data(), id: doc.id});
-        setwhocanstudy(whocanstudy)
+        whostudy.push({...doc.data(), id: doc.id});
       })
+      setwhocanstudy(whocanstudy)
       })
   }, []);
   const OpenModal = ()=>{

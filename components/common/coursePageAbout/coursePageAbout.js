@@ -11,9 +11,9 @@ const Coursepageabout = () => {
   const [course, setCourse] = useState([])
   const [about, setAbout] = useState([])
   useEffect(() => {
-    const cource = [];
     db.collection(`courses/${id}/aboutCourseCard`)
     .get().then((snapshot) => {
+      const cource = [];
       snapshot.forEach((doc) => {
         cource.push(doc.data())
       })
@@ -25,7 +25,7 @@ const Coursepageabout = () => {
         setAbout(doc.data())
       })
     })
-  }, [])
+  }, [course])
 
   return (
     <>
