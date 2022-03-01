@@ -15,6 +15,8 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+
   let whostudy = [];
   let courses = [];
   let timeLineItem = [];
@@ -29,13 +31,13 @@ export default function HomePage() {
         timeLineItem.push(doc.data())
         setTimeLine(timeLineItem)
       })
-    })
+    });
     db.collection("courses").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         courses.push({...doc.data(), id: doc.id})
         setCourses(courses)
       })
-      });
+    });
     db.collection("mentors")
       .get()
       .then((snapshot) => {
@@ -225,3 +227,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+// delete after

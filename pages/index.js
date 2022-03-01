@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Footer from '../components/common/footer/Footer.js';
 import HomePage from '../components/pages/HomePage.js';
-import { useEffect } from 'react';
-import { db } from "../config/firebase.js"
 
 export default function Home() {
   return (

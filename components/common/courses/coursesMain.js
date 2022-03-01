@@ -1,31 +1,37 @@
 import { CourseStart } from "../CourseStart/CourseStart";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { db } from "../../../config/firebase.js"
 
 export default function CoursesMain() {
-  const coursesStart = [
-    {
-      h4: "Старт курса : ",
-      div: "7 июня",
-    },
-    {
-      h4: "Длительность : ",
-      div: "4 месяца",
-    },
-    {
-      h4: "Формат обучения : ",
-      div: "офлайн-обучение с преподавателем на реальных проектах + онлайн разбор задачек с проверкой и обратной связью",
-    },
-  ];
+  
+  const [courseMain, setCourseMain] = useState([])
+  const [courseStart, setCourseStart] = useState([])
+  useEffect(() => {
+    const start = [];
+    db.collection("coursesMain").get().then((snapshott) => {
+      snapshott.forEach((doc) => {
+        start.push(doc.data())
+      })
+      setCourseStart(start)
+    });
+    db.collection("mainContainer").get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        setCourseMain(doc.data())
+      })
+    })
+  }, [])
+
   return (
     <main className="d__main container">
       <div className="d__main__description">
-        <h1>Fullstack-разработчик на JavaScript</h1>
+        <h1>{courseMain.h1}</h1>
         <h3>
-          Учись под руководством профессионалов из индустрии и стань
-          востребованным специалистом
+          {courseMain.h3}
         </h3>
         <div className="header-btn d__main--connect">
           <a href="#contact-us" className="btn btn-blue animate-y ">
-            Записаться
+            {courseMain.contact}
           </a>
         </div>
       </div>
@@ -33,8 +39,8 @@ export default function CoursesMain() {
         <img src="/images/Business-meeting.svg" alt="#" />
       </div>
       <div className="d__main__info">
-        {coursesStart.map((item) => (
-          <CourseStart {...item} />
+        {courseStart.map((item) => (
+          <CourseStart h4={item.h4} div={item.div} />
         ))}
       </div>
     </main>
