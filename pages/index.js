@@ -3,7 +3,6 @@ import Footer from '../components/common/footer/Footer.js';
 import HomePage from '../components/pages/HomePage.js';
 
 export default function Home() {
-
   return (
     <div>
       <Head>
