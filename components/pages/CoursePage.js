@@ -15,7 +15,6 @@ export default function CoursePage() {
   const id = router.query.id
 
   useEffect(() => {
-    
     const reasonsList = [];
     db.collection(`courses/${id}/reasonList`).get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -30,7 +29,7 @@ export default function CoursePage() {
       })
       setProgram(studyList)
     });
-  }, [])
+  }, [program, reason])
 
   return (
     <div>

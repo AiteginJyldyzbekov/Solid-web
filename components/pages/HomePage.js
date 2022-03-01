@@ -17,14 +17,14 @@ export default function HomePage() {
   });
 
 
-  let whostudy = [];
-  let courses = [];
-  let timeLineItem = [];
-  let mentors = [];
-  const [timeLine, setTimeLine] = useState(timeLineItem);
-  const [course, setCourses] = useState(courses);
+  const whostudy = [];
+  const courses = [];
+  const timeLineItem = [];
+  const mentors = [];
+  const [timeLine, setTimeLine] = useState([]);
+  const [course, setCourses] = useState([]);
   const [mentor, setMentor] = useState([]);
-  const [whocanstudy , setwhocanstudy] = useState(whostudy)
+  const [whocanstudy , setwhocanstudy] = useState([])
   useEffect(() => {
     db.collection("reason").get().then((snapshot) => {
       snapshot.forEach((doc) => {

@@ -25,7 +25,7 @@ const Coursepageabout = () => {
         setAbout(doc.data())
       })
     })
-  }, [])
+  }, [course])
 
   return (
     <>
