@@ -13,7 +13,9 @@ export default function CoursePage() {
   const [program, setProgram] = useState([]);
   const router = useRouter()
   const id = router.query.id
+
   useEffect(() => {
+    
     const reasonsList = [];
     db.collection(`courses/${id}/reasonList`).get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
