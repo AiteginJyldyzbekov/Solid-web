@@ -15,15 +15,15 @@ export default function CoursePage() {
   const id = router.query.id
 
   useEffect(() => {
-    const reasonsList = [];
     db.collection(`courses/${id}/reasonList`).get().then((querySnapshot) => {
+      const reasonsList = [];
       querySnapshot.forEach((doc) => {
         reasonsList.push(doc.data())
       })
       setReason(reasonsList)
     });
-    const studyList = [];
     db.collection(`courses/${id}/program`).get().then((snaphot) => {
+      const studyList = [];
       snaphot.forEach((doc) => {
         studyList.push(doc.data())
       })
