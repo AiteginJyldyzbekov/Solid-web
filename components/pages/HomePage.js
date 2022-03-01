@@ -47,6 +47,7 @@ export default function HomePage() {
       db.collection("WhoCanStudy")
       .get()
       .then((snapshot) =>{
+        const whostudy = []
         snapshot.forEach((doc)=>{
         whostudy.push({...doc.data(), id: doc.id});
       })
