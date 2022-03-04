@@ -153,7 +153,27 @@ li {
 	width: 100vw;
 	transition: var(--transition-animation);
 }
+.login{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+.login form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: fit-content;
+	margin-top: 20%;
+}
+.login form button{
+	margin-top: 20px;
+	width: 70px;
+	height: 20px;
+}
 .nav-logo {
 	font-size: 18px;
 	transition: var(--transition-animation);
