@@ -5,8 +5,9 @@ import { db } from "../../../config/firebase.js"
 
 export default function CoursesMain() {
   
-  const [courseMain, setCourseMain] = useState([])
-  const [courseStart, setCourseStart] = useState([])
+  const [courseMain, setCourseMain] = useState([]);
+  const [courseStart, setCourseStart] = useState([]);
+
   useEffect(() => {
     const start = [];
     db.collection("coursesMain").get().then((snapshott) => {
@@ -40,7 +41,7 @@ export default function CoursesMain() {
       </div>
       <div className="d__main__info">
         {courseStart.map((item) => (
-          <CourseStart h4={item.h4} div={item.div} />
+          <CourseStart key={item.h4} h4={item.h4} div={item.div} />
         ))}
       </div>
     </main>
