@@ -6,11 +6,25 @@ import "../styles/courses.css";
 import "../styles/dashboard.css";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import firebase from "../config/firebase.js";
+import WithAuth from "../hoks/privateAuth.js";
 
 function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [activeNav, setActiveNav] = useState(false);
   const [isIncludeAdmin, setIsIncludeAdmin] = useState();
+  const [isAuth, setIsAuth] = useState(false);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      console.log(user);
+      if (user) {
+        setIsAuth(user?.toJSON())
+      } else {
+        setIsAuth(false)
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const arr = pathname.split("/");
@@ -36,7 +50,24 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       {isIncludeAdmin || <Header />}
-      <Component {...pageProps} isActiveNav={activeNav} setActiveNav={setActiveNav} />
+      {
+        isIncludeAdmin
+          ? <WithAuth Component={
+            () => <Component
+              {...pageProps}
+              isActiveNav={activeNav}
+              setActiveNav={setActiveNav}
+              isAuth={isAuth}
+            />}
+            isAuth={isAuth}
+          />
+          : <Component
+            {...pageProps}
+            isActiveNav={activeNav}
+            setActiveNav={setActiveNav}
+            isAuth={isAuth}
+          />
+      }
     </>
   );
 }
