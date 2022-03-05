@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const local = !!JSON.parse(window.localStorage.getItem("active"));
-    console.log(local);
     setActiveNav(local);
   }, []);
   return (

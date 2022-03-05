@@ -19,21 +19,9 @@ const AsidePaths = [
     icon: null,
   },
   {
-    href: "/admin/help",
-    title: "Help",
-    path: "/images/question.png",
-    icon: null,
-  },
-  {
     href: "/admin/settings",
     title: "Settings",
     path: "/images/setting.png",
-    icon: null,
-  },
-  {
-    href: "/admin/password",
-    title: "Password",
-    path: "/images/lock.png",
     icon: null,
   },
 ];
