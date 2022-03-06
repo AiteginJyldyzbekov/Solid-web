@@ -1,7 +1,7 @@
 import React, { createRef, useState, useEffect } from "react";
 import { NavLink } from "../NavLink/NavLink";
-import Link from "next/link";
 import AsidePaths from "../../constants/AsidePaths";
+import firebase from "../../../config/firebase.js";
 
 export default function DashboardAside({isActiveNav: active, setActiveNav}) {
   const links = createRef();
@@ -12,6 +12,10 @@ export default function DashboardAside({isActiveNav: active, setActiveNav}) {
     window.localStorage.setItem("active", JSON.stringify(!active));
   };
   
+  const logout = () => {
+    firebase.auth().signOut();
+  };
+
   useEffect(() => {
     const elements = [...links.current.children];
     elements.forEach((item, index) => {
@@ -75,12 +79,12 @@ export default function DashboardAside({isActiveNav: active, setActiveNav}) {
           </NavLink>
         ))}
         <li className="aside-li">
-          <Link href="/">
-            <div>
+          {/* <Link href="/"> */}
+            <div onClick={logout}>
               <img src="/images/logout.png" alt="Logout" />
               <span className={active ? "aside-title-active" : ""}>Logout</span>
             </div>
-          </Link>
+          {/* </Link> */}
         </li>
       </ul>
     </div>
