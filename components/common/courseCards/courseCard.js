@@ -2,7 +2,6 @@ import Link from "next/link";
 import { db } from "../../../config/firebase";
 import { useRouter } from "next/router"
 
-
 export const Coursecard = ({ 
   leftColor, rightColor, duration, name, placesLeft, 
   timeStart, timeEnd, price, lessonsDay, start, id, btn}) => {
@@ -17,7 +16,7 @@ export const Coursecard = ({
   }
   return (
     <div className="courses-card-wrapper">
-      {btn ? <div onClick={deleteData} className="delete-btn">
+      {btn && <div onClick={deleteData} className="delete-btn">
         <svg
             className="ham hamRotate ham4 active"
             viewBox="0 0 100 100"
@@ -33,7 +32,7 @@ export const Coursecard = ({
               d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20"
             ></path>
           </svg>
-      </div> : ""}
+      </div>}
       <div className="cousers--card">
         <div style={{
           background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"}, ${rightColor || "#e51686"} 83.33%)`}} className="card--preview">

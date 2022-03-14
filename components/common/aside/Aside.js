@@ -55,7 +55,7 @@ export default function DashboardAside() {
       <div className="aside-title">
         <img src="/images/solid-logo.png" />
         <span className={active ? "aside-title-active" : ""}>
-          {active ? "Solid Academy" : ""}
+          {active && "Solid Academy"}
         </span>
         <div className="dashboard-burger-menu" onClick={open}>
           <svg
