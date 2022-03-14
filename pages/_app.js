@@ -9,15 +9,13 @@ import { useEffect, useState } from "react";
 import firebase from "../config/firebase.js";
 import WithAuth from "../hoks/privateAuth.js";
 
-function MyApp({ Component, pageProps }) {
+ function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
-  const [activeNav, setActiveNav] = useState(false);
   const [isIncludeAdmin, setIsIncludeAdmin] = useState();
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
-      console.log(user);
       if (user) {
         setIsAuth(user?.toJSON())
       } else {
@@ -31,10 +29,6 @@ function MyApp({ Component, pageProps }) {
     setIsIncludeAdmin(arr.includes("admin"));
   }, [pathname]);
 
-  useEffect(() => {
-    const local = !!JSON.parse(window.localStorage.getItem("active"));
-    setActiveNav(local);
-  }, []);
   return (
     <>
       <Head>
@@ -55,16 +49,12 @@ function MyApp({ Component, pageProps }) {
           ? <WithAuth Component={
             () => <Component
               {...pageProps}
-              isActiveNav={activeNav}
-              setActiveNav={setActiveNav}
               isAuth={isAuth}
             />}
             isAuth={isAuth}
           />
           : <Component
             {...pageProps}
-            isActiveNav={activeNav}
-            setActiveNav={setActiveNav}
             isAuth={isAuth}
           />
       }

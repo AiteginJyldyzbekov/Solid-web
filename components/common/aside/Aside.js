@@ -1,12 +1,17 @@
-import React, { createRef, useState, useEffect } from "react";
+import React, { createRef, useState, useEffect,useMemo } from "react";
 import { NavLink } from "../NavLink/NavLink";
 import AsidePaths from "../../constants/AsidePaths";
 import firebase from "../../../config/firebase.js";
 
-export default function DashboardAside({isActiveNav: active, setActiveNav}) {
+export default function DashboardAside() {
   const links = createRef();
   const [index, setIndex] = useState(null);
+  const [active,setActiveNav] = useState(false)
   
+  useEffect(() => {
+    const local = !!JSON.parse(window.localStorage.getItem("active"));
+    setActiveNav(local);
+  }, []);
   const open = () => {
     setActiveNav(!active)
     window.localStorage.setItem("active", JSON.stringify(!active));
@@ -43,10 +48,12 @@ export default function DashboardAside({isActiveNav: active, setActiveNav}) {
       });
     }
   }, [index, links]);
+  
   return (
+    <div className={"asideWrapper " + (active || "BurgerActive")}>
     <div className={"aside-wrapper " + (active || "BurgerActive")}>
       <div className="aside-title">
-        <img src="/images/Solid.png" />
+        <img src="/images/solid-logo.png" />
         <span className={active ? "aside-title-active" : ""}>
           {active ? "Solid Academy" : ""}
         </span>
@@ -79,14 +86,13 @@ export default function DashboardAside({isActiveNav: active, setActiveNav}) {
           </NavLink>
         ))}
         <li className="aside-li">
-          {/* <Link href="/"> */}
             <div onClick={logout}>
               <img src="/images/logout.png" alt="Logout" />
               <span className={active ? "aside-title-active" : ""}>Logout</span>
             </div>
-          {/* </Link> */}
         </li>
       </ul>
+    </div>
     </div>
   );
 }
