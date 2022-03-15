@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { useStateIfMounted } from "use-state-if-mounted";
 import { useRouter } from "next/router";
 
 export default function CourseEdit() {
   const router = useRouter();
   const id = router.query.id;
-  const [course, setCourses] = useStateIfMounted([]);
+  const [course, setCourses] = useState([]);
   const [newName, setNewName] = useState("");
   const [newPrice, setNewPrice] = useState("");
   const [newDuration, setNewDuration] = useState("");
