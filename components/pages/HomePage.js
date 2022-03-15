@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
+import {useRef, useEffect, useState } from "react";
 import { Coursecard } from "../common/courseCards/courseCard.js";
 import { Mentorscard } from "../common/mentors/mentorsCard.jsx";
 import { Courses } from "../common/aboutCourses/aboutCourses";
 import { Timeline } from "../common/timeLine/timeLine.jsx";
 import { db } from "../../config/firebase.js";
+import emailjs from 'emailjs-com';
 
 export default function HomePage() {
   const [offset, setOffset] = useState();
   const [open, setOpen] = useState(false)
-  const [user, setUser] = useState()
-  const [number, setNumber] = useState()
   const handleScroll = () => setOffset(window.pageYOffset);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  });
+  })
 
   const [timeLine, setTimeLine] = useState([]);
   const [course, setCourses] = useState([]);
@@ -47,7 +46,7 @@ export default function HomePage() {
       db.collection("WhoCanStudy")
       .get()
       .then((snapshot) =>{
-        const whostudy = []
+        const whostudy = [];
         snapshot.forEach((doc)=>{
         whostudy.push({...doc.data(), id: doc.id});
       })
@@ -57,9 +56,12 @@ export default function HomePage() {
   const OpenModal = ()=>{
     setOpen(!open)
   }
+
+  const form = useRef();
   const submit = (e) => {
     e.preventDefault()
-    setOpen(false)
+    emailjs.sendForm('service_homepage', 'template_laiog88', form.current, 'Yi1ToeW6vTDnC8C2G')    
+    e.target.reset()
   }
   return (
     <div>
@@ -208,17 +210,17 @@ export default function HomePage() {
             </svg>
             </div>
           </div>
-          <form onSubmit={submit} className="modal__contact__form">
+          <form className="modal__contact__form" onSubmit={submit} ref={form} >
             <div>
             <label>ИМЯ</label>
-             <input type='text' value={user} onChange={(e)=> setUser(e.target.value)} placeholder="Эсенбек"/>
+             <input type='text' placeholder="Эсенбек" name="name"/>
             </div>
             <div>
             <label>НОМЕР</label>
-            <input type='text' value={number} onChange={(e)=> setNumber(e.target.value)} placeholder="+996 707 62 96 17"/>
+            <input type='text' placeholder="+996 707 62 96 17" name="number"/>
             </div>
              <div className="modal-btn-wrapper">
-               <button className="btn  modal--btn">Напишите нам</button>
+              <button className="btn  modal--btn">Напишите нам</button>
              </div>
             </form>
         </div>
