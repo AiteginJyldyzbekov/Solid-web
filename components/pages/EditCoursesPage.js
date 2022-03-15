@@ -1,13 +1,12 @@
 import { Coursecard } from "../common/courseCards/courseCard";
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { useStateIfMounted } from "use-state-if-mounted";
 import {useRouter} from "next/router"
 import Link from "next/link"
 export default function EditCoursesPage() {
   const router = useRouter()
   const id = router.query.id
-  const [course, setCourses] = useStateIfMounted([]);
+  const [course, setCourses] = useState([]);
   const [btn, setBtn] = useState(false);
   useEffect(() => {
     db.collection("courses")
