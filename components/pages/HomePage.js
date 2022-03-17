@@ -145,7 +145,7 @@ export default function HomePage() {
         <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
         <div className="row mt-5" >
           {
-            whocanstudy.map((item) => <Courses title={item.title} desc={item.desc} />)
+            whocanstudy.map((item) => <Courses key={item.key} title={item.title} desc={item.desc} />)
           }
         </div>
         <br /><br />
