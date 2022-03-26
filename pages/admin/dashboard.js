@@ -6,7 +6,7 @@ export default function Dashboard(props) {
     <div className="dashboard-wrapper">
       <DashboardAside  {...props} />
       <div className="dashboard-under-wrapper">
-        <DashboardHeader />
+        <DashboardHeader {...props}/>
         {/* Code here ..... */}
       </div>
     </div>

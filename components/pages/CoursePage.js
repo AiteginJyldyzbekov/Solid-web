@@ -18,18 +18,18 @@ export default function CoursePage() {
     db.collection(`courses/${id}/reasonList`).get().then((querySnapshot) => {
       const reasonsList = [];
       querySnapshot.forEach((doc) => {
-        reasonsList.push(doc.data())
+        reasonsList.push({...doc.data(), id: doc.id})
       })
       setReason(reasonsList)
     });
     db.collection(`courses/${id}/program`).get().then((snaphot) => {
       const studyList = [];
       snaphot.forEach((doc) => {
-        studyList.push(doc.data())
+        studyList.push({...doc.data(), id: doc.id})
       })
       setProgram(studyList)
     });
-  }, [program, reason])
+  }, [id])
 
   return (
     <div>
