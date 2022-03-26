@@ -8,19 +8,19 @@ const AsidePaths = [
   },
   {
     href: "/admin/customers",
-    title: "Customers",
+    title: "Courses",
     path: "/images/people.png",
     icon: null,
   },
   {
     href: "/admin/message",
-    title: "Message",
+    title: "Info",
     path: "/images/message.png",
     icon: null,
   },
   {
     href: "/admin/settings",
-    title: "Settings",
+    title: "Mentors",
     path: "/images/setting.png",
     icon: null,
   },
