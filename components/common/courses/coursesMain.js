@@ -3,36 +3,19 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { db } from "../../../config/firebase.js"
 
-export default function CoursesMain() {
-  
-  const [courseMain, setCourseMain] = useState([]);
-  const [courseStart, setCourseStart] = useState([]);
+const info = ["Старт курса :", "Длительность :", "Формат обучения :"]
 
-  useEffect(() => {
-    const start = [];
-    db.collection("coursesMain").get().then((snapshott) => {
-      snapshott.forEach((doc) => {
-        start.push(doc.data())
-      })
-      setCourseStart(start)
-    });
-    db.collection("mainContainer").get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        setCourseMain(doc.data())
-      })
-    })
-  }, [])
-
+export default function CoursesMain({ courseMain }) {
   return (
     <main className="d__main container">
       <div className="d__main__description">
-        <h1>{courseMain.h1}</h1>
+        <h1>{courseMain?.name}</h1>
         <h3>
-          {courseMain.h3}
+          Обучим тебя технологиям, на которых работает любой сайт или веб-приложение
         </h3>
         <div className="header-btn d__main--connect">
           <a href="#contact-us" className="btn btn-blue animate-y ">
-            {courseMain.contact}
+            Записаться
           </a>
         </div>
       </div>
@@ -40,9 +23,9 @@ export default function CoursesMain() {
         <img src="/images/Business-meeting.svg" alt="#" />
       </div>
       <div className="d__main__info">
-        {courseStart.map((item) => (
-          <CourseStart key={item.h4} h4={item.h4} div={item.div} />
-        ))}
+        <CourseStart title={info[0]} div={courseMain?.price + " сом"} />
+        <CourseStart title={info[1]} div={courseMain?.duration + " месяца"} />
+        <CourseStart title={info[2]} div={courseMain?.format} />
       </div>
     </main>
   );
