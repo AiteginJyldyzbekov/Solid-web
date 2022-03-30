@@ -26,7 +26,8 @@ import WithAuth from "../hoks/privateAuth.js";
 
   useEffect(() => {
     const arr = pathname.split("/");
-    setIsIncludeAdmin(arr.includes("admin"));
+    const check = arr.includes("admin") && arr.length > 2
+    setIsIncludeAdmin(check);
   }, [pathname]);
 
   return (

@@ -6,7 +6,7 @@ const WithAuth = ({Component, isAuth}) => {
     if(isAuth) {
         return <Component />
     } else {
-        route.push("/SuperAdmin")
+        route.push("/admin")
         return null;
     }
 };
