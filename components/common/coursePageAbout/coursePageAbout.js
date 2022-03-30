@@ -8,8 +8,8 @@ const Coursepageabout = () => {
 
   const router = useRouter()
   const id = router.query.id
-  const [course, setCourse] = useState([])
-  const [about, setAbout] = useState([]);
+  const [course, setCourse] = useState(null)
+  const [about, setAbout] = useState(null);
 
   useEffect(() => {
     db.collection(`courses/${id}/aboutCourseCard`)
@@ -23,13 +23,17 @@ const Coursepageabout = () => {
     db.collection(`courses/${id}/about`)
       .get().then((snapshot) => {
         snapshot.forEach((doc) => {
-          setAbout({ ...doc.data(), id: doc.id })
+          const res = doc.data()
+          if (res) {
+            setAbout({ ...res, id: doc.id })
+          }
         })
       })
   }, [id])
 
+  if (!about) return <div />
   return (
-    <>
+    <section className="about__course">
       <div>
         <h5 className="a__course--title all--title">{about.allTitle}</h5>
         <p className="a__course--des">
@@ -44,7 +48,7 @@ const Coursepageabout = () => {
           course.map((item) => <Courcescontainer {...item} key={item.id} />)
         }
       </div>
-    </>
+    </section>
   );
 }
 

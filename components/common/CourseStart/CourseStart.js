@@ -1,7 +1,7 @@
-export const CourseStart =({h4 , div} ) => {
+export const CourseStart =({title , div} ) => {
 return  (
   <div className="d__main__course">
-    <h4 className="d__main__course--title"> {h4} </h4>      
+    <h4 className="d__main__course--title"> {title} </h4>      
     <div className="d__main__course--des"> {div} </div>
   </div>
 )}
