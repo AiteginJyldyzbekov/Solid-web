@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { db } from "../../config/firebase";
-import { useStateIfMounted } from "use-state-if-mounted";
 import { useRouter } from "next/router";
 
 export default function NewCourse() {
@@ -15,23 +14,25 @@ export default function NewCourse() {
   const [newPlacesLeft, setNewPlacesLeft] = useState("");
   const [newLeftColor, setNewLeftColor] = useState("");
   const [newRightColor, setNewRightColor] = useState("");
+  const [format, setFormat] = useState("");
 
-  const data = {
-    leftColor: newLeftColor,
-    rightColor: newRightColor,
-    name: newName,
-    price: newPrice,
-    duration: newDuration,
-    start: newStart,
-    lessonsDay: newLessonDay,
-    timeStart: newTimeStart,
-    timeEnd: newTimeEnd,
-    placesLeft: newPlacesLeft,
-  };
 
   const submit = (e) => {
     e.preventDefault()
     const newData = [];
+    const data = {
+      leftColor: newLeftColor,
+      rightColor: newRightColor,
+      name: newName,
+      price: newPrice,
+      duration: newDuration,
+      start: newStart,
+      lessonsDay: newLessonDay,
+      timeStart: newTimeStart,
+      timeEnd: newTimeEnd,
+      placesLeft: newPlacesLeft,
+      format: setFormat,
+    };
     for (let key in data) {
       if (data[key]) {
         newData.push({ [key]: data[key] });
@@ -150,6 +151,15 @@ export default function NewCourse() {
             onChange={(e) => setNewPlacesLeft(e.target.value)}
             className="edit-input"
             type="number"
+            required
+          />
+        </label>
+        <label className="edit-label">
+          Формат обучения
+          <textarea
+            onChange={(e) => setFormat(e.target.value)}
+            className="edit-input"
+            type="text"
             required
           />
         </label>

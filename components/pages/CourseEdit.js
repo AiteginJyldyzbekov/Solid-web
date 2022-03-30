@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
 import { useRouter } from "next/router";
+import { Coursecard } from "../common/courseCards/courseCard.js";
 
 export default function CourseEdit() {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function CourseEdit() {
   const [newLeftColor, setNewLeftColor] = useState("");
   const [newRightColor, setNewRightColor] = useState("");
   const [active, setActive] = useState(false);
+  const [format, setFormat] = useState("");
 
 
   useEffect(() => {
@@ -30,6 +32,17 @@ export default function CourseEdit() {
         courses.forEach((e) => {
           if (e.id === id) {
             setCourses(e);
+            setFormat(e?.format)
+            setNewName(e.name)
+            setNewLeftColor(e.leftColor)
+            setNewRightColor(e.rightColor)
+            setNewLessonDay(e.lessonsDay)
+            setNewPlacesLeft(e.placesLeft)
+            setNewPrice(e.price)
+            setNewDuration(e.duration)
+            setNewStart(e.start)
+            setNewTimeEnd(e.timeEnd)
+            setNewTimeStart(e.timeStart)
           }
         });
       });
@@ -46,12 +59,9 @@ export default function CourseEdit() {
     lessonsDay,
     start,
   } = course;
- 
-  
-    
 
-  const submit = () => {
-    let data = {
+
+  let data = {
     leftColor: newLeftColor,
     rightColor: newRightColor,
     name: newName,
@@ -62,22 +72,25 @@ export default function CourseEdit() {
     timeStart: newTimeStart,
     timeEnd: newTimeEnd,
     placesLeft: newPlacesLeft,
+    format
+  }
+
+  const submit = () => {
+    for (let key in data) {
+      if (data[key]) {
+        db.collection("courses").doc(id).update({ [key]: data[key] })
+        setActive(true)
+        setTimeout(() => {
+          setActive(false)
+        }, 6000)
+      }
+
     }
-   for(let key in data){
-     if(data[key]){
-      db.collection("courses").doc(id).update({[key]: data[key]})
-      setActive(true)
-      setTimeout(()=>{
-        setActive(false)
-      },6000)
-     }
-     
-   }
   };
-  
+
   return (
     <div className="course-edit-wrapper container">
-      <div onClick={()=>{setActive(false)}} className={"card-update " + (active ? "active" : "")}>
+      <div onClick={() => { setActive(false) }} className={"card-update " + (active ? "active" : "")}>
         <span>Card updated</span>
       </div>
       <form onSubmit={submit} className="edit-form">
@@ -115,9 +128,9 @@ export default function CourseEdit() {
           Name
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewName(" ")
-              }else{
+              } else {
                 setNewName(e.target.value)
               }
             }}
@@ -130,9 +143,9 @@ export default function CourseEdit() {
           Price
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewPrice(" ")
-              }else{
+              } else {
                 setNewPrice(e.target.value)
               }
             }}
@@ -145,10 +158,10 @@ export default function CourseEdit() {
           Duration
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewDuration(" ")
               }
-              else{
+              else {
                 setNewDuration(e.target.value)
               }
             }}
@@ -161,10 +174,10 @@ export default function CourseEdit() {
           Start
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewStart(" ")
               }
-              else{
+              else {
                 setNewStart(e.target.value)
               }
             }}
@@ -177,10 +190,10 @@ export default function CourseEdit() {
           LessonsDay
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewLessonDay(" ")
               }
-              else{
+              else {
                 setNewLessonDay(e.target.value)
               }
             }}
@@ -193,10 +206,10 @@ export default function CourseEdit() {
           TimeStart
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewTimeStart(" ")
               }
-              else{
+              else {
                 setNewTimeStart(e.target.value)
               }
             }}
@@ -209,10 +222,10 @@ export default function CourseEdit() {
           TimeEnd
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewTimeEnd(" ")
               }
-              else{
+              else {
                 setNewTimeEnd(e.target.value)
               }
             }}
@@ -225,10 +238,10 @@ export default function CourseEdit() {
           PlacesLeft
           <input
             onChange={(e) => {
-              if(e.target.value === ""){
+              if (e.target.value === "") {
                 setNewPlacesLeft(" ")
               }
-              else{
+              else {
                 setNewPlacesLeft(e.target.value)
               }
             }}
@@ -237,6 +250,17 @@ export default function CourseEdit() {
             value={newPlacesLeft || placesLeft}
           />
         </label>
+        <label className="edit-label">
+          Формат обучения
+          <textarea
+            onChange={(e) => setFormat(e.target.value)}
+            className="edit-input"
+            type="text"
+            value={format}
+            required
+          />
+        </label>
+
         <div className="card--more save-btn">
           <a onClick={submit} className="btn btn-blue animate-y">
             Сохранить
@@ -245,53 +269,7 @@ export default function CourseEdit() {
       </form>
 
       <div>
-        <div className="cousers--card">
-          <div
-            style={{
-              background: `linear-gradient(153.43deg, ${
-                newLeftColor || leftColor
-              }
-              , ${newRightColor || rightColor} 83.33%)`,
-            }}
-            className="card--preview"
-          >
-            <i className="fab fa-python"></i>
-            <div className="card--title">
-              {newName || name}
-              <br />{" "}
-            </div>
-            <div className="card--title card-sub-title">
-              {newPrice || price} сом/мес.
-            </div>
-          </div>
-          <div className="card--description">
-            <div className="description">
-              <strong>Длительность: </strong>
-              <p>{newDuration || duration} месяцев</p>
-            </div>
-            <div className="description">
-              <strong>Дата запуска: </strong>
-              <p>{newStart || start} октября</p>
-            </div>
-            <div className="description">
-              <strong>Дни уроков: </strong>
-              <p>{newLessonDay || lessonsDay}</p>
-            </div>
-            <div className="description">
-              <strong>Время уроков: </strong>
-              <p>
-                {newTimeStart || timeStart} - {newTimeEnd || timeEnd}
-              </p>
-            </div>
-            <div className="description">
-              <strong>Осталось: </strong>
-              <p>{newPlacesLeft || placesLeft} мест</p>
-            </div>
-          </div>
-          <div disabled={true} className="card--more">
-            <a className="btn btn-blue animate-y">Подробнее</a>
-          </div>
-        </div>
+        <Coursecard {...data} />
       </div>
     </div>
   );
