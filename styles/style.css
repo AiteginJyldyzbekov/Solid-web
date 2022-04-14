@@ -1303,3 +1303,8 @@ nav ul.slide {
 		width: 15px;
 	}
 }
+.languagesWrapper{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 25px;
+}

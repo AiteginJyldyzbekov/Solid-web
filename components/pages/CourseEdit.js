@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
 import { useRouter } from "next/router";
 import { Coursecard } from "../common/courseCards/courseCard.js";
-
+import { languagesList } from "../constants/languageList";
 export default function CourseEdit() {
   const router = useRouter();
   const id = router.query.id;
@@ -19,6 +19,7 @@ export default function CourseEdit() {
   const [newRightColor, setNewRightColor] = useState("");
   const [active, setActive] = useState(false);
   const [format, setFormat] = useState("");
+  const [logo, setLogo] = useState("");
 
 
   useEffect(() => {
@@ -58,6 +59,7 @@ export default function CourseEdit() {
     price,
     lessonsDay,
     start,
+    
   } = course;
 
 
@@ -72,7 +74,7 @@ export default function CourseEdit() {
     timeStart: newTimeStart,
     timeEnd: newTimeEnd,
     placesLeft: newPlacesLeft,
-    format
+    logo: logo
   }
 
   const submit = () => {
@@ -87,12 +89,19 @@ export default function CourseEdit() {
 
     }
   };
-
+  const handleClick = (index) => {
+    setLogo(languagesList[index-1])
+  }
   return (
     <div className="course-edit-wrapper container">
       <div onClick={() => { setActive(false) }} className={"card-update " + (active ? "active" : "")}>
         <span>Card updated</span>
       </div>
+      <div className="languagesWrapper">
+        {languagesList.map((lang) => (
+          <i onClick={() => handleClick(lang.id)} key={lang.id} className={`fab ${lang}`}></i>
+        ))}
+      </div> 
       <form onSubmit={submit} className="edit-form">
         <div className="edit-label">
           leftColor
