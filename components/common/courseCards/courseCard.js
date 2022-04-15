@@ -14,6 +14,7 @@ export const Coursecard = ({
       router.push("/admin/courses")
     }
   }
+  
   return (
     <div className="courses-card-wrapper">
       {btn && <div onClick={deleteData} className="delete-btn">

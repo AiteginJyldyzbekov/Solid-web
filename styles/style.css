@@ -1308,3 +1308,8 @@ nav ul.slide {
 	justify-content: space-around;
 	margin-bottom: 25px;
 }
+.activeLang{
+	padding: 5px;
+    border-radius: 15px;
+	background: #1e90ff;
+}

@@ -21,7 +21,6 @@ export default function CourseEdit() {
   const [format, setFormat] = useState("");
   const [logo, setLogo] = useState("");
 
-
   useEffect(() => {
     db.collection("courses")
       .get()
@@ -44,6 +43,7 @@ export default function CourseEdit() {
             setNewStart(e.start)
             setNewTimeEnd(e.timeEnd)
             setNewTimeStart(e.timeStart)
+            setLogo(e.logo)
           }
         });
       });
@@ -61,7 +61,6 @@ export default function CourseEdit() {
     start,
     
   } = course;
-
 
   let data = {
     leftColor: newLeftColor,
@@ -86,23 +85,23 @@ export default function CourseEdit() {
           setActive(false)
         }, 6000)
       }
-
     }
   };
   const handleClick = (index) => {
     setLogo(languagesList[index-1])
   }
+
   return (
     <div className="course-edit-wrapper container">
       <div onClick={() => { setActive(false) }} className={"card-update " + (active ? "active" : "")}>
         <span>Card updated</span>
       </div>
-      <div className="languagesWrapper">
-        {languagesList.map((lang) => (
-          <i onClick={() => handleClick(lang.id)} key={lang.id} className={`fab ${lang}`}></i>
-        ))}
-      </div> 
       <form onSubmit={submit} className="edit-form">
+        <div className="languagesWrapper">
+          {languagesList.map((lang) => (
+            <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{cursor: "pointer"}} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i> 
+          ))}
+        </div>
         <div className="edit-label">
           leftColor
           <label className="color-picker">
