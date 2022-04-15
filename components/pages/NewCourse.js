@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { db } from "../../config/firebase";
 import { useRouter } from "next/router";
-
+import { languagesList } from "../constants/languageList";
 export default function NewCourse() {
   const router = useRouter();
   const [newName, setNewName] = useState("");
@@ -15,11 +15,9 @@ export default function NewCourse() {
   const [newLeftColor, setNewLeftColor] = useState("");
   const [newRightColor, setNewRightColor] = useState("");
   const [format, setFormat] = useState("");
-
-
+  const [logo, setLogo] = useState("");
+  
   const submit = (e) => {
-    e.preventDefault()
-    const newData = [];
     const data = {
       leftColor: newLeftColor,
       rightColor: newRightColor,
@@ -31,22 +29,25 @@ export default function NewCourse() {
       timeStart: newTimeStart,
       timeEnd: newTimeEnd,
       placesLeft: newPlacesLeft,
-      format: setFormat,
+      logo: logo,
     };
-    for (let key in data) {
-      if (data[key]) {
-        newData.push({ [key]: data[key] });
-      }
-      if (newData.length >= 10) {
-        db.collection("courses").doc().set(data);
-        router.push('/admin/courses')
-      }
-    }
-    
-  };
+    console.log(data)
+    e.preventDefault();
+    db.collection("courses").doc().set(data);
+    router.push("/admin/courses");
+  }
+  
+  const handleClick = (index) => {
+    setLogo(languagesList[index-1])
+  }
   return (
     <div className="course-edit-wrapper">
-      <form action="" onSubmit={submit} className="edit-form">
+      <form action="POST" onSubmit={submit} className="edit-form">
+        <div className="languagesWrapper">
+          {languagesList.map((lang) => (
+            <i onClick={() => handleClick(lang.id)} key={lang.id} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
+          ))}
+        </div>
         <div className="edit-label">
           leftColor
           <label htmlFor="leftcolor" className="color-picker">
@@ -81,7 +82,6 @@ export default function NewCourse() {
           </label>
         </div>
         <label className="edit-label">
-          
           Name
           <input
             onChange={(e) => setNewName(e.target.value)}
@@ -91,7 +91,7 @@ export default function NewCourse() {
             required
           />
         </label>
-        <label  className="edit-label">
+        <label className="edit-label">
           Price
           <input
             onChange={(e) => setNewPrice(e.target.value)}
@@ -164,9 +164,7 @@ export default function NewCourse() {
           />
         </label>
         <div className="card--more save-btn">
-          <button className="btn btn-blue animate-y">
-            Сохранить
-          </button>
+          <button className="btn btn-blue animate-y">Сохранить</button>
         </div>
       </form>
 
@@ -174,14 +172,14 @@ export default function NewCourse() {
         <div className="cousers--card">
           <div
             style={{
-              background: `linear-gradient(153.43deg, ${
-                newLeftColor
-              }
+              background: `linear-gradient(153.43deg, ${newLeftColor}
               , ${newRightColor} 83.33%)`,
             }}
             className="card--preview"
           >
-            <i className="fab fa-python"></i>
+            {
+              logo.lang ? <i className={`fab ${logo.lang}`}></i> : <i className="fab fa-react"></i>
+            }
             <div className="card--title">
               {newName}
               <br />{" "}

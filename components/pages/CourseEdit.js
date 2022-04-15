@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
 import { useRouter } from "next/router";
 import { Coursecard } from "../common/courseCards/courseCard.js";
-
+import { languagesList } from "../constants/languageList";
 export default function CourseEdit() {
   const router = useRouter();
   const id = router.query.id;
@@ -19,7 +19,7 @@ export default function CourseEdit() {
   const [newRightColor, setNewRightColor] = useState("");
   const [active, setActive] = useState(false);
   const [format, setFormat] = useState("");
-
+  const [logo, setLogo] = useState("");
 
   useEffect(() => {
     db.collection("courses")
@@ -43,6 +43,7 @@ export default function CourseEdit() {
             setNewStart(e.start)
             setNewTimeEnd(e.timeEnd)
             setNewTimeStart(e.timeStart)
+            setLogo(e.logo)
           }
         });
       });
@@ -58,8 +59,8 @@ export default function CourseEdit() {
     price,
     lessonsDay,
     start,
+    
   } = course;
-
 
   let data = {
     leftColor: newLeftColor,
@@ -72,7 +73,7 @@ export default function CourseEdit() {
     timeStart: newTimeStart,
     timeEnd: newTimeEnd,
     placesLeft: newPlacesLeft,
-    format
+    logo: logo
   }
 
   const submit = () => {
@@ -84,9 +85,11 @@ export default function CourseEdit() {
           setActive(false)
         }, 6000)
       }
-
     }
   };
+  const handleClick = (index) => {
+    setLogo(languagesList[index-1])
+  }
 
   return (
     <div className="course-edit-wrapper container">
@@ -94,6 +97,11 @@ export default function CourseEdit() {
         <span>Card updated</span>
       </div>
       <form onSubmit={submit} className="edit-form">
+        <div className="languagesWrapper">
+          {languagesList.map((lang) => (
+            <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{cursor: "pointer"}} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i> 
+          ))}
+        </div>
         <div className="edit-label">
           leftColor
           <label className="color-picker">

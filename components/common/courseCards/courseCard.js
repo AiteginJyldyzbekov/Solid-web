@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 
 export const Coursecard = ({
   leftColor, rightColor, duration, name, placesLeft,
-  timeStart, timeEnd, price, lessonsDay, start, id, btn }) => {
+  timeStart, timeEnd, price, lessonsDay, start, id, btn, logo }) => {
   const router = useRouter()
   const idcourse = `courses/${id}`
   const deleteData = () => {
@@ -14,6 +14,7 @@ export const Coursecard = ({
       router.push("/admin/courses")
     }
   }
+  
   return (
     <div className="courses-card-wrapper">
       {btn && <div onClick={deleteData} className="delete-btn">
@@ -37,7 +38,7 @@ export const Coursecard = ({
         <div style={{
           background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"}, ${rightColor || "#e51686"} 83.33%)`
         }} className="card--preview">
-          <i className="fab fa-python"></i>
+          <i className={`fab ${logo.lang}`}></i>
           <div className="card--title">{name}<br /> </div>
           <div className="card--title card-sub-title">{price} сом/мес.</div>
         </div>
