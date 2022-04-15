@@ -45,7 +45,7 @@ export default function NewCourse() {
       <form action="POST" onSubmit={submit} className="edit-form">
         <div className="languagesWrapper">
           {languagesList.map((lang) => (
-            <i onClick={() => handleClick(lang.id)} key={lang.id} style={{cursor: "pointer"}} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
+            <i onClick={() => handleClick(lang.id)} key={lang.id} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
           ))}
         </div>
         <div className="edit-label">
