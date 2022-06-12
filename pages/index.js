@@ -10,11 +10,11 @@ export default function Home() {
         <meta name="keywords" content="
           Solid, Solid Academy, Курсы по программированию, 
           Курсы по программированию Бишкек, Курсы,
-          Программирование
-        " />
+          Программирование"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage />
+      <HomePage/>
       <Footer />
     </div>
   )

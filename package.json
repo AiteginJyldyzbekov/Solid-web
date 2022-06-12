@@ -2,13 +2,18 @@
   "name": "solid-next",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5000",
-    "build": "next build",
-    "start": "next start -p 5000",
-    "lint": "next lint"
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
-    "next": "12.0.10",
+    "emailjs-com": "^3.2.0",
+    "firebase": "^9.6.7",
+    "next": "^12.0.10",
+    "next-build": "0.0.1",
+    "next-export": "^0.1.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

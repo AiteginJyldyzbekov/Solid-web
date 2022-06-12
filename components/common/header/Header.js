@@ -1,10 +1,25 @@
-import React from 'react';
+import Link  from "next/link"
+import { useEffect, useState } from "react";
 
 export default function Header() {
-  
-  return <nav className="nav">
+  const [navbar, setNavbar] = useState(false)
+  const changeBg = () => {
+    if (window.scrollY >= 80) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', changeBg)
+    return () => window.removeEventListener('scroll', changeBg)
+  })
+
+  return <nav className={navbar ? 'nav nav-bg' : 'nav'}>
     <div className="container">
-      <a href="index.html" className="nav-logo">Solid Academy</a>
+      <Link href="/">
+        <a className="nav-logo">Solid Academy</a>
+      </Link>
       <div className="nav-bar">
         <ul className="nav-list">
           <li className="nav-item btn--call">
