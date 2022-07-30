@@ -20,6 +20,7 @@ export default function Admin({isAuth}) {
   if(isAuth) {
     router.push("/admin/dashboard")
   }
+  
   return (
     <div className="login">
       <form onSubmit={submit}>
