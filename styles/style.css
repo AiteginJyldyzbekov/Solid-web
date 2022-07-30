@@ -817,6 +817,7 @@ nav ul.slide {
 	text-align: center;
 	margin-right: 20px;
 	position: relative;
+	left: -66px;
 }
 .timeline-page .timeline-item .works-description-right {
 	text-align: left;
@@ -859,18 +860,21 @@ nav ul.slide {
 	z-index: 1;
 }
 .timeline-page .timeline-item .date-label-left::after {
-	right: -45px;
+	right: -111px;
+	top: 131px;
 }
 .timeline-page .timeline-item .duration-right::after {
-	left: -99px;
+	left: -75px;
+	top: 111px;
 }
 .row {
 	display: -ms-flexbox;
 	display: flex;
+	align-items: center;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin-right: -15px;
-	margin-left: -15px;
+	margin-right: -70px;
+	margin-left: -70px;
 }
 .col-md-6,
 .col-md-4 {
@@ -881,7 +885,7 @@ nav ul.slide {
 	padding-left: 15px;
 }
 .img-fluid {
-	max-width: 100%;
+	max-width: 404px;
 	height: auto;
 }
 .timeline-page::after {
@@ -900,6 +904,40 @@ nav ul.slide {
 		-ms-flex: 0 0 50%;
 		flex: 0 0 50%;
 		max-width: 50%;
+		margin-bottom: 25px;
+	}
+	.timeline-page .timeline-item .duration-right{
+		position: relative;
+		right: 25px;
+	}
+}
+
+@media (max-width: 425px) {
+	.timeline-page .timeline-item .works-description-right{
+		margin-left: 102px;
+		width: 56%;
+	}
+	.timeline-page .timeline-item .works-description-left{
+		margin-left: 102px;
+		width: 56%;
+	}
+	.img-fluid{
+		width: 350px;
+		margin-left: 53px;
+	}
+	.col-md-6, .col-md-4 {
+		left: -29px;
+	}
+}
+
+@media (max-width: 1040px) {
+	/* .timeline-page .timeline-item .works-description-right {
+		width: 88%;
+		margin-left: 62px;
+	} */
+	.row{
+		margin-right: -13px;
+		margin-left: 23px;
 	}
 }
 .timeline-page .timeline-item .date-label-left::after,
@@ -960,11 +998,11 @@ nav ul.slide {
 }
 @media (min-width: 200px) and (max-width: 768px) {
 	.timeline-page::after {
-		margin: 0;
+		display: none;
 	}
 	.timeline-page :nth-child(even) > div {
 		display: flex;
-		flex-direction: column-reverse;
+		flex-direction: column;
 	}
 	.timeline-item .duration {
 		float: left !important;
@@ -984,14 +1022,15 @@ nav ul.slide {
 	}
 	.timeline-page .timeline-item .date-label-left::after,
 	.timeline-page .timeline-item .duration-right::after {
-		border: 3px solid rgba(255, 255, 255, 0.8);
+		/* border: 3px solid rgba(255, 255, 255, 0.8);
 		border-radius: 50%;
 		content: "";
 		height: 20px;
 		position: absolute;
 		top: 2px;
 		width: 20px;
-		z-index: 1;
+		z-index: 1; */
+		display: none;
 	}
 }
 /* features */
