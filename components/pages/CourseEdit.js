@@ -59,7 +59,7 @@ export default function CourseEdit() {
     price,
     lessonsDay,
     start,
-    
+
   } = course;
 
   let data = {
@@ -88,7 +88,7 @@ export default function CourseEdit() {
     }
   };
   const handleClick = (index) => {
-    setLogo(languagesList[index-1])
+    setLogo(languagesList[index - 1])
   }
 
   return (
@@ -190,7 +190,7 @@ export default function CourseEdit() {
               }
             }}
             className="edit-input"
-            type="number"
+            type="edit"
             value={newStart || start}
           />
         </label>

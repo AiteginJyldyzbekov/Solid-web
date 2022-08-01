@@ -45,7 +45,11 @@ export default function NewCourse() {
       <form action="POST" onSubmit={submit} className="edit-form">
         <div className="languagesWrapper">
           {languagesList.map((lang) => (
-            <i onClick={() => handleClick(lang.id)} key={lang.id} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
+            lang.lang === "ui-ux" ? <img onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+              className={(logo.lang === lang.lang ? `activeLang ui_ux` : `ui_ux`)} src="/images/ui_ux.webp" alt="ui-ux"
+            /> :
+              <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+                className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
           ))}
         </div>
         <div className="edit-label">
@@ -114,7 +118,7 @@ export default function NewCourse() {
           <input
             onChange={(e) => setNewStart(e.target.value)}
             className="edit-input"
-            type="number"
+            type="text"
             required
           />
         </label>
@@ -195,7 +199,7 @@ export default function NewCourse() {
             </div>
             <div className="description">
               <strong>Дата запуска: </strong>
-              <p>{newStart} октября</p>
+              <p>{newStart}</p>
             </div>
             <div className="description">
               <strong>Дни уроков: </strong>

@@ -19,4 +19,8 @@ export const languagesList = [
         lang: "fa-php",
         id:5
     },
+    {
+        lang: "ui-ux",
+        id: 6
+    }
 ]

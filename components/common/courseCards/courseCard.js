@@ -14,7 +14,7 @@ export const Coursecard = ({
       router.push("/admin/courses")
     }
   }
-  
+
   return (
     <div className="courses-card-wrapper">
       {btn && <div onClick={deleteData} className="delete-btn">
@@ -38,7 +38,10 @@ export const Coursecard = ({
         <div style={{
           background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"}, ${rightColor || "#e51686"} 83.33%)`
         }} className="card--preview">
-          <i className={`fab ${logo.lang}`}></i>
+          {
+            logo.lang === "ui-ux" ? <img className="ui_ux" src="/images/ui_ux.webp" alt="ui-ux" /> :
+              <i className={`fab ${logo.lang}`}></i>
+          }
           <div className="card--title">{name}<br /> </div>
           <div className="card--title card-sub-title">{price} сом/мес.</div>
         </div>
@@ -49,7 +52,7 @@ export const Coursecard = ({
           </div>
           <div className="description">
             <strong>Дата запуска: </strong>
-            <p>{start} октября</p>
+            <p>{start}</p>
           </div>
           <div className="description">
             <strong>Дни уроков: </strong>
@@ -66,11 +69,11 @@ export const Coursecard = ({
         </div>
         <div className="card--more">
           {
-            id 
-            ? <Link href={idcourse}>
-              <a className="btn btn-blue animate-y">{btn ? "Изменить" : "Подробнее"}</a>
-            </Link>
-            : <a className="btn btn-blue animate-y">{btn ? "Изменить" : "Подробнее"}</a>
+            id
+              ? <Link href={idcourse}>
+                <a className="btn btn-blue animate-y">{btn ? "Изменить" : "Подробнее"}</a>
+              </Link>
+              : <a className="btn btn-blue animate-y">{btn ? "Изменить" : "Подробнее"}</a>
           }
         </div>
       </div>
