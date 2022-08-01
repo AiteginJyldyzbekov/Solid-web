@@ -332,6 +332,7 @@ li {
 }
 
 @media only screen and (max-width: 576px) {
+
 	.nav-item {
 		margin-left: 30px;
 	}
@@ -945,8 +946,30 @@ nav ul.slide {
 	.row {
 		margin-right: -13px;
 		margin-left: 23px;
+
+	}
+
+}
+
+@media (max-width: 425px) {
+	.img-fluid {
+		width: 100%;
+	}
+
+}
+
+@media (max-width: 1040px) {
+
+	/* .timeline-page .timeline-item .works-description-right {
+		width: 88%;
+		margin-left: 62px;
+	} */
+	.row {
+		margin-right: -13px;
+		margin-left: 23px;
 	}
 }
+
 .timeline-page .timeline-item .date-label-left::after,
 .timeline-page .timeline-item .duration-right::after,
 .back-to-top:hover {
