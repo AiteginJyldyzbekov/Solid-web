@@ -59,7 +59,7 @@ export default function CourseEdit() {
     price,
     lessonsDay,
     start,
-    
+
   } = course;
 
   let data = {
@@ -88,7 +88,7 @@ export default function CourseEdit() {
     }
   };
   const handleClick = (index) => {
-    setLogo(languagesList[index-1])
+    setLogo(languagesList[index - 1])
   }
 
   return (
@@ -99,7 +99,11 @@ export default function CourseEdit() {
       <form onSubmit={submit} className="edit-form">
         <div className="languagesWrapper">
           {languagesList.map((lang) => (
-            <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{cursor: "pointer"}} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i> 
+            lang.lang === "ui-ux" ? <img onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+              className={(logo.lang === lang.lang ? `activeLang ui_ux` : `ui_ux`)} src="/images/ui_ux.webp" alt="ui-ux"
+            /> :
+              <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+                className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
           ))}
         </div>
         <div className="edit-label">
@@ -190,7 +194,7 @@ export default function CourseEdit() {
               }
             }}
             className="edit-input"
-            type="number"
+            type="edit"
             value={newStart || start}
           />
         </label>
