@@ -1,4 +1,5 @@
-export const Timelineright = ({des, title, img}) => {
+
+export const Timelineright = ({ des, title, img }) => {
   return (
     <>
       <div className="col-md-6">
@@ -6,7 +7,7 @@ export const Timelineright = ({des, title, img}) => {
           <h3>{title}</h3>
           <p className="web-cta-desc mx-auto text-muted">{des}</p>
         </div>
-      </div> 
+      </div>
       <div className="col-md-6">
         <div className="duration duration-right">
           <img src={img} alt="Intranet" className="img-fluid" />
@@ -14,6 +15,4 @@ export const Timelineright = ({des, title, img}) => {
       </div>
     </>
   );
-}
-
-
+};
