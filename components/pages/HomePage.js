@@ -58,7 +58,7 @@ export default function HomePage() {
       .get()
       .then((snapshot) => {
         const whostudy = [];
-        snapshot.forEach((doc) => {
+        snapshot.docs.forEach((doc) => {
           whostudy.push({ ...doc.data(), id: doc.id });
         })
         setwhocanstudy(whostudy);
@@ -187,7 +187,6 @@ export default function HomePage() {
           className="section bg-image__section jarallax"
           data-jarallax='{"speed": 0.2}'
           style={{
-            backgroundImage: "url(https://bitlab.kz/images/75.jpg)",
             filter: "none",
           }}
         >
