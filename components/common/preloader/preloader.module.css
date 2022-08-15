@@ -1,9 +1,15 @@
-.wrapper{
+.wrapper {
   height: calc(100vh + 10px);
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  background: #131b1f;
 }
+
 .pad {
   padding: 100px 0;
 }
+
 .container {
   margin-top: -44px;
   display: -webkit-box;
@@ -23,18 +29,20 @@
   height: auto;
   stroke-linecap: round;
 }
-.img{
+
+.img {
   width: 100px;
   height: 100px;
   position: absolute;
 }
+
 .circle {
   fill: none;
   stroke-width: 3.5;
   -webkit-animation-name: preloader;
   animation-name: preloader;
   -webkit-animation-duration: 3s;
-  animation-duration: 3s ;
+  animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-in-out;
@@ -43,37 +51,47 @@
   transform-origin: 170px 170px;
   will-change: transform;
 }
+
 .circle:nth-of-type(1) {
   stroke-dasharray: 550px;
 }
+
 .circle:nth-of-type(2) {
   stroke-dasharray: 500px;
 }
+
 .circle:nth-of-type(3) {
   stroke-dasharray: 450px;
 }
+
 .circle:nth-of-type(4) {
   stroke-dasharray: 300px;
 }
+
 .circle:nth-of-type(5) {
   stroke-dasharray: 150px;
 }
+
 .circle:nth-of-type(1) {
   -webkit-animation-delay: -0.15s;
   animation-delay: -0.15s;
 }
+
 .circle:nth-of-type(2) {
   -webkit-animation-delay: -0.3s;
   animation-delay: -0.3s;
 }
+
 .circle:nth-of-type(3) {
   -webkit-animation-delay: -0.45s;
   animation-delay: -0.45s;
 }
+
 .circle:nth-of-type(4) {
   -webkit-animation-delay: -0.6s;
   animation-delay: -0.6s;
 }
+
 .circle:nth-of-type(5) {
   -webkit-animation-delay: -0.85s;
   animation-delay: -0.85s;
@@ -81,15 +99,15 @@
 
 @-webkit-keyframes preloader {
   50% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes preloader {
   50% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 
 }
