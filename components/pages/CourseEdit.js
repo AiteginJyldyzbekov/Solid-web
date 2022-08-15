@@ -99,11 +99,7 @@ export default function CourseEdit() {
       <form onSubmit={submit} className="edit-form">
         <div className="languagesWrapper">
           {languagesList.map((lang) => (
-            lang.lang === "ui-ux" ? <img onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
-              className={(logo.lang === lang.lang ? `activeLang ui_ux` : `ui_ux`)} src="/images/ui_ux.webp" alt="ui-ux"
-            /> :
-              <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
-                className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
+            <i onClick={() => handleClick(lang.id)} key={lang.id} style={{cursor: "pointer"}} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i> 
           ))}
         </div>
         <div className="edit-label">

@@ -27,7 +27,6 @@ export default function HomePage() {
     mentor: true,
     whocanstudy: true,
   });
-
   useEffect(() => {
     db.collection("reason").get().then((snapshot) => {
       const timeLineItem = [];
@@ -161,12 +160,12 @@ export default function HomePage() {
           <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
           <div className="row mt-5" >
             {
-              whocanstudy.map((item) => <Courses key={item.id} title={item.title} desc={item.desc} />)
+              whocanstudy.map((item) => <Courses key={item.id} {...item} />)
             }
           </div>
           <br /><br />
           <div className="header-btn">
-            <a id="write_us" className="btn btn-blue animate-y write_us">Запишите меня на ваши курсы!</a>
+            <a id="write_us" className="btn btn-blue animate-y write_us" onClick={OpenModal}>Запишите меня на ваши курсы!</a>
           </div>
         </section>
         <br />
@@ -203,6 +202,7 @@ export default function HomePage() {
                       className="btn btn-outline-custom btn-round font-weight-bold write_us"
                       data-toggle="modal"
                       data-target="#exampleModalLong"
+                      onClick={OpenModal}
                     >
                       Получить знания
                     </a>
