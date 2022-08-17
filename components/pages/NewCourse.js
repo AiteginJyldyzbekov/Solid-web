@@ -63,6 +63,7 @@ export default function NewCourse() {
                 type="color"
                 value={newLeftColor}
                 id="leftcolor"
+                placeholder="leftColor"
                 required
               />
               {newLeftColor}
@@ -80,6 +81,7 @@ export default function NewCourse() {
                 type="color"
                 value={newRightColor}
                 required
+                placeholder="right color"
               />
               {newRightColor}
             </div>
@@ -92,6 +94,7 @@ export default function NewCourse() {
             className="edit-input"
             type="text"
             id="name"
+            placeholder="name"
             required
           />
         </label>
@@ -102,6 +105,7 @@ export default function NewCourse() {
             className="edit-input"
             type="number"
             required
+            placeholder="price"
           />
         </label>
         <label className="edit-label">
@@ -111,6 +115,7 @@ export default function NewCourse() {
             className="edit-input"
             type="number"
             required
+            placeholder="duration"
           />
         </label>
         <label className="edit-label">
@@ -120,6 +125,7 @@ export default function NewCourse() {
             className="edit-input"
             type="text"
             required
+            placeholder="start"
           />
         </label>
         <label className="edit-label">
@@ -129,6 +135,7 @@ export default function NewCourse() {
             className="edit-input"
             type="text"
             required
+            placeholder="lessons day"
           />
         </label>
         <label className="edit-label">
@@ -138,6 +145,7 @@ export default function NewCourse() {
             className="edit-input"
             type="text"
             required
+            placeholder="time start"
           />
         </label>
         <label className="edit-label">
@@ -147,6 +155,7 @@ export default function NewCourse() {
             className="edit-input"
             type="text"
             required
+            placeholder="time end"
           />
         </label>
         <label className="edit-label">
@@ -156,6 +165,7 @@ export default function NewCourse() {
             className="edit-input"
             type="number"
             required
+            placeholder="places left"
           />
         </label>
         <label className="edit-label">
@@ -163,6 +173,7 @@ export default function NewCourse() {
           <textarea
             onChange={(e) => setFormat(e.target.value)}
             className="edit-input"
+            placeholder="Формат обучения"
             type="text"
             required
           />
