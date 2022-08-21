@@ -111,6 +111,7 @@ export default function CourseEdit() {
                   setNewLeftColor(e.target.value);
                 }}
                 type="color"
+                placeholder="left color"
                 value={newLeftColor || leftColor}
               />
               {newLeftColor || leftColor}
@@ -125,6 +126,7 @@ export default function CourseEdit() {
                 onChange={(e) => {
                   setNewRightColor(e.target.value);
                 }}
+                placeholder="right color"
                 type="color"
                 value={newRightColor || rightColor}
               />
@@ -144,6 +146,7 @@ export default function CourseEdit() {
             }}
             className="edit-input"
             type="text"
+            placeholder="name"
             value={newName || name}
           />
         </label>
@@ -158,6 +161,7 @@ export default function CourseEdit() {
               }
             }}
             className="edit-input"
+            placeholder="price"
             type="number"
             value={newPrice || price}
           />
@@ -175,6 +179,7 @@ export default function CourseEdit() {
             }}
             className="edit-input"
             type="number"
+            placeholder="duration"
             value={newDuration || duration}
           />
         </label>
@@ -190,6 +195,7 @@ export default function CourseEdit() {
               }
             }}
             className="edit-input"
+            placeholder="start"
             type="edit"
             value={newStart || start}
           />
@@ -206,6 +212,7 @@ export default function CourseEdit() {
               }
             }}
             className="edit-input"
+            placeholder="lessons day"
             type="text"
             value={newLessonDay || lessonsDay}
           />
@@ -223,6 +230,7 @@ export default function CourseEdit() {
             }}
             className="edit-input"
             type="text"
+            placeholder="time start"
             value={newTimeStart || timeStart}
           />
         </label>
@@ -239,6 +247,7 @@ export default function CourseEdit() {
             }}
             className="edit-input"
             type="text"
+            placeholder="time end"
             value={newTimeEnd || timeEnd}
           />
         </label>
@@ -255,6 +264,7 @@ export default function CourseEdit() {
             }}
             className="edit-input"
             type="number"
+            placeholder="places left"
             value={newPlacesLeft || placesLeft}
           />
         </label>
@@ -264,6 +274,7 @@ export default function CourseEdit() {
             onChange={(e) => setFormat(e.target.value)}
             className="edit-input"
             type="text"
+            placeholder="формат обучения"
             value={format}
             required
           />

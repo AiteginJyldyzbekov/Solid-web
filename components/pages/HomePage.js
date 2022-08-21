@@ -175,7 +175,7 @@ export default function HomePage() {
         <br />
         <section className="container about">
           <h2 className="courses-title">Мы не просто школа программирования, мы <br /> академия с глобальной целью
-            <span style={{ color: "#0accda", lineHeight: "40px" }}>стать фабрикой <br /> крутых программистов!</span>
+            <span style={{ color: "#0accda", lineHeight: "40px" }}> стать фабрикой <br /> крутых программистов!</span>
           </h2>
           <div className="row mt-5">
             {
