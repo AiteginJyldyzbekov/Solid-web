@@ -109,6 +109,7 @@
   color: #2c2c2c;
   padding: 60px 0;
   background: #fff;
+  margin-bottom: 90px;
 }
 
 .study__course {
@@ -119,6 +120,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-bottom: 70px;
 }
 
 .why__block .reason {
