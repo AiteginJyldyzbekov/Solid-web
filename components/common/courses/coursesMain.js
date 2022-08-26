@@ -11,7 +11,7 @@ export default function CoursesMain({ courseMain }) {
       <div className="d__main__description">
         <h1>{courseMain?.name}</h1>
         <h3>
-          Обучим тебя технологиям, на которых работает любой сайт или веб-приложение
+          {courseMain?.courseDef}
         </h3>
         <div className="header-btn d__main--connect">
           <a href="#contact-us" className="btn btn-blue animate-y ">
