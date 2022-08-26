@@ -20,7 +20,6 @@
   justify-content: center;
   height: 100%;
   max-width: 100vw;
-  /*background-color: #ffffff;*/
 }
 
 .loader {
@@ -98,16 +97,35 @@
 }
 
 @-webkit-keyframes preloader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
   50% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 
 @keyframes preloader {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
   50% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 }
