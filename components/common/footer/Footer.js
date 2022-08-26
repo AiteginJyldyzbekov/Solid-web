@@ -36,7 +36,7 @@ export default function Footer() {
           <a href={footer.instagram} target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href={footer.telegram}>
+          <a target="_blank" href={footer.telegram}>
             <i className="fab fa-telegram"></i>
           </a>
         </div>
