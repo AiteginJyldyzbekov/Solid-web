@@ -251,7 +251,7 @@ export default function HomePage() {
         <div className="modal">
           <div>
             <img
-              style={{ width: "455px", height: "455px" }}
+              style={{ width: "455px", height: "100%" }}
               src="/images/gif.gif"
               alt="giphy"
             />
