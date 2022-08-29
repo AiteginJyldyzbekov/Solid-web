@@ -4,7 +4,7 @@ import { Mentorscard } from "../common/mentors/mentorsCard.jsx";
 import { Courses } from "../common/aboutCourses/aboutCourses";
 import { Timeline } from "../common/timeLine/timeLine.jsx";
 import { db } from "../../config/firebase.js";
-import emailjs from 'emailjs-com';
+import emailjs from "emailjs-com";
 import Preloader from "../common/preloader/Preloader.jsx";
 
 export default function HomePage() {
@@ -15,12 +15,12 @@ export default function HomePage() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  })
+  });
 
   const [timeLine, setTimeLine] = useState([]);
   const [course, setCourses] = useState([]);
   const [mentor, setMentor] = useState([]);
-  const [whocanstudy, setwhocanstudy] = useState([])
+  const [whocanstudy, setwhocanstudy] = useState([]);
   const [isLoading, setLoading] = useState({
     timeLine: true,
     course: true,
@@ -28,22 +28,26 @@ export default function HomePage() {
     whocanstudy: true,
   });
   useEffect(() => {
-    db.collection("reason").get().then((snapshot) => {
-      const timeLineItem = [];
-      snapshot.forEach((doc) => {
-        timeLineItem.push(doc.data())
-      })
-      setTimeLine(timeLineItem)
-      setLoading({ ...isLoading, timeLine: false });
-    });
-    db.collection("courses").get().then((querySnapshot) => {
-      const courses = [];
-      querySnapshot.forEach((doc) => {
-        courses.push({ ...doc.data(), id: doc.id })
-      })
-      setCourses(courses)
-      setLoading({ ...isLoading, course: false });
-    });
+    db.collection("reason")
+      .get()
+      .then((snapshot) => {
+        const timeLineItem = [];
+        snapshot.forEach((doc) => {
+          timeLineItem.push(doc.data());
+        });
+        setTimeLine(timeLineItem);
+        setLoading({ ...isLoading, timeLine: false });
+      });
+    db.collection("courses")
+      .get()
+      .then((querySnapshot) => {
+        const courses = [];
+        querySnapshot.forEach((doc) => {
+          courses.push({ ...doc.data(), id: doc.id });
+        });
+        setCourses(courses);
+        setLoading({ ...isLoading, course: false });
+      });
     db.collection("mentors")
       .get()
       .then((snapshot) => {
@@ -60,24 +64,33 @@ export default function HomePage() {
         const whostudy = [];
         snapshot.docs.forEach((doc) => {
           whostudy.push({ ...doc.data(), id: doc.id });
-        })
+        });
         setwhocanstudy(whostudy);
         setLoading({ ...isLoading, whocanstudy: false });
-      })
+      });
   }, []);
   const OpenModal = () => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
 
   const form = useRef();
   const submit = (e) => {
-    e.preventDefault()
-    emailjs.sendForm('service_homepage', 'template_laiog88', form.current, 'Yi1ToeW6vTDnC8C2G')
-    e.target.reset()
-  }
-  const loading = isLoading.timeLine && isLoading.course && isLoading.mentor && isLoading.whocanstudy
+    e.preventDefault();
+    emailjs.sendForm(
+      "service_homepage",
+      "template_laiog88",
+      form.current,
+      "Yi1ToeW6vTDnC8C2G"
+    );
+    e.target.reset();
+  };
+  const loading =
+    isLoading.timeLine &&
+    isLoading.course &&
+    isLoading.mentor &&
+    isLoading.whocanstudy;
 
-  if(loading) return <Preloader full />
+  if (loading) return <Preloader full />;
   return (
     <div>
       <div className="theme">
@@ -130,42 +143,56 @@ export default function HomePage() {
               </div>
               <div className="about-parallax-bg"></div>
             </div>
-
           </div>
         </main>
         <section className="courses container">
           <h2 className="courses-title">Ближайшие курсы</h2>
-          <div className="header-subtitle">Выбери себе подходящий курс и стань программистом в следующих <br />направлениях</div>
+          <div className="header-subtitle">
+            Выбери себе подходящий курс и стань программистом в следующих <br />
+            направлениях
+          </div>
           <div className="cousers__cards--container">
-            {
-              course.map((item) => <Coursecard {...item} key={item.id} leftColor={item.leftColor} rightColor={item.rightColor} />)
-            }
+            {course.map((item) => (
+              <Coursecard
+                {...item}
+                key={item.id}
+                leftColor={item.leftColor}
+                rightColor={item.rightColor}
+              />
+            ))}
           </div>
         </section>
         <section id="app" className="app container">
           <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
-          <div className="header-subtitle">Причины, по которым люди обучаются в нашей школе программирования</div>
+          <div className="header-subtitle">
+            Причины, по которым люди обучаются в нашей школе программирования
+          </div>
           <div className="timeline-page mt-5">
-            {
-              timeLine.map((item, index) => <Timeline
-                key={item.id}
-                isOdd={(index + 1) % 2 === 0}
-                {...item}
-              />)
-            }
+            {timeLine.map((item, index) => (
+              <Timeline key={item.id} isOdd={(index + 1) % 2 === 0} {...item} />
+            ))}
           </div>
         </section>
         <section className="features container">
           <h2 className="courses-title">Для кого наши курсы</h2>
-          <div className="header-subtitle">Наши курсы для тебя, если ты хочешь:</div>
-          <div className="row mt-5" >
-            {
-              whocanstudy.map((item) => <Courses key={item.id} {...item} />)
-            }
+          <div className="header-subtitle">
+            Наши курсы для тебя, если ты хочешь:
           </div>
-          <br /><br />
+          <div className="row mt-5">
+            {whocanstudy.map((item) => (
+              <Courses key={item.id} {...item} />
+            ))}
+          </div>
+          <br />
+          <br />
           <div className="header-btn">
-            <a id="write_us" className="btn btn-blue animate-y write_us" onClick={OpenModal}>Запишите меня на ваши курсы!</a>
+            <a
+              id="write_us"
+              className="btn btn-blue animate-y write_us"
+              onClick={OpenModal}
+            >
+              Запишите меня на ваши курсы!
+            </a>
           </div>
         </section>
         <br />
@@ -174,13 +201,18 @@ export default function HomePage() {
         <br />
         <br />
         <section className="container about">
-          <h2 className="courses-title">Мы не просто школа программирования, мы <br /> академия с глобальной целью
-            <span style={{ color: "#0accda", lineHeight: "40px" }}> стать фабрикой <br /> крутых программистов!</span>
+          <h2 className="courses-title">
+            Мы не просто школа программирования, мы <br /> академия с глобальной
+            целью
+            <span style={{ color: "#0accda", lineHeight: "40px" }}>
+              {" "}
+              стать фабрикой <br /> крутых программистов!
+            </span>
           </h2>
           <div className="row mt-5">
-            {
-              mentor.map((item) => <Mentorscard {...item} key={item.id} />)
-            }
+            {mentor.map((item) => (
+              <Mentorscard {...item} key={item.id} />
+            ))}
           </div>
         </section>
         <section
@@ -214,30 +246,31 @@ export default function HomePage() {
           {/* <!-- <div className="bg-overlay"></div> --> */}
         </section>
       </div>
-      <div className={'modal__wrapper ' + (open ? 'modal-active' : '')}>
+      <div className={"modal__wrapper " + (open ? "modal-active" : "")}>
         <div onClick={OpenModal} className="modal-overlay"></div>
         <div className="modal">
-          <div className="modal-header">
-            <h1>Записаться на курсы</h1>
-            <div onClick={OpenModal} className="modal-closeBtn">
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" clipRule="evenodd" d="M9.84606 12.4986L0.552631 3.20519C-0.1806 2.47196 -0.1806 1.28315 0.552631 0.549923C1.28586 -0.183308 2.47466 -0.183308 3.20789 0.549923L12.5013 9.84335L21.792 0.552631C22.5253 -0.1806 23.7141 -0.1806 24.4473 0.552631C25.1805 1.28586 25.1805 2.47466 24.4473 3.20789L15.1566 12.4986L24.45 21.792C25.1832 22.5253 25.1832 23.7141 24.45 24.4473C23.7168 25.1805 22.528 25.1805 21.7947 24.4473L12.5013 15.1539L3.20519 24.45C2.47196 25.1832 1.28315 25.1832 0.549923 24.45C-0.183308 23.7168 -0.183308 22.528 0.549923 21.7947L9.84606 12.4986Z" fill="gray"></path>
-              </svg>
-            </div>
+          <div>
+            <img
+              style={{ width: "455px", height: "455px" }}
+              src="/images/gif.gif"
+              alt="giphy"
+            />
           </div>
-          <form className="modal__contact__form" onSubmit={submit} ref={form} >
-            <div>
-              <label>ИМЯ</label>
-              <input type='text' placeholder="Имя" name="name" />
-            </div>
-            <div>
-              <label>НОМЕР</label>
-              <input type='text' placeholder="+996 700 00 00 00" name="number" />
-            </div>
-            <div className="modal-btn-wrapper">
-              <button className="btn  modal--btn">Напишите нам</button>
-            </div>
-          </form>
+          <div className="modal__right">
+            <form className="modal__contact__form" onSubmit={submit} ref={form}>
+              <h2 style={{marginBottom: "20px"}}>Записаться на курсы</h2>
+              <input type="text" placeholder="Имя" name="name" />
+              <input
+                type="text"
+                placeholder="Номер"
+                name="number"
+              />
+              <div className="modal-btn-wrapper">
+                <button className="btn  modal--btn">Хочу учиться</button>
+                <button className="no_btn" onClick={OpenModal}>Нет, спасибо</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
