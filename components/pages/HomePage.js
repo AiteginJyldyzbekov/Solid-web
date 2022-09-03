@@ -162,6 +162,15 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <hr className="container" />
+        <br />
+        <br />
+        <br />
         <section id="app" className="app container">
           <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
           <div className="header-subtitle">
@@ -173,6 +182,17 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <hr className="container" />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <section className="features container">
           <h2 className="courses-title">Для кого наши курсы</h2>
           <div className="header-subtitle">
@@ -196,6 +216,10 @@ export default function HomePage() {
           </div>
         </section>
         <br />
+        <br />
+        <br />
+        <br />
+        <hr className="container" />
         <br />
         <br />
         <br />
@@ -258,16 +282,14 @@ export default function HomePage() {
           </div>
           <div className="modal__right">
             <form className="modal__contact__form" onSubmit={submit} ref={form}>
-              <h2 style={{marginBottom: "20px"}}>Записаться на курсы</h2>
+              <h2 style={{ marginBottom: "20px" }}>Записаться на курсы</h2>
               <input type="text" placeholder="Имя" name="name" />
-              <input
-                type="text"
-                placeholder="Номер"
-                name="number"
-              />
+              <input type="text" placeholder="Номер" name="number" />
               <div className="modal-btn-wrapper">
                 <button className="btn  modal--btn">Хочу учиться</button>
-                <button className="no_btn" onClick={OpenModal}>Нет, спасибо</button>
+                <button className="no_btn" onClick={OpenModal}>
+                  Нет, спасибо
+                </button>
               </div>
             </form>
           </div>
