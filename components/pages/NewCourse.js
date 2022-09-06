@@ -30,6 +30,7 @@ export default function NewCourse() {
       timeEnd: newTimeEnd,
       placesLeft: newPlacesLeft,
       logo: logo,
+      format: format
     };
     console.log(data)
     e.preventDefault();
@@ -40,6 +41,7 @@ export default function NewCourse() {
   const handleClick = (index) => {
     setLogo(languagesList[index-1])
   }
+  
   return (
     <div className="course-edit-wrapper">
       <form action="POST" onSubmit={submit} className="edit-form">
