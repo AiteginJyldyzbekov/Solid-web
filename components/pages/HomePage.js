@@ -162,81 +162,68 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <hr className="container" />
-        <br />
-        <br />
-        <br />
-        <section id="app" className="app container">
-          <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
-          <div className="header-subtitle">
-            Причины, по которым люди обучаются в нашей школе программирования
-          </div>
-          <div className="timeline-page mt-5">
-            {timeLine.map((item, index) => (
-              <Timeline key={item.id} isOdd={(index + 1) % 2 === 0} {...item} />
-            ))}
+        <div className="bg_wrapper">
+          <div className="bg_gradient"></div>
+        </div>
+
+        <section id="app" className="app">
+          <div className="container">
+            <h2 className="courses-title">Почему выгодно обучаться у нас</h2>
+            <div className="header-subtitle">
+              Причины, по которым люди обучаются в нашей школе программирования
+            </div>
+            <div className="timeline-page mt-5">
+              {timeLine.map((item, index) => (
+                <Timeline key={item.id} isOdd={(index + 1) % 2 === 0} {...item} />
+              ))}
+            </div>
           </div>
         </section>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <hr className="container" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <section className="features container">
-          <h2 className="courses-title">Для кого наши курсы</h2>
-          <div className="header-subtitle">
-            Наши курсы для тебя, если ты хочешь:
-          </div>
-          <div className="row mt-5">
-            {whocanstudy.map((item) => (
-              <Courses key={item.id} {...item} />
-            ))}
-          </div>
-          <br />
-          <br />
-          <div className="header-btn">
-            <a
-              id="write_us"
-              className="btn btn-blue animate-y write_us"
-              onClick={OpenModal}
-            >
-              Запишите меня на ваши курсы!
-            </a>
+        <div className="bg2_wrapper">
+          <div className="bg2_gradient"></div>
+        </div>
+        <section className="features">
+          <div className="container">
+            <h2 className="courses-title">Для кого наши курсы</h2>
+            <div className="header-subtitle">
+              Наши курсы для тебя, если ты хочешь:
+            </div>
+            <div className="row mt-5">
+              {whocanstudy.map((item) => (
+                <Courses key={item.id} {...item} />
+              ))}
+            </div>
+            <br />
+            <br />
+            <div className="header-btn">
+              <a
+                id="write_us"
+                className="btn btn-blue animate-y write_us"
+                onClick={OpenModal}
+              >
+                Запишите меня на ваши курсы!
+              </a>
+            </div>
           </div>
         </section>
-        <br />
-        <br />
-        <br />
-        <br />
-        <hr className="container" />
-        <br />
-        <br />
-        <br />
-        <br />
-        <section className="container about">
-          <h2 className="courses-title">
-            Мы не просто школа программирования, мы <br /> академия с глобальной
-            целью
-            <span style={{ color: "#0accda", lineHeight: "40px" }}>
-              {" "}
-              стать фабрикой <br /> крутых программистов!
-            </span>
-          </h2>
-          <div className="row mt-5">
-            {mentor.map((item) => (
-              <Mentorscard {...item} key={item.id} />
-            ))}
+        {/* <div className="bg4_wrapper">
+          <div className="bg4_gradient"></div>
+        </div> */}
+        <section className="about">
+          <div className="container">
+            <h2 className="courses-title">
+              Мы не просто школа программирования, мы <br /> академия с глобальной
+              целью
+              <span style={{ color: "#0accda", lineHeight: "40px" }}>
+                {" "}
+                стать фабрикой <br /> крутых программистов!
+              </span>
+            </h2>
+            <div className="row mt-5">
+              {mentor.map((item) => (
+                <Mentorscard {...item} key={item.id} />
+              ))}
+            </div>
           </div>
         </section>
         <section

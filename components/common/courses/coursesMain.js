@@ -13,9 +13,27 @@ export default function CoursesMain({ courseMain }) {
         <h1>{courseMain?.name}</h1>
         <h3>{courseMain?.courseDef}</h3>
         <div className="header-btn d__main--connect">
-          <a href="#contact-us" className="btn btn-blue animate-y ">
-            Записаться
-          </a>
+          <div style={{ textAlign: "left" }}>
+            {/* display: inline-block; padding: 18px 50px; font-size: 17px;
+            border-radius: 10px; margin: 20px; z-index: 3; cursor: pointer;
+            margin-top: 90px; */}
+            <a
+              href="#contact-us"
+              style={{
+                display: "inline-block",
+                padding: "18px 50px",
+                fontSize: "17px",
+                borderRadius: "10px",
+                margin: "20px",
+                zIndex: 3,
+                cursor: "pointer",
+                marginTop: "90px",
+              }}
+              className="btn btn-blue animate-y"
+            >
+              Записаться
+            </a>
+          </div>
         </div>
       </div>
       <div className="d__main__icon">
