@@ -162,9 +162,6 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-        <div className="bg_wrapper">
-          <div className="bg_gradient"></div>
-        </div>
 
         <section id="app" className="app">
           <div className="container">
@@ -179,9 +176,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <div className="bg2_wrapper">
+        {/* <div className="bg2_wrapper">
           <div className="bg2_gradient"></div>
-        </div>
+        </div> */}
         <section className="features">
           <div className="container">
             <h2 className="courses-title">Для кого наши курсы</h2>

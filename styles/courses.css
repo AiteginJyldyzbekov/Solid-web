@@ -132,13 +132,14 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  gap: 20px;
 }
 .why__block .reason > img {
   width: 130px;
   height: 130px;
 }
 .why__block .reason p {
-  width: 350px;
+  width: 417px;
   font-size: 20px;
   font-weight: 300;
 }

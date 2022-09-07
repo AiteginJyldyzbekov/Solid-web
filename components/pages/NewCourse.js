@@ -32,7 +32,6 @@ export default function NewCourse() {
       logo: logo,
       format: format
     };
-    console.log(data)
     e.preventDefault();
     db.collection("courses").doc().set(data);
     router.push("/admin/courses");

@@ -674,6 +674,7 @@ nav ul.slide {
   margin-top: 230px;
   width: 100%;
   text-align: center;
+  margin-bottom: 170px;
 }
 
 .courses-inner {
@@ -810,80 +811,7 @@ nav ul.slide {
 .app {
   background-color: #dbdbe9;
   color: #331860;
-  padding-top: 400px;
-  /* background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 7%,
-    rgba(217, 217, 230, 1) 95%,
-    rgba(219, 219, 233, 1) 100%
-  ); */
-}
-
-.bg_wrapper {
-  position: relative;
-}
-
-.bg_gradient {
-  height: 100vh;
-  width: 100vw;
-  top: -50px;
-  position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 7%,
-    rgba(217, 217, 230, 1) 95%,
-    rgba(219, 219, 233, 1) 100%
-  );
-}
-
-.bg2_wrapper {
-  position: relative;
-}
-
-.bg2_gradient {
-  height: 80vh;
-  width: 100vw;
-  top: -50px;
-  position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(217, 217, 230, 1) 0%,
-    rgba(12, 20, 38, 1) 63%
-  );
-}
-
-.bg3_wrapper {
-  position: relative;
-}
-
-.bg3_gradient {
-  height: 30vh;
-  width: 100vw;
-  top: -50px;
-  position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(217, 217, 230, 1) 0%,
-    rgba(12, 20, 38, 1) 63%
-  );
-}
-
-.bg4_wrapper {
-  position: relative;
-}
-
-.bg4_gradient {
-  height: 30vh;
-  width: 100vw;
-  top: -50px;
-  position: absolute;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 1) 93%,
-    rgba(19, 27, 31, 1) 100%
-  );
+  padding-top: 135px;
 }
 
 .timeline-page {
@@ -994,7 +922,7 @@ nav ul.slide {
   right: 0;
   top: 0;
   width: 1px;
-  background-color: #e8e8e8;
+  background-color: #331860;
 }
 
 @media (min-width: 768px) {
@@ -1034,7 +962,7 @@ nav ul.slide {
 /* features */
 .features {
   margin-top: 170px;
-  padding-top: 450px;
+  padding-top:  50px;
   padding-bottom: 150px;
   background-color: #0c1426;
 }
