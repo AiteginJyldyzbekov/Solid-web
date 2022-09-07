@@ -27,6 +27,7 @@ export const Coursecard = ({
     }
   };
 
+
   return (
     <div className="courses-card-wrapper">
       {btn && (
@@ -57,7 +58,7 @@ export const Coursecard = ({
           }}
           className="card--preview"
         >
-          {logo === "ui-ux" ? (
+          {logo.lang === "ui-ux" ? (
             <img className="ui_ux" src="/images/ui_ux.webp" alt="ui-ux" />
           ) : (
             <i className={`fab ${logo}`}></i>

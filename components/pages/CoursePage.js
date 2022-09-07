@@ -48,7 +48,6 @@ export default function CoursePage() {
   const loading = isLoading.courceMain && isLoading.reason && isLoading.program;
 
   if(loading) return <Preloader full />
-  console.log(courseMain);
 
   return (
     <div>

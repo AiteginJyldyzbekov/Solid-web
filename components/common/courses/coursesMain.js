@@ -1,12 +1,8 @@
 import { CourseStart } from "../CourseStart/CourseStart";
-import { useEffect } from "react";
-import { useState } from "react";
-import { db } from "../../../config/firebase.js";
 
 const info = ["Старт курса :", "Длительность :", "Формат обучения :"];
 
 export default function CoursesMain({ courseMain }) {
-  console.log(courseMain);
   return (
     <main className="d__main container">
       <div className="d__main__description">
