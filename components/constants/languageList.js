@@ -22,5 +22,9 @@ export const languagesList = [
     {
         lang: "ui-ux",
         id: 6
+    },
+    {
+        lang: "flutter",
+        id: 7
     }
 ]
