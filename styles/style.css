@@ -594,10 +594,10 @@ nav ul.slide {
 .about-parallax {
   position: absolute;
   z-index: -1;
-  top: -105px;
+  top: -3px;
   left: 0;
   width: 100%;
-  height: calc(100% + 105px);
+  height: calc(100% + 269px);
   overflow: hidden;
   opacity: 0.8;
 }
@@ -671,7 +671,7 @@ nav ul.slide {
 
 /* Courses */
 .courses {
-  margin-top: 230px;
+  margin-top: 330px;
   width: 100%;
   text-align: center;
   margin-bottom: 170px;
@@ -1636,7 +1636,17 @@ nav ul.slide {
   height: 60px;
 }
 
+.flutter{
+  width: 60px;
+  height: 60px;
+}
+
 .courses .ui_ux {
+  filter: invert(95%) sepia(0%) saturate(297%) hue-rotate(106deg)
+    brightness(103%) contrast(106%);
+}
+
+.courses .flutter {
   filter: invert(95%) sepia(0%) saturate(297%) hue-rotate(106deg)
     brightness(103%) contrast(106%);
 }

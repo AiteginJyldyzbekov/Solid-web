@@ -52,17 +52,16 @@ export const Coursecard = ({
       <div className="cousers--card">
         <div
           style={{
-            background: `linear-gradient(153.43deg, ${
-              leftColor || "#ffe814"
-            }, ${rightColor || "#e51686"} 83.33%)`,
+            background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"
+              }, ${rightColor || "#e51686"} 83.33%)`,
           }}
           className="card--preview"
         >
           {logo.lang === "ui-ux" ? (
             <img className="ui_ux" src="/images/ui_ux.webp" alt="ui-ux" />
-          ) : (
-            <i className={`fab ${logo}`}></i>
-          )}
+          ) : (logo.lang === "flutter" ? <img className="flutter" src="/images/flutter.svg" alt="flutter" /> : (
+            <i className={`fab ${logo.lang}`}></i>
+          ))}
           <div className="card--title">
             {name}
             <br />{" "}

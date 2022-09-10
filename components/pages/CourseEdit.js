@@ -20,6 +20,8 @@ export default function CourseEdit() {
   const [active, setActive] = useState(false);
   const [format, setFormat] = useState("");
   const [logo, setLogo] = useState("");
+  const [groupSet, setGroupSet] = useState(false)
+
 
   useEffect(() => {
     db.collection("courses")
@@ -73,7 +75,8 @@ export default function CourseEdit() {
     timeStart: newTimeStart,
     timeEnd: newTimeEnd,
     placesLeft: newPlacesLeft,
-    logo: logo
+    logo: logo,
+    isGroupActive: groupSet
   }
 
   const submit = () => {
@@ -278,6 +281,19 @@ export default function CourseEdit() {
             value={format}
             required
           />
+        </label>
+        <label className="edit-label">
+          Набор активен
+          {/* <textarea
+            onChange={(e) => setGroupSet(e.target.value)}
+            className="edit-input"
+            placeholder="true/false"
+            type="text"
+            required
+          /> */}
+          <a style={{display: "inline-block", color: "black"}} onClick={() => setGroupSet(!groupSet)}>
+            Набор активен: <h5 style={{display: "inline-block"}}>{groupSet === true? "да" : "нет"}</h5>
+          </a>
         </label>
 
         <div className="card--more save-btn">
