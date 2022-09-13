@@ -61,7 +61,8 @@
   background: rgb(235, 235, 235);
   color: #2c2c2c;
   text-align: center;
-  padding: 25px 0;
+  padding-top: 25px;
+  padding-bottom: 70px;
 }
 .a__course--des {
   width: 550px;
@@ -123,7 +124,6 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-bottom: 70px;
 }
 
 .why__block .reason {

@@ -809,9 +809,8 @@ nav ul.slide {
 
 /* app */
 .app {
-  background-color: #dbdbe9;
-  color: #331860;
   padding-top: 135px;
+  padding-bottom: 135px;
 }
 
 .timeline-page {
@@ -825,7 +824,7 @@ nav ul.slide {
 }
 
 .timeline-item {
-  margin-bottom: 80px;
+	margin-bottom: 60px;
 }
 
 .timeline-page .timeline-item .date-label-left {
@@ -922,7 +921,7 @@ nav ul.slide {
   right: 0;
   top: 0;
   width: 1px;
-  background-color: #331860;
+  background-color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -961,9 +960,8 @@ nav ul.slide {
 
 /* features */
 .features {
-  padding-top:  50px;
+  padding-top: 150px;
   padding-bottom: 150px;
-  background-color: #0c1426;
 }
 
 .service-box {
