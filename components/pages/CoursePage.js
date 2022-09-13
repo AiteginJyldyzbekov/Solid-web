@@ -54,11 +54,10 @@ export default function CoursePage() {
       <CoursesMain courseMain={courseMain} />
 
       <Coursepageabout />
-
       {
         reason.length
           ? <section className="why__block">
-            <h6 className="all--title">Зачем изучать JavaScript</h6>
+            <h6 className="all--title">{courseMain.whyLearn}</h6>
             <div className="why__reason">
               {
                 reason.map((reason) => <Reason {...reason} key={reason.id} />)

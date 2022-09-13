@@ -16,7 +16,8 @@ export default function NewCourse() {
   const [newRightColor, setNewRightColor] = useState("");
   const [format, setFormat] = useState("");
   const [logo, setLogo] = useState("");
-  
+  const [groupSet, setGroupSet] = useState(false)
+
   const submit = (e) => {
     const data = {
       leftColor: newLeftColor,
@@ -30,16 +31,20 @@ export default function NewCourse() {
       timeEnd: newTimeEnd,
       placesLeft: newPlacesLeft,
       logo: logo,
+      format: format,
+      isGroupActive: groupSet
     };
-    console.log(data)
     e.preventDefault();
     db.collection("courses").doc().set(data);
     router.push("/admin/courses");
   }
-  
+
   const handleClick = (index) => {
-    setLogo(languagesList[index-1])
+    setLogo(languagesList[index - 1])
   }
+
+  console.log(groupSet);
+
   return (
     <div className="course-edit-wrapper">
       <form action="POST" onSubmit={submit} className="edit-form">
@@ -48,7 +53,9 @@ export default function NewCourse() {
             lang.lang === "ui-ux" ? <img onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
               className={(logo.lang === lang.lang ? `activeLang ui_ux` : `ui_ux`)} src="/images/ui_ux.webp" alt="ui-ux"
             /> :
-              <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+              lang.lang === "flutter" ? <img onClick={() => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+                className={(logo.lang === lang.lang ? `activeLang flutter` : `fluuter`)} src="/images/flutter.svg" alt="flutter"
+              /> : <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
                 className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
           ))}
         </div>
@@ -177,6 +184,20 @@ export default function NewCourse() {
             type="text"
             required
           />
+        </label>
+
+        <label className="edit-label">
+          Набор активен
+          {/* <textarea
+            onChange={(e) => setGroupSet(e.target.value)}
+            className="edit-input"
+            placeholder="true/false"
+            type="text"
+            required
+          /> */}
+          <button style={{display: "inline-block"}} onClick={() => setGroupSet(!groupSet)}>
+            Набор активен: <h5 style={{display: "inline-block"}}>{groupSet === true? "да" : "нет"}</h5>
+          </button>
         </label>
         <div className="card--more save-btn">
           <button className="btn btn-blue animate-y">Сохранить</button>

@@ -11,6 +11,7 @@ const Coursepageabout = () => {
   const [course, setCourse] = useState(null)
   const [about, setAbout] = useState(null);
 
+
   useEffect(() => {
     db.collection(`courses/${id}/aboutCourseCard`)
       .get().then((snapshot) => {
