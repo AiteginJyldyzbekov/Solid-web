@@ -228,11 +228,11 @@ export default function HomePage() {
           <form className="modal__contact__form" onSubmit={submit} ref={form} >
             <div>
               <label>ИМЯ</label>
-              <input type='text' placeholder="Имя" name="name" />
+              <input required type='text' placeholder="Имя" name="name" />
             </div>
             <div>
               <label>НОМЕР</label>
-              <input type='text' placeholder="+996 700 00 00 00" name="number" />
+              <input required type='text' placeholder="+996 700 00 00 00" name="number" />
             </div>
             <div className="modal-btn-wrapper">
               <button className="btn  modal--btn">Напишите нам</button>
