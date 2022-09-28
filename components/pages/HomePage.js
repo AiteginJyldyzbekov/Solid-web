@@ -89,7 +89,6 @@ export default function HomePage() {
     isLoading.course &&
     isLoading.mentor &&
     isLoading.whocanstudy;
-
   if (loading) return <Preloader full />;
   return (
     <div>

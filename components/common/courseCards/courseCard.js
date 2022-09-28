@@ -17,6 +17,7 @@ export const Coursecard = ({
   btn,
   logo,
 }) => {
+
   const router = useRouter();
   const idcourse = `courses/${id}`;
   const deleteData = () => {
@@ -26,6 +27,7 @@ export const Coursecard = ({
       router.push("/admin/courses");
     }
   };
+
 
 
   return (
@@ -49,7 +51,7 @@ export const Coursecard = ({
           </svg>
         </div>
       )}
-      <div className="cousers--card">
+      <div className={name === "BackEnd Python Разработка" ? "cousers--card-inactive" : name === "Flutter Mobile разработка" ? "cousers--card-inactive" : "cousers--card"}>
         <div
           style={{
             background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"
@@ -94,13 +96,13 @@ export const Coursecard = ({
         </div>
         <div className="card--more">
           {id ? (
-            <Link href={idcourse}>
-              <a className="btn btn-blue animate-y">
+            <Link href={name === "BackEnd Python Разработка" ? "" : name === "Flutter Mobile разработка" ? "" : idcourse}>
+              <a className={name === "BackEnd Python Разработка" ? "btn--inactive btn-blue" : name === "Flutter Mobile разработка" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
                 {btn ? "Изменить" : "Подробнее"}
               </a>
             </Link>
           ) : (
-            <a className="btn btn-blue animate-y">
+            <a className={name === "BackEnd Python Разработка" ? "btn--inactive btn-blue" : name === "Flutter Mobile разработка" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
               {btn ? "Изменить" : "Подробнее"}
             </a>
           )}
