@@ -215,7 +215,7 @@ export default function HomePage() {
                 стать фабрикой <br /> крутых программистов!
               </span>
             </h2>
-            <div className="row mt-5">
+            <div className="row mt-5 d-flex justify-content-center">
               {mentor.map((item) => (
                 <Mentorscard {...item} key={item.id} />
               ))}
