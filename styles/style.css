@@ -427,7 +427,7 @@ nav ul.slide {
   padding: 7px 13px;
   box-sizing: border-box;
   border-radius: 10px;
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 .btn-brighred {
