@@ -89,7 +89,6 @@ export default function HomePage() {
     isLoading.course &&
     isLoading.mentor &&
     isLoading.whocanstudy;
-
   if (loading) return <Preloader full />;
   return (
     <div>
@@ -216,7 +215,7 @@ export default function HomePage() {
                 стать фабрикой <br /> крутых программистов!
               </span>
             </h2>
-            <div className="row mt-5">
+            <div className="row mt-5 d-flex justify-content-center">
               {mentor.map((item) => (
                 <Mentorscard {...item} key={item.id} />
               ))}

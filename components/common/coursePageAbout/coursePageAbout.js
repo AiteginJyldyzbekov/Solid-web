@@ -31,7 +31,6 @@ const Coursepageabout = () => {
         })
       })
   }, [id])
-
   if (!about) return <div />
   return (
     <section className="about__course">

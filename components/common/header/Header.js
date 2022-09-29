@@ -19,7 +19,7 @@ export default function Header() {
     <nav className={navbar ? "nav nav-bg" : "nav"}>
       <div className="container">
         <Link href="/">
-          <a className="nav-logo">Solid Academy</a>
+          <img src="/images/header_logo.png" alt="logo" className="nav-logo" />
         </Link>
         <div className="nav-bar">
           <ul className="nav-list">
