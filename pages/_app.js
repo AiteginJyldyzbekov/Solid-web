@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import firebase from "../config/firebase.js";
 import WithAuth from "../hoks/privateAuth.js";
 
- function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [isIncludeAdmin, setIsIncludeAdmin] = useState();
   const [isAuth, setIsAuth] = useState(false);
