@@ -1298,6 +1298,11 @@ nav ul.slide {
     min-width: 320px;
     max-width: 360px;
   }
+
+  .cousers--card-inactive {
+    min-width: 320px;
+    max-width: 360px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1325,6 +1330,12 @@ nav ul.slide {
   }
 
   .cousers--card {
+    opacity: 1;
+  }
+
+  .cousers--card-inactive {
+    min-width: 280px;
+    max-width: 300px;
     opacity: 1;
   }
 
