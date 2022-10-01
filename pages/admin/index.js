@@ -7,6 +7,7 @@ export default function Admin({ isAuth }) {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('')
 
   const submit = async (e) => {
     e.preventDefault();
@@ -15,6 +16,7 @@ export default function Admin({ isAuth }) {
         ?.auth()
         .signInWithEmailAndPassword(email, password);
     } catch (error) {
+      setError(error)
     }
   }
 
@@ -36,6 +38,12 @@ export default function Admin({ isAuth }) {
         <div className="form-field">
           <button className="btn" type="submit">Login</button>
         </div>
+
+        {
+          error ? (
+            <h4>Не правильный логин или пароль</h4>
+          ) : ""
+        }
       </form>
     </div>
   );
