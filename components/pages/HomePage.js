@@ -256,13 +256,6 @@ export default function HomePage() {
       <div className={"modal__wrapper " + (open ? "modal-active" : "")}>
         <div onClick={OpenModal} className="modal-overlay"></div>
         <div className="modal">
-          <div>
-            <img
-              style={{ width: "455px", height: "100%" }}
-              src="/images/gif.gif"
-              alt="giphy"
-            />
-          </div>
           <div className="modal__right">
             <form className="modal__contact__form" onSubmit={submit} ref={form}>
               <h2 style={{ marginBottom: "20px" }}>Записаться на курсы</h2>

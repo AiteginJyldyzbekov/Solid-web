@@ -1447,10 +1447,12 @@ nav ul.slide {
 
 .modal__right {
   background: #fff;
-  width: 60%;
+  width: 500px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
 }
 
 .modal-header::after {
@@ -1466,13 +1468,6 @@ nav ul.slide {
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-
-.modal>img {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
 }
 
 .modal-btn-wrapper {
@@ -1575,7 +1570,8 @@ nav ul.slide {
 
 @media (max-width: 768px) {
   .modal>div:nth-of-type(1) {
-    display: none;
+    display: block;
+    height: fit-content;
   }
 
   .modal {
@@ -1589,6 +1585,7 @@ nav ul.slide {
 
   .modal__contact__form {
     width: 65%;
+    margin: 0 auto;
   }
 }
 
