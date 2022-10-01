@@ -195,8 +195,8 @@ export default function NewCourse() {
             type="text"
             required
           /> */}
-          <button style={{display: "inline-block"}} onClick={() => setGroupSet(!groupSet)}>
-            Набор активен: <h5 style={{display: "inline-block"}}>{groupSet === true? "да" : "нет"}</h5>
+          <button style={{ display: "inline-block" }} onClick={() => setGroupSet(!groupSet)}>
+            Набор активен: <h5 style={{ display: "inline-block" }}>{groupSet === true ? "да" : "нет"}</h5>
           </button>
         </label>
         <div className="card--more save-btn">
@@ -227,7 +227,7 @@ export default function NewCourse() {
           <div className="card--description">
             <div className="description">
               <strong>Длительность: </strong>
-              <p>{newDuration} месяцев</p>
+              <p>{newDuration} {newDuration === '3' ? " месяца" : " месяцев"}</p>
             </div>
             <div className="description">
               <strong>Дата запуска: </strong>

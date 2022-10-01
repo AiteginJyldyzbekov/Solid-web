@@ -1,35 +1,41 @@
 import { useRouter } from "next/router";
 import firebase from "./../../config/firebase.js";
+import { useState } from "react";
 
 
-export default function Admin({isAuth}) {
+export default function Admin({ isAuth }) {
   const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const submit = async (e) => {
     e.preventDefault();
-    const email = e.target.children[1]
-    const password = e.target.children[3]
     try {
       await firebase
         ?.auth()
-        .signInWithEmailAndPassword(email.value, password.value);
+        .signInWithEmailAndPassword(email, password);
     } catch (error) {
     }
   }
 
-  if(isAuth) {
+  if (isAuth) {
     router.push("/admin/dashboard")
   }
-  
+
   return (
     <div className="login">
       <form onSubmit={submit}>
-        <p>login</p>
-        <input type="email" />
+        <div className="form-field">
+          <input type="email" placeholder="Email" required onChange={(e) => setEmail(e.target.value)} />
+        </div>
 
-        <p>password</p>
-        <input type="password" />
-        <button>Log in</button>
+        <div className="form-field">
+          <input type="password" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} />
+        </div>
+
+        <div className="form-field">
+          <button className="btn" type="submit">Login</button>
+        </div>
       </form>
     </div>
   );

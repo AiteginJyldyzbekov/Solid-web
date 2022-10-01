@@ -73,7 +73,7 @@ export const Coursecard = ({
         <div className="card--description">
           <div className="description">
             <strong>Длительность: </strong>
-            <p>{duration} месяцев</p>
+            <p>{duration} {duration === '3' ? " месяца" : " месяцев"}</p>
           </div>
           <div className="description">
             <strong>Дата запуска: </strong>

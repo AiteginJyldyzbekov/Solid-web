@@ -37,7 +37,7 @@ export default function CoursesMain({ courseMain }) {
       </div>
       <div className="d__main__info">
         <CourseStart title={info[0]} div={courseMain?.start} />
-        <CourseStart title={info[1]} div={courseMain?.duration + " месяца"} />
+        <CourseStart title={info[1]} div={courseMain?.duration + (courseMain?.duration === '3' ? " месяца" : " месяцев")} />
         <CourseStart title={info[2]} div={courseMain?.format} />
       </div>
     </main>

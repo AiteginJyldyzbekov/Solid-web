@@ -10,11 +10,12 @@
   flex-basis: 60%;
 }
 
-.d__main__description > h1 {
+.d__main__description>h1 {
   font-size: 48px;
   margin-bottom: 35px;
 }
-.d__main__description > h3 {
+
+.d__main__description>h3 {
   margin-bottom: 50px;
   margin-right: 55px;
   line-height: 35px;
@@ -25,18 +26,22 @@
 .d__main__icon {
   flex-basis: 40%;
 }
-.d__main__icon > img {
+
+.d__main__icon>img {
   width: 100%;
 }
+
 .d__main__info {
   margin: 80px 0 40px 0;
   flex-basis: 100%;
   display: flex;
   justify-content: space-between;
 }
+
 .d__main__course {
   flex-basis: 33%;
 }
+
 .d__main__course--title {
   font-size: 25px;
 }
@@ -64,6 +69,7 @@
   padding-top: 25px;
   padding-bottom: 70px;
 }
+
 .a__course--des {
   width: 550px;
   font-weight: 300;
@@ -71,12 +77,14 @@
   margin: 0 auto;
   font-size: 20px;
 }
+
 .a__courses {
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .a__courses__card {
   min-width: 300px;
   max-width: 320px;
@@ -86,22 +94,25 @@
   flex-direction: column;
   align-items: center;
   padding: 25px;
+  margin-top: 20px;
   border-radius: 10px;
   text-align: left;
   box-shadow: rgb(0 0 0 / 10%) 0px 0px 40px 0px;
 }
-.a__courses__card > .title {
+
+.a__courses__card>.title {
   margin: 20px 0;
   font-size: 22px;
   font-weight: 500;
 }
 
-.a__courses__card > img {
+.a__courses__card>img {
   border-radius: 113px;
   width: 120px;
   height: 110px;
 }
-.a__courses__card > p {
+
+.a__courses__card>p {
   font-size: 17px;
   font-weight: 300;
   line-height: 25px;
@@ -134,44 +145,53 @@
   margin: 20px 0;
   gap: 20px;
 }
-.why__block .reason > img {
+
+.why__block .reason>img {
   width: 130px;
   height: 130px;
 }
+
 .why__block .reason p {
   width: 417px;
   font-size: 20px;
   font-weight: 300;
 }
+
 .study__steps__container {
   margin-top: 80px;
   display: flex;
   justify-content: space-evenly;
 }
+
 .study__steps {
   flex-basis: 70%;
   display: flex;
   flex-direction: column;
 }
+
 .study__steps--step {
   width: 650px;
   margin: 0 0 75px 10px;
 }
-.study__steps--step > h3 {
+
+.study__steps--step>h3 {
   font-size: 25px;
   font-weight: 600;
   margin-bottom: 40px;
 }
-.study__steps--step > p {
+
+.study__steps--step>p {
   font-size: 20px;
   font-weight: 300;
   line-height: 35px;
 }
+
 .contact-us {
   padding: 25px;
   background: #fff;
   color: #2c2c2c;
 }
+
 .contact__form {
   color: #fff;
   width: 650px;
@@ -182,7 +202,8 @@
   padding: 70px 50px;
   margin: 0 auto;
 }
-.contact__form > input {
+
+.contact__form>input {
   margin: 15px 0;
   background: none;
   padding: 15px;
@@ -191,10 +212,11 @@
   border: 1px solid rgb(60, 60, 83);
 }
 
-.contact__form > input:focus {
+.contact__form>input:focus {
   outline: none;
   border-color: #ff346d;
 }
+
 .p20 {
   padding: 20px;
 }
@@ -204,6 +226,7 @@
     display: flex;
     justify-content: flex-start !important;
   }
+
   .a__courses {
     justify-content: space-around;
   }
@@ -214,72 +237,103 @@
     max-width: 300px;
   }
 }
+
 @media (max-width: 768px) {
   .submit-btn {
     margin: 0 !important;
   }
+
   .contact__form {
     max-width: 650px;
     width: 100%;
   }
+
   .study__steps {
     margin: 0 auto;
     flex-basis: 85%;
   }
+
   .study__steps--step {
     text-align: center;
     margin: 0 0 75px 0;
     width: 100%;
   }
-  .study__steps--step > h3 {
+
+  .study__steps--step>h3 {
     font-size: 20px;
   }
+
   .svg {
     display: none;
   }
+
   .reason {
     flex-direction: column;
     align-items: center;
   }
-  .reason > img {
+
+  .reason>img {
     width: 100px;
     height: 100px !important;
     margin-bottom: 20px;
   }
+
   .all--title {
     font-size: 30px;
   }
+
   .a__course--des {
     max-width: 400px;
     width: 100%;
   }
+
+  .a__courses {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+
+
+  }
+
   .d__main__description {
     padding: 0;
   }
+
   .d__main--connect {
     display: flex;
     justify-content: center !important;
   }
+
   .d__main {
     flex-direction: column;
   }
-  .d__main__description > h1 {
+
+  .d__main__description>h1 {
     font-size: 38px;
     text-align: center;
   }
-  .d__main__description > h3 {
+
+  .d__main__description>h3 {
     text-align: center;
     margin: 0;
   }
+
   .d__main__icon {
     display: none;
   }
+
   .d__main__info {
     flex-direction: column;
     text-align: center;
   }
+
   .d__main__course {
     margin: 20px auto;
     width: 80%;
+  }
+
+  .why__reason .reason p {
+    text-align: center;
   }
 }
