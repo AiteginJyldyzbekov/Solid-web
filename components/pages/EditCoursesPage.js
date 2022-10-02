@@ -8,6 +8,7 @@ export default function EditCoursesPage() {
   const id = router.query.id
   const [course, setCourses] = useState([]);
   const [btn, setBtn] = useState(false);
+  const [isInactiveCard, setIsInactiveCard] = useState(false)
   useEffect(() => {
     db.collection("courses")
       .get()
@@ -22,6 +23,7 @@ export default function EditCoursesPage() {
   useEffect(()=>{
     if(router.pathname === "/admin/courses"){
       setBtn(true)
+      setIsInactiveCard(true)
     }
   },[])
   
@@ -50,6 +52,7 @@ export default function EditCoursesPage() {
             rightColor={item.rightColor}
             btn={btn}
             isActive={item.isActive}
+            isInactiveCard={isInactiveCard}
             
           />
         ))}

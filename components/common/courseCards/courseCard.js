@@ -17,6 +17,7 @@ export const Coursecard = ({
   id,
   btn,
   logo,
+  isInactiveCard,
 }) => {
 
   const router = useRouter();
@@ -101,12 +102,12 @@ export const Coursecard = ({
         <div className="card--more">
           {id ? (
             <Link href={name === "BackEnd Python Разработка" ? "" : name === "Flutter Mobile разработка" ? "" : idcourse}>
-              <a className={name === "BackEnd Python Разработка" ? "btn--inactive btn-blue" : name === "Flutter Mobile разработка" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
+              <a className={isInactiveCard ? "btn btn-blue animate-y" : isActive === "Не активен" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
                 {btn ? "Изменить" : "Подробнее"}
               </a>
             </Link>
           ) : (
-            <a className={name === "BackEnd Python Разработка" ? "btn--inactive btn-blue" : name === "Flutter Mobile разработка" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
+            <a className={isInactiveCard ? "btn btn-blue animate-y" : isActive === "Не активен" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
               {btn ? "Изменить" : "Подробнее"}
             </a>
           )}
