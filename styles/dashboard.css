@@ -342,6 +342,10 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+
+.edit-label strong{
+  width: 120px;
+}
 .edit-input{
   width: 250px;
 }
@@ -381,6 +385,7 @@ input[type='color']{
     box-shadow: 0px 0px 15px #42bdeb;
     color: white;
 }
+
 .courses-card-wrapper{
   position: relative;
 }

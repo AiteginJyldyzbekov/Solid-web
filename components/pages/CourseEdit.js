@@ -3,6 +3,7 @@ import { db } from "../../config/firebase";
 import { useRouter } from "next/router";
 import { Coursecard } from "../common/courseCards/courseCard.js";
 import { languagesList } from "../constants/languageList";
+
 export default function CourseEdit() {
   const router = useRouter();
   const id = router.query.id;
@@ -21,6 +22,7 @@ export default function CourseEdit() {
   const [format, setFormat] = useState("");
   const [logo, setLogo] = useState("");
   const [groupSet, setGroupSet] = useState(false)
+  const [newIsActiveCourse, setIsActiveCourse] = useState("")
 
 
   useEffect(() => {
@@ -46,6 +48,7 @@ export default function CourseEdit() {
             setNewTimeEnd(e.timeEnd)
             setNewTimeStart(e.timeStart)
             setLogo(e.logo)
+            setIsActiveCourse(e.isActive)
           }
         });
       });
@@ -53,6 +56,7 @@ export default function CourseEdit() {
   const {
     leftColor,
     rightColor,
+    isActive,
     duration,
     name,
     placesLeft,
@@ -67,6 +71,7 @@ export default function CourseEdit() {
   let data = {
     leftColor: newLeftColor,
     rightColor: newRightColor,
+    isActive: newIsActiveCourse,
     name: newName,
     price: newPrice,
     duration: newDuration,
@@ -80,6 +85,7 @@ export default function CourseEdit() {
   }
 
   const submit = () => {
+    alert("Изменения сохранены!")
     for (let key in data) {
       if (data[key]) {
         db.collection("courses").doc(id).update({ [key]: data[key] })
@@ -102,7 +108,7 @@ export default function CourseEdit() {
       <form onSubmit={submit} className="edit-form">
         <div className="languagesWrapper">
           {languagesList.map((lang) => (
-            <i onClick={() => handleClick(lang.id)} key={lang.id} style={{cursor: "pointer"}} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i> 
+            <i onClick={() => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }} className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
           ))}
         </div>
         <div className="edit-label">
@@ -283,23 +289,20 @@ export default function CourseEdit() {
           />
         </label>
         <label className="edit-label">
-          Набор активен
-          {/* <textarea
-            onChange={(e) => setGroupSet(e.target.value)}
+          Name
+          <input
+            onChange={(e) => setIsActiveCourse(e.target.value)}
             className="edit-input"
-            placeholder="true/false"
             type="text"
-            required
-          /> */}
-          <a style={{display: "inline-block", color: "black"}} onClick={() => setGroupSet(!groupSet)}>
-            Набор активен: <h5 style={{display: "inline-block"}}>{groupSet === true? "да" : "нет"}</h5>
-          </a>
+            placeholder="name"
+            value={newIsActiveCourse}
+          />
         </label>
 
         <div className="card--more save-btn">
-          <a onClick={submit} className="btn btn-blue animate-y">
-            Сохранить
-          </a>
+            <a onClick={submit} className="btn btn-blue animate-y">
+              Сохранить
+            </a>
         </div>
       </form>
 

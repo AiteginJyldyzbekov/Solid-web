@@ -832,10 +832,6 @@ nav ul.slide {
   padding: 15px;
 }
 
-.card--loh {
-  color: red;
-}
-
 .card--description .description {
   display: flex;
   grid-gap: 5px;

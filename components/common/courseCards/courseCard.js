@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 export const Coursecard = ({
   leftColor,
   rightColor,
+  isActive,
   duration,
   name,
   placesLeft,
@@ -27,7 +28,6 @@ export const Coursecard = ({
       router.push("/admin/courses");
     }
   };
-
 
 
   return (
@@ -92,6 +92,10 @@ export const Coursecard = ({
           <div className="description">
             <strong>Осталось: </strong>
             <p>{placesLeft} мест</p>
+          </div>
+          <div className="description">
+            <strong>Курс: </strong>
+            <p>{isActive}</p>
           </div>
         </div>
         <div className="card--more">

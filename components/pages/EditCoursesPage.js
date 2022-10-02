@@ -49,6 +49,7 @@ export default function EditCoursesPage() {
             leftColor={item.leftColor}
             rightColor={item.rightColor}
             btn={btn}
+            isActive={item.isActive}
             
           />
         ))}
