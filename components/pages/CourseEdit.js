@@ -289,7 +289,7 @@ export default function CourseEdit() {
           />
         </label>
         <label className="edit-label">
-          Name
+          Курс:
           <input
             onChange={(e) => setIsActiveCourse(e.target.value)}
             className="edit-input"
