@@ -5,13 +5,4 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/docs/:path*',
-        destination: '/:path*',
-        permanent: true,
-      },
-    ]
-  },
 }

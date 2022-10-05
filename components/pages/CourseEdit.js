@@ -281,7 +281,7 @@ export default function CourseEdit() {
           Формат обучения
           <textarea
             onChange={(e) => setFormat(e.target.value)}
-            className="edit-input"
+            className="text-area-format"
             type="text"
             placeholder="формат обучения"
             value={format}

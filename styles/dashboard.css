@@ -1,16 +1,20 @@
 .next {
   border-radius: 0 25px 0 0;
 }
+
 .prev {
   border-radius: 0 0 25px 0;
 }
+
 .dashboard-wrapper {
   display: flex;
   color: black;
 }
+
 .dashboard-under-wrapper {
   width: 100%;
 }
+
 .dashboard-header-wrapper {
   z-index: 8;
   right: 0;
@@ -22,18 +26,22 @@
   justify-content: space-between;
   padding: 0 15px 0 15px;
 }
-.dashboard-header-wrapper.active{
+
+.dashboard-header-wrapper.active {
   width: 85%;
 }
+
 .dashboard-header-search-wrapper {
   position: relative;
 }
-.courseWrapper{
+
+.courseWrapper {
   margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .dashboard-header-search {
   border: solid 2px gray;
   border-radius: 30px;
@@ -42,6 +50,7 @@
   padding: 15px 15px 15px 25px;
   position: relative;
 }
+
 .dashboard-header-search-wrapper::before {
   content: "";
   position: absolute;
@@ -54,6 +63,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .dashboard-header-logo {
   cursor: pointer;
   width: 40px;
@@ -61,6 +71,7 @@
   background: black;
   border-radius: 50%;
 }
+
 .aside-li {
   color: white;
   height: 45px;
@@ -69,16 +80,18 @@
   padding: 15px;
   background: #1e90ff;
 }
+
 .aside-li img {
   width: 25px;
   height: 25px;
-  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(211deg)
-    brightness(104%) contrast(101%);
+  filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(211deg) brightness(104%) contrast(101%);
   cursor: pointer;
 }
+
 .aside-li-first {
   height: 20px;
 }
+
 .aside-title {
   display: flex;
   height: 50px;
@@ -87,25 +100,30 @@
   color: white;
   position: relative;
 }
+
 .aside-title img {
   width: 80px;
-  
+
 }
+
 .dashboard-burger-menu {
   position: absolute;
   right: -60px;
 }
+
 .aside-title span {
   opacity: 0;
   transition: all 0.8s ease-in-out;
   font-size: 18px;
   font-weight: 600;
 }
-.asideWrapper{
+
+.asideWrapper {
   width: 300px;
   transition: all 0.7s ease-in-out;
 
 }
+
 .aside-wrapper {
   z-index: 10;
   position: fixed;
@@ -114,21 +132,25 @@
   background: #1e90ff;
   transition: all 0.65s ease-in-out;
 }
+
 .aside-wrapper ul li.active {
   background: white;
   border-radius: 25px 0 0 25px;
 }
+
 .aside-wrapper ul li:nth-of-type() {
   background: black;
 }
+
 .aside-wrapper ul li.active span {
   color: #1e90ff;
   transition: all 0.8s ease-in-out;
 }
+
 .aside-wrapper ul li.active img {
-  filter: invert(46%) sepia(79%) saturate(2846%) hue-rotate(192deg)
-    brightness(100%) contrast(106%);
+  filter: invert(46%) sepia(79%) saturate(2846%) hue-rotate(192deg) brightness(100%) contrast(106%);
 }
+
 .aside-li span {
   font-weight: 600;
   margin-left: 15px;
@@ -136,17 +158,21 @@
   opacity: 0;
   cursor: pointer;
 }
+
 .aside-li div {
   display: flex;
   align-items: center;
 }
+
 .aside-wrapper ul {
   background: linear-gradient(to right, #1e90ff 50%, white 50%);
   padding-left: 15px;
 }
+
 .aside-title-active {
   opacity: 1 !important;
 }
+
 .BurgerActive {
   width: 80px;
 }
@@ -162,12 +188,15 @@
   -ms-user-select: none;
   user-select: none;
 }
+
 .hamRotate.active {
   transform: rotate(45deg);
 }
+
 .hamRotate180.active {
   transform: rotate(180deg);
 }
+
 .line {
   fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
@@ -175,167 +204,215 @@
   stroke-width: 5.5;
   stroke-linecap: round;
 }
+
 .ham1 .top {
   stroke-dasharray: 40 139;
 }
+
 .ham1 .bottom {
   stroke-dasharray: 40 180;
 }
+
 .ham1.active .top {
   stroke-dashoffset: -98px;
 }
+
 .ham1.active .bottom {
   stroke-dashoffset: -138px;
 }
+
 .ham2 .top {
   stroke-dasharray: 40 121;
 }
+
 .ham2 .bottom {
   stroke-dasharray: 40 121;
 }
+
 .ham2.active .top {
   stroke-dashoffset: -102px;
 }
+
 .ham2.active .bottom {
   stroke-dashoffset: -102px;
 }
+
 .ham3 .top {
   stroke-dasharray: 40 130;
 }
+
 .ham3 .middle {
   stroke-dasharray: 40 140;
 }
+
 .ham3 .bottom {
   stroke-dasharray: 40 205;
 }
+
 .ham3.active .top {
   stroke-dasharray: 75 130;
   stroke-dashoffset: -63px;
 }
+
 .ham3.active .middle {
   stroke-dashoffset: -102px;
 }
+
 .ham3.active .bottom {
   stroke-dasharray: 110 205;
   stroke-dashoffset: -86px;
 }
+
 .ham4 .top {
   stroke-dasharray: 40 121;
 }
+
 .ham4 .bottom {
   stroke-dasharray: 40 121;
 }
+
 .ham4.active .top {
   stroke-dashoffset: -68px;
 }
+
 .ham4.active .bottom {
   stroke-dashoffset: -68px;
 }
+
 .ham5 .top {
   stroke-dasharray: 40 82;
 }
+
 .ham5 .bottom {
   stroke-dasharray: 40 82;
 }
+
 .ham5.active .top {
   stroke-dasharray: 14 82;
   stroke-dashoffset: -72px;
 }
+
 .ham5.active .bottom {
   stroke-dasharray: 14 82;
   stroke-dashoffset: -72px;
 }
+
 .ham6 .top {
   stroke-dasharray: 40 172;
 }
+
 .ham6 .middle {
   stroke-dasharray: 40 111;
 }
+
 .ham6 .bottom {
   stroke-dasharray: 40 172;
 }
+
 .ham6.active .top {
   stroke-dashoffset: -132px;
 }
+
 .ham6.active .middle {
   stroke-dashoffset: -71px;
 }
+
 .ham6.active .bottom {
   stroke-dashoffset: -132px;
 }
+
 .ham7 .top {
   stroke-dasharray: 40 82;
 }
+
 .ham7 .middle {
   stroke-dasharray: 40 111;
 }
+
 .ham7 .bottom {
   stroke-dasharray: 40 161;
 }
+
 .ham7.active .top {
   stroke-dasharray: 17 82;
   stroke-dashoffset: -62px;
 }
+
 .ham7.active .middle {
   stroke-dashoffset: 23px;
 }
+
 .ham7.active .bottom {
   stroke-dashoffset: -83px;
 }
+
 .ham8 .top {
   stroke-dasharray: 40 160;
 }
+
 .ham8 .middle {
   stroke-dasharray: 40 142;
   transform-origin: 50%;
   transition: transform 400ms;
 }
+
 .ham8 .bottom {
   stroke-dasharray: 40 85;
   transform-origin: 50%;
   transition: transform 400ms, stroke-dashoffset 400ms;
 }
+
 .ham8.active .top {
   stroke-dashoffset: -64px;
 }
+
 .ham8.active .middle {
   stroke-dashoffset: -20px;
   transform: rotate(90deg);
 }
+
 .ham8.active .bottom {
   stroke-dashoffset: -64px;
 }
-.editCourse-title-wrapper{
+
+.editCourse-title-wrapper {
   align-items: center;
 }
-.new-courses-btn{
+
+.new-courses-btn {
   margin: 0;
   display: flex;
   justify-content: center;
 }
-.edit-course-card{
+
+.edit-course-card {
   min-height: fit-content;
   box-shadow: none;
   display: flex;
 }
-.cursor{
+
+.cursor {
   cursor: default;
 }
-.btn-wrapper{
+
+.btn-wrapper {
   height: 80px;
   justify-content: center;
 }
-.course-edit-wrapper{
+
+.course-edit-wrapper {
   color: #000;
   display: flex;
   justify-content: space-evenly;
   margin-top: 50px;
   width: 100%;
 }
-.edit-form{
+
+.edit-form {
   width: 40%;
 }
-.edit-label{
+
+.edit-label {
   font-size: 20px;
   font-weight: 600;
   display: flex;
@@ -343,19 +420,33 @@
   margin-bottom: 20px;
 }
 
-.edit-label strong{
+.edit-label strong {
   width: 120px;
 }
-.edit-input{
+
+.edit-input {
   width: 250px;
 }
-input[type='color']{
+
+.text-area-format {
+  width: 250px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+input[type='color'] {
   width: 25px;
   height: 25px;
   margin-right: 12px;
   border: none;
   cursor: pointer;
 }
+
 [type='color']::-webkit-color-swatch-wrapper {
   padding: 0;
 }
@@ -366,35 +457,41 @@ input[type='color']{
   border: 1px solid #ccc;
   background-color: #f8f9f9;
 }
-.color-picker div{
+
+.color-picker div {
   display: flex;
   cursor: pointer;
 }
-.color-picker{
+
+.color-picker {
   cursor: pointer;
-  
+
 }
-.save-btn{
+
+.save-btn {
   display: flex;
   justify-content: center;
 }
-.save-btn button{
+
+.save-btn button {
   font-size: 16px;
-    letter-spacing: 1px;
-    padding: 14px 45px;
-    box-shadow: 0px 0px 15px #42bdeb;
-    color: white;
+  letter-spacing: 1px;
+  padding: 14px 45px;
+  box-shadow: 0px 0px 15px #42bdeb;
+  color: white;
 }
 
-.courses-card-wrapper{
+.courses-card-wrapper {
   position: relative;
 }
-.delete-btn{
+
+.delete-btn {
   position: absolute;
   right: 0;
   z-index: 5;
 }
-.card-update{
+
+.card-update {
   background: #1e90ff;
   position: absolute;
   top: -3000px;
@@ -406,17 +503,20 @@ input[type='color']{
   justify-content: center;
   transition: all 0.6s ease-in-out;
 }
-.card-update span{
+
+.card-update span {
   color: white;
   font-size: 20px;
   font-weight: 600;
   font-family: sans-serif;
 }
-.card-update.active{
+
+.card-update.active {
   top: 0;
 }
-@media(max-width: 1190px){
-  .edit-course-card{
+
+@media(max-width: 1190px) {
+  .edit-course-card {
     width: 700px;
     max-width: 700px;
   }
