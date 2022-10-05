@@ -815,6 +815,9 @@ nav ul.slide {
   font-size: 50px;
 }
 
+.error{
+  color: red;
+}
 .card--title {
   text-align: center;
   font-size: 18px;

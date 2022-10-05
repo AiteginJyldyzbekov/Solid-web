@@ -18,6 +18,9 @@ export default function HomePage() {
   });
 
   const [timeLine, setTimeLine] = useState([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("")
   const [course, setCourses] = useState([]);
   const [mentor, setMentor] = useState([]);
   const [whocanstudy, setwhocanstudy] = useState([]);
@@ -76,12 +79,17 @@ export default function HomePage() {
   const form = useRef();
   const submit = (e) => {
     e.preventDefault();
-    emailjs.sendForm(
-      "service_homepage",
-      "template_laiog88",
-      form.current,
-      "Yi1ToeW6vTDnC8C2G"
-    );
+    if (email && password) {
+      emailjs.sendForm(
+        "service_homepage",
+        "template_laiog88",
+        form.current,
+        "Yi1ToeW6vTDnC8C2G"
+      )
+      setError("")
+    } else {
+      setError("Введите свои данные");
+    }
     e.target.reset();
   };
   const loading =
@@ -259,9 +267,14 @@ export default function HomePage() {
           <div className="modal__right">
             <form className="modal__contact__form" onSubmit={submit} ref={form}>
               <h2 style={{ marginBottom: "20px" }}>Записаться на курсы</h2>
-              <input type="text" placeholder="Имя" name="name" />
-              <input type="text" placeholder="Номер" name="number" />
+              <input type="text" placeholder="Имя" name="name" onChange={(e) => setEmail(e.target.value)} />
+              <input type="text" placeholder="Номер" name="number" onChange={(e) => setPassword(e.target.value)} />
               <div className="modal-btn-wrapper">
+                {
+                  error ? (
+                    <div className="error">{error}</div>
+                  ) : ""
+                }
                 <button className="btn  modal--btn">Хочу учиться</button>
                 <button className="no_btn" onClick={OpenModal}>
                   Нет, спасибо
