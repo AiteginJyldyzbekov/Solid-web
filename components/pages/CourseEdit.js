@@ -72,6 +72,7 @@ export default function CourseEdit() {
     leftColor: newLeftColor,
     rightColor: newRightColor,
     isActive: newIsActiveCourse,
+    format: format,
     name: newName,
     price: newPrice,
     duration: newDuration,
