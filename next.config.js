@@ -8,8 +8,9 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/about',
-        destination: '/',
+        source: '/docs/:path*',
+        destination: '/:path*',
+        permanent: true,
       },
     ]
   },
