@@ -52,7 +52,7 @@ export const Coursecard = ({
           </svg>
         </div>
       )}
-      <div className={name === "BackEnd Python Разработка" ? "cousers--card-inactive" : name === "Flutter Mobile разработка" ? "cousers--card-inactive" : "cousers--card"}>
+      <div className={isActive === "Не активен" ? "cousers--card-inactive" : "cousers--card"}>
         <div
           style={{
             background: `linear-gradient(153.43deg, ${leftColor || "#ffe814"
@@ -101,7 +101,7 @@ export const Coursecard = ({
         </div>
         <div className="card--more">
           {id ? (
-            <Link href={name === "BackEnd Python Разработка" ? "" : name === "Flutter Mobile разработка" ? "" : idcourse}>
+            <Link href={isInactiveCard ? idcourse : isActive === "Не активен" ? "" : idcourse}>
               <a className={isInactiveCard ? "btn btn-blue animate-y" : isActive === "Не активен" ? "btn--inactive btn-blue" : "btn btn-blue animate-y"}>
                 {btn ? "Изменить" : "Подробнее"}
               </a>

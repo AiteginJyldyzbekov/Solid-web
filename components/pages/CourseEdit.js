@@ -291,19 +291,16 @@ export default function CourseEdit() {
         </label>
         <label className="edit-label">
           Курс:
-          <input
-            onChange={(e) => setIsActiveCourse(e.target.value)}
-            className="edit-input"
-            type="text"
-            placeholder="name"
-            value={newIsActiveCourse}
-          />
+          <select className="text-area-format" onChange={(e) => setIsActiveCourse(e.target.value)} value={newIsActiveCourse}>
+            <option>Активен</option>
+            <option>Не активен</option>
+          </select>
         </label>
 
         <div className="card--more save-btn">
-            <a onClick={submit} className="btn btn-blue animate-y">
-              Сохранить
-            </a>
+          <a onClick={submit} className="btn btn-blue animate-y">
+            Сохранить
+          </a>
         </div>
       </form>
 
