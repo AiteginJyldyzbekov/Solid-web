@@ -23,6 +23,8 @@ export default function CourseEdit() {
   const [logo, setLogo] = useState("");
   const [groupSet, setGroupSet] = useState(false)
   const [newIsActiveCourse, setIsActiveCourse] = useState("")
+  const [totalPrice, setTotalPrice] = useState()
+  const [proccent, setProccent] = useState()
 
 
   useEffect(() => {
@@ -97,6 +99,18 @@ export default function CourseEdit() {
       }
     }
   };
+
+
+  const priceCount = (e) => {
+    setProccent(e.target.value)
+    const totalProccent = proccent / 100
+    setTotalPrice(newPrice - newPrice * (proccent / 100))
+    console.log(newPrice)
+    console.log(proccent)
+
+  }
+
+
   const handleClick = (index) => {
     setLogo(languagesList[index - 1])
   }
@@ -175,6 +189,26 @@ export default function CourseEdit() {
             type="number"
             value={newPrice || price}
           />
+        </label>
+        <label className="edit-label">
+          Proccent
+          <input
+            className="edit-input"
+            placeholder="Proccent"
+            type="number"
+            value={proccent}
+            onChange={(e) => priceCount(e)}
+          />
+        </label>
+        <label className="edit-label">
+          Total Price
+          {/* <input
+            className="edit-input"
+            placeholder="price"
+            type="number"
+            value={totalPrice}
+          /> */}
+          <h1>{totalPrice}</h1>
         </label>
         <label className="edit-label">
           Duration
