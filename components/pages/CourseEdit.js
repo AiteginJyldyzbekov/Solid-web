@@ -51,6 +51,7 @@ export default function CourseEdit() {
             setNewTimeStart(e.timeStart)
             setLogo(e.logo)
             setIsActiveCourse(e.isActive)
+            setTotalPrice(e.totalPrice)
           }
         });
       });
@@ -59,6 +60,7 @@ export default function CourseEdit() {
     leftColor,
     rightColor,
     isActive,
+    vtotalPrice,
     duration,
     name,
     placesLeft,
@@ -74,6 +76,7 @@ export default function CourseEdit() {
     leftColor: newLeftColor,
     rightColor: newRightColor,
     isActive: newIsActiveCourse,
+    vtotalPrice: totalPrice,
     format: format,
     name: newName,
     price: newPrice,
@@ -104,7 +107,7 @@ export default function CourseEdit() {
   const priceCount = (e) => {
     setProccent(e.target.value)
     const totalProccent = proccent / 100
-    setTotalPrice(newPrice - newPrice * (proccent / 100))
+    setTotalPrice(newPrice - newPrice * totalProccent)
     console.log(newPrice)
     console.log(proccent)
 
