@@ -23,6 +23,7 @@ export default function CourseEdit() {
   const [logo, setLogo] = useState("");
   const [groupSet, setGroupSet] = useState(false)
   const [newIsActiveCourse, setIsActiveCourse] = useState("")
+  const [proccent, setProccent] = useState()
 
 
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function CourseEdit() {
             setNewTimeStart(e.timeStart)
             setLogo(e.logo)
             setIsActiveCourse(e.isActive)
+            setProccent(e.proccent)
           }
         });
       });
@@ -73,6 +75,7 @@ export default function CourseEdit() {
     rightColor: newRightColor,
     isActive: newIsActiveCourse,
     format: format,
+    proccent: proccent,
     name: newName,
     price: newPrice,
     duration: newDuration,
@@ -97,6 +100,7 @@ export default function CourseEdit() {
       }
     }
   };
+
   const handleClick = (index) => {
     setLogo(languagesList[index - 1])
   }
@@ -174,6 +178,16 @@ export default function CourseEdit() {
             placeholder="price"
             type="number"
             value={newPrice || price}
+          />
+        </label>
+        <label className="edit-label">
+          Proccent
+          <input
+            className="edit-input"
+            placeholder="Proccent"
+            type="number"
+            value={proccent}
+            onChange={(e) => setProccent(e.target.value)}
           />
         </label>
         <label className="edit-label">

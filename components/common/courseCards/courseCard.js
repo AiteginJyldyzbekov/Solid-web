@@ -18,6 +18,8 @@ export const Coursecard = ({
   btn,
   logo,
   isInactiveCard,
+  newTotalPrice,
+  proccent,
 }) => {
 
   const router = useRouter();
@@ -69,7 +71,13 @@ export const Coursecard = ({
             {name}
             <br />{" "}
           </div>
-          <div className="card--title card-sub-title">{price} сом/мес.</div>
+          <div className="card--content-wrapper">
+            <div className="card--price--container">
+              <div className="card--title card-sub-title">{price - price * (proccent / 100)} сом/мес.</div>
+              <div className="old--price">{price} сом/мес.</div>
+            </div>
+            <span>-{proccent} %</span>
+          </div>
         </div>
         <div className="card--description">
           <div className="description">
