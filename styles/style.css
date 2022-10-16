@@ -843,8 +843,9 @@ nav ul.slide {
 
 .old--price {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: line-through;
+  text-align: center;
 }
 
 .card-sub-title {

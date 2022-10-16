@@ -76,7 +76,7 @@ export const Coursecard = ({
               <div className="card--title card-sub-title">{price - price * (proccent / 100)} сом/мес.</div>
               <div className="old--price">{price} сом/мес.</div>
             </div>
-            <span>{proccent} %</span>
+            <span>-{proccent} %</span>
           </div>
         </div>
         <div className="card--description">
