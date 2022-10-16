@@ -23,7 +23,6 @@ export default function CourseEdit() {
   const [logo, setLogo] = useState("");
   const [groupSet, setGroupSet] = useState(false)
   const [newIsActiveCourse, setIsActiveCourse] = useState("")
-  const [totalPrice, setTotalPrice] = useState()
   const [proccent, setProccent] = useState()
 
 
@@ -51,7 +50,7 @@ export default function CourseEdit() {
             setNewTimeStart(e.timeStart)
             setLogo(e.logo)
             setIsActiveCourse(e.isActive)
-            setTotalPrice(e.totalPrice)
+            setProccent(e.proccent)
           }
         });
       });
@@ -60,7 +59,6 @@ export default function CourseEdit() {
     leftColor,
     rightColor,
     isActive,
-    vtotalPrice,
     duration,
     name,
     placesLeft,
@@ -76,8 +74,8 @@ export default function CourseEdit() {
     leftColor: newLeftColor,
     rightColor: newRightColor,
     isActive: newIsActiveCourse,
-    vtotalPrice: totalPrice,
     format: format,
+    proccent: proccent,
     name: newName,
     price: newPrice,
     duration: newDuration,
@@ -102,17 +100,6 @@ export default function CourseEdit() {
       }
     }
   };
-
-
-  const priceCount = (e) => {
-    setProccent(e.target.value)
-    const totalProccent = proccent / 100
-    setTotalPrice(newPrice - newPrice * totalProccent)
-    console.log(newPrice)
-    console.log(proccent)
-
-  }
-
 
   const handleClick = (index) => {
     setLogo(languagesList[index - 1])
@@ -200,18 +187,8 @@ export default function CourseEdit() {
             placeholder="Proccent"
             type="number"
             value={proccent}
-            onChange={(e) => priceCount(e)}
+            onChange={(e) => setProccent(e.target.value)}
           />
-        </label>
-        <label className="edit-label">
-          Total Price
-          {/* <input
-            className="edit-input"
-            placeholder="price"
-            type="number"
-            value={totalPrice}
-          /> */}
-          <h1>{totalPrice}</h1>
         </label>
         <label className="edit-label">
           Duration

@@ -815,9 +815,10 @@ nav ul.slide {
   font-size: 50px;
 }
 
-.error{
+.error {
   color: red;
 }
+
 .card--title {
   text-align: center;
   font-size: 18px;
@@ -825,9 +826,30 @@ nav ul.slide {
   letter-spacing: 1px;
 }
 
+.card--price--container {}
+
+.card--content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card--content-wrapper span {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.old--price {
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: line-through;
+}
+
 .card-sub-title {
   font-weight: 700;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .card--description {

@@ -165,6 +165,8 @@ export default function HomePage() {
                 key={item.id}
                 leftColor={item.leftColor}
                 rightColor={item.rightColor}
+                proccent={item.proccent}
+                price={item.price}
               />
             ))}
           </div>
