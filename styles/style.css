@@ -824,6 +824,7 @@ nav ul.slide {
   font-size: 18px;
   font-weight: 500;
   letter-spacing: 1px;
+  height: 30px;
 }
 
 .card--price--container {}
