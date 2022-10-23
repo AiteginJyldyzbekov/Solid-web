@@ -54,8 +54,8 @@ export default function NewCourse() {
               className={(logo.lang === lang.lang ? `activeLang ui_ux` : `ui_ux`)} src="/images/ui_ux.webp" alt="ui-ux"
             /> :
               lang.lang === "flutter" ? <img onClick={() => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
-                className={(logo.lang === lang.lang ? `activeLang flutter` : `fluuter`)} src="/images/flutter.svg" alt="flutter"
-              /> : <i onClick={(e) => handleClick(lang.id)} key={lang.id} style={{ cursor: "pointer" }}
+                className={(logo.lang === lang.lang ? `activeLang flutter` : `flutter`)} src="/images/flutter.svg" alt="flutter"
+              /> : <i onClick={(e) => handleClick(lang.id)} key={lang.id} stsyle={{ cursor: "pointer" }}
                 className={(logo.lang === lang.lang ? `activeLang fab ${lang.lang}` : `fab ${lang.lang}`)}></i>
           ))}
         </div>
