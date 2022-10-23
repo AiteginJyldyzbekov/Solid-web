@@ -827,8 +827,6 @@ nav ul.slide {
   height: 30px;
 }
 
-.card--price--container {}
-
 .card--content-wrapper {
   display: flex;
   justify-content: space-between;
